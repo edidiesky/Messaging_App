@@ -1,0 +1,212 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Kumbh+Sans:wght@100..900&display=swap"); */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8f9f7;
+  --text-dark: #000;
+  --text-grey: #e2e4e2;
+  --background_dark: #001d21;
+  --foreground: #171717;
+  --dashboard_sidebar_color: #161818;
+  --sidebar_hover: #282c2b;
+  --green_active_bg: #cdeed3;
+  --green_active_color: #347345;
+  --pending_background: #deddff;
+  --pending_color: #3e3aff;
+  --delay_background: #020202;
+  --delay_color: #a37d18;
+  --delay_2: #f3f3f1;
+  --button_color: #002b31;
+  --grey_1: #f8f9f7;
+  --dashbaord_width: 16rem;
+  --dashoard_font-size: 13px;
+  --shadow_color: #e7e7e9;
+  --red: #c31212;
+  /* --dashboard_sidebar_color: #e1e3e3; */
+}
+button:disabled {
+  cursor: not-allowed;
+}
+@font-face {
+  font-family: "Bold";
+  src: url("../assets/fonts/ClashGrotesk-Medium.otf") format("opentype");
+  font-weight: medium;
+}
+@font-face {
+  font-family: "Regular";
+  src: url("../assets/fonts/ClashGrotesk-Regular.otf") format("opentype");
+  font-weight: normal;
+}
+
+body {
+  color: var(--text-dark);
+  font-family: "Regular", Helvetica, sans-serif;
+}
+.family2 {
+  font-family: "Bold", Helvetica, sans-serif;
+}
+.family1 {
+  font-family: "Regular", Helvetica, sans-serif;
+}
+/* 
+text color style
+*/
+.text-dark {
+  color: var(--text-dark);
+}
+.text-grey {
+  color: var(--text-grey);
+}
+/* 
+text color style end
+*/
+/* button styles */
+.btn {
+  min-height: 50px;
+  /* min-width: 130px; */
+  border-radius: 50px;
+  background-color: var(--button_color);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  transition: all 0.3s;
+  border: 1px solid var(--background_dark);
+}
+
+.btn.btn_2 {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--button_color);
+  transition: all 0.3s;
+}
+.btn:hover {
+  border: 1px solid var(--background_dark);
+  color: #fff;
+  box-shadow: 0 0 0 6px var(--shadow_color);
+  transition: all 0.3s;
+}
+.btn.btn_2:hover {
+  color: var(--button_color);
+  transition: all 0.3s;
+  border: 1px solid var(--background_dark);
+  box-shadow: 0 0 0 6px var(--shadow_color);
+}
+/* button styles stop */
+
+/* input styles */
+.input {
+  min-height: 49px;
+  transition: all 0.3s;
+  border: 1.5px solid #e7e7e9;
+  padding: 0 1rem;
+  background-color: #fff !important;
+}
+form input {
+  min-height: 49px;
+  transition: all 0.3s;
+  border: 1.5px solid #e7e7e9;
+  padding: 0 1rem;
+  background-color: #fff !important;
+}
+
+form input:hover {
+  box-shadow: 0 0 0 6px var(--shadow_color);
+  transition: all 0.3s;
+  outline: 1px solid #5d5d5e;
+}
+input:focus {
+  box-shadow: 0 0 0 6px var(--shadow_color);
+  transition: all 0.3s;
+  outline: 1px solid #5d5d5e;
+}
+/* input styles stop */
+.shadows:hover {
+  border: 1px solid var(--background_dark);
+  box-shadow: 0 0 0 6px var(--shadow_color);
+  transition: all 0.3s;
+}
+
+.sidebar_shadow {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.02);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+/* Rentals Mobile */
+:root {
+  --grey_1: #f9f7f8;
+  --grey_dark: #bdbdbd;
+  --green_light: #32adaa;
+  --purple_light: #ff946f;
+  --town_light: #6121fb;
+  --yellow_light: #ffc025;
+  --green_lightwe: #ecf8f6;
+  --red: #ee504f;
+  --dark-1: #1c1c1c;
+  --blue-light: #1d4dfe;
+  --red_light: #f2696b;
+}
+
+.hide {
+  overflow: hidden !important;
+}
+
+.hide {
+  overflow: hidden;
+}
+
+.line {
+  overflow: hidden;
+  text-align: center !important;
+}
+
+@media (max-width: 780px) {
+  .line {
+    overflow: hidden;
+    text-align: start !important;
+    width: fit-content !important;
+    /* display: inline-block; */
+  }
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
