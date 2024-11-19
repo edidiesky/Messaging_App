@@ -1,0 +1,5 @@
+#7D22FF
+#F0F0F0
+#BCC0C4
+#F5F5F5 sidebar
+#F3F3F5 searh

@@ -154,21 +154,6 @@ input:focus {
   transition: all 0.5s;
 }
 
-/* Rentals Mobile */
-:root {
-  --grey_1: #f9f7f8;
-  --grey_dark: #bdbdbd;
-  --green_light: #32adaa;
-  --purple_light: #ff946f;
-  --town_light: #6121fb;
-  --yellow_light: #ffc025;
-  --green_lightwe: #ecf8f6;
-  --red: #ee504f;
-  --dark-1: #1c1c1c;
-  --blue-light: #1d4dfe;
-  --red_light: #f2696b;
-}
-
 .hide {
   overflow: hidden !important;
 }

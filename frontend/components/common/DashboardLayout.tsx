@@ -1,14 +1,29 @@
 import React from 'react';
 import DashboardSidebar from './DashboardSidebar';
 import DashboardHeader from './DashboardHeader';
+import Message from './message';
 const DashboardLayout = ({ children, sidebarlinks }: { children: React.ReactNode, sidebarlinks?: { id: number; tab: { title: string; path: string; icon: React.JSX.Element; }; list: never[]; }[] }) => {
-    return <div className="w-full flex items-start">
-        {/* sidebar */}
-        <DashboardSidebar sidebarlinks={sidebarlinks} />
-        <div className="w-full flex flex-col">
-            <DashboardHeader/>
-            {/* header */}
-            {children}
+    return <div className="w-full h-[100vh] sticky flex top-0 overflow-hidden flex-col items-start">
+        {/* Header */}
+        <DashboardHeader />
+        <div style={{
+            height: "calc(100vh - 80px)"
+        }} className="w-full flex items-start sticky top-0">
+            <div className="flex lg:w-[900px] border-r h-full items-start">
+                {/* sidebar */}
+                <div className="flex-1 h-full">
+                    <DashboardSidebar sidebarlinks={sidebarlinks} />
+                </div>
+                {/* outlet */}
+                <div className="flex-1 h-full">
+                    {children}
+                </div>
+
+            </div>
+            <div className="w-full h-full flex flex-col">
+                {/* messages */}
+                <Message />
+            </div>
         </div>
     </div>
 }

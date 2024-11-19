@@ -49,503 +49,6 @@ export const userDashboardLinks = [
     },
 ]
 
-export const recruiterDashboardLinks = [
-    {
-        id: 1,
-        tab: {
-            title: "Dashboard",
-            path: "/recruiter",
-            icon: <BiSolidDashboard fontSize={"24px"} />,
-        },
-        list: [],
-    },
-    {
-        id: 250,
-        tab: {
-            icon: <FiSettings fontSize={"20px"} />,
-            title: "Candidates",
-            path: "/recruiter/candidates",
-        },
-        list: [],
-    },
-    {
-        id: 61,
-        tab: {
-            icon: <BsLuggage fontSize={"22px"} />,
-            title: "Jobs",
-            path: "/recruiter/jobs",
-        },
-        list: [],
-    },
-    {
-        id: 200,
-        tab: {
-            icon: <BsLuggage fontSize={"20px"} />,
-            title: "Interviews",
-            path: "/recruiter/interviews",
-        },
-        list: [],
-    },
-    {
-        id: 210,
-        tab: {
-            icon: <BiStats fontSize={"20px"} />,
-            title: "Stats",
-            path: "/recruiter/stats",
-        },
-        list: [],
-    },
-    {
-        id: 6,
-        tab: {
-            icon: <BiMessage fontSize={"23px"} />,
-            title: "Messages",
-            path: "/recruiter/message",
-        },
-        list: [],
-    },
-    {
-        id: 210,
-        tab: {
-            icon: <FiSettings fontSize={"20px"} />,
-            title: "Profile",
-            path: "/recruiter/profile",
-        },
-        list: [],
-    },
-]
-
-export const widgetData = [
-    {
-        title: "Applied Jobs",
-        subtext: "Browse your applied jobs here and check their respective progress..",
-        bgColor: "#cdeed3",
-        icon: <BsLuggage fontSize={"24px"} />,
-        color: "#347345"
-    },
-    {
-        title: "Messages",
-        subtext: "Browse your applied jobs here and check their respective progress..",
-        bgColor: "#deddff",
-        icon: <BiMessage fontSize={"24px"} />,
-        color: "#347345"
-    }, {
-        title: "Pending Jobs",
-        subtext: "Browse your applied jobs here and check their respective progress..",
-        bgColor: "#ffeec3",
-        icon: <BsLuggage fontSize={"24px"} />,
-        color: "#347345"
-    }, {
-        title: "Reviewed Jobs",
-        subtext: "Browse your applied jobs here and check their respective progress..",
-        bgColor: "#f3f3f1",
-        icon: <BsLuggage fontSize={"24px"} />,
-        color: "#347345"
-    },
-]
-
-export const applicantsData = [
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Javascript Developer",
-        joblocation: "onsite",
-        company: "Proxify",
-        ApplicationStatus: "PENDING",
-        bgColor: "#FFE1CC",
-        companyImage: "/images/Proxify.png",
-        applicantName: "Mary Benjamin",
-        applicantLevel: "Senior Developer",
-        dateApplied: "21st November 2024",
-        applicationStatus: "Hiring",
-        applicantImage: "/images/face/avatar_1.jpg"
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior Phyton Developer",
-        joblocation: "hybrid",
-        company: "Zello",
-        ApplicationStatus: "ACTIVE",
-        bgColor: "#D4F6ED",
-        companyImage: "/images/Zello.png",
-        applicantName: "Dainne Russel",
-        applicantLevel: "Junior Developer",
-        dateApplied: "21st November 2024",
-        applicationStatus: "Hiring",
-        applicantImage: "/images/face/avatar_2.png"
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior Full Stack Developer",
-        joblocation: "remote",
-        company: "alteroffice",
-        ApplicationStatus: "HIRED",
-        bgColor: "#ffe1cc",
-        companyImage: "/images/alteroffice.png",
-        applicantName: "Phillip Goodwill",
-        applicantLevel: "Junior Developer",
-        dateApplied: "21st November 2024",
-        applicationStatus: "Rejected",
-        applicantImage: "/images/face/avatar_3.png"
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Javascript Developer",
-        joblocation: "onsite",
-        company: "Proxify",
-        ApplicationStatus: "PENDING",
-        bgColor: "#FFE1CC",
-        companyImage: "/images/Proxify.png",
-        applicantName: "Mary Benjamin",
-        applicantLevel: "Senior Developer",
-        dateApplied: "21st November 2024",
-        applicationStatus: "Hiring",
-        applicantImage: "/images/face/avatar_1.jpg"
-    },
-
-]
-
-export const jobData = [
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Entry-level Javascript Developer",
-        joblocation: "onsite",
-        company: "Proxify",
-        ApplicationStatus: "PENDING",
-        bgColor: "#FFE1CC",
-        companyImage: "/images/Proxify.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior Phyton Developer",
-        joblocation: "hybrid",
-        company: "Zello",
-        ApplicationStatus: "ACTIVE",
-        bgColor: "#D4F6ED",
-        companyImage: "/images/Zello.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior Full Stack Developer",
-        joblocation: "remote",
-        company: "alteroffice",
-        ApplicationStatus: "HIRED",
-        bgColor: "#ffe1cc",
-        companyImage: "/images/alteroffice.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "A mid-level UI/UX Designer",
-        joblocation: "On Site",
-        company: "Cuso Agency",
-        ApplicationStatus: "PENDING",
-        bgColor: "#E8F2FC",
-        companyImage: "/images/Cuso.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Junior Backend Developer",
-        joblocation: "remote",
-        company: "fitz Industry",
-        ApplicationStatus: "PENDING",
-        bgColor: "#D4F6ED",
-        companyImage: "/images/fitz.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior Graphics Designer",
-        joblocation: "onsite",
-        company: "givety",
-        ApplicationStatus: "PENDING",
-        bgColor: "#eceff4",
-        companyImage: "/images/givety.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior Frontend Developer",
-        joblocation: "onsite",
-        company: "justplay",
-        ApplicationStatus: "PENDING",
-        bgColor: "#e3dbfa",
-        companyImage: "/images/justplay.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Javascript Developer",
-        joblocation: "hybrid",
-        company: "NJGotham",
-        ApplicationStatus: "PENDING",
-        bgColor: "#F9F6FF",
-        companyImage: "/images/NJGotham.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior Backend Developer",
-        joblocation: "onsite",
-        company: "nooro",
-        ApplicationStatus: "PENDING",
-        bgColor: "#e3dbfa",
-        companyImage: "/images/nooro.jpg",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "A mid-level UI/UX Designer",
-        joblocation: "On Site",
-        company: "one",
-        ApplicationStatus: "PENDING",
-        bgColor: "#d4f6ed",
-        companyImage: "/images/one.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Javascript Developer",
-        joblocation: "remote",
-        company: "Onefil",
-        ApplicationStatus: "PENDING",
-        bgColor: "#d4f6ed",
-        companyImage: "/images/Onefil.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Enter-level UI/UX Designer",
-        joblocation: "remote",
-        company: "Productive",
-        ApplicationStatus: "PENDING",
-        bgColor: "#e3dbfa",
-        companyImage: "/images/Productive.jpg",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Junior Full-Stack Developer",
-        joblocation: "onsite",
-        company: "samelist",
-        ApplicationStatus: "PENDING",
-        bgColor: "#d4f6ed",
-        companyImage: "/images/samelist.png",
-    },
-
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Junior Backend Developer",
-        joblocation: "remote",
-        company: "starlight",
-        ApplicationStatus: "PENDING",
-        bgColor: "#e3dbfa",
-        companyImage: "/images/starlight.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior Graphics Designer",
-        joblocation: "remote",
-        company: "tenkara",
-        ApplicationStatus: "PENDING",
-        bgColor: "#e3dbfa",
-        companyImage: "/images/tenkara.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Mid-level Frontend Developer",
-        joblocation: "remote",
-        company: "vargheese Summeeitt",
-        ApplicationStatus: "PENDING",
-        bgColor: "#F9F6FF",
-        companyImage: "/images/vargheese.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Javascript Developer",
-        joblocation: "onsite",
-        company: "wills",
-        ApplicationStatus: "PENDING",
-        bgColor: "#fbe2f4",
-        companyImage: "/images/wills.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Senior React Developer",
-        joblocation: "hybrid",
-        company: "xm",
-        ApplicationStatus: "PENDING",
-        bgColor: "#ffe1cc",
-        companyImage: "/images/xm.png",
-    },
-    {
-        jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
-        jobtitle: "Entry Level AI/ML Engineer",
-        joblocation: "onsite",
-        company: "xs",
-        ApplicationStatus: "PENDING",
-        bgColor: "#FFE1CC",
-        companyImage: "/images/xs.png",
-    },
-];
-
-export const whyChooseUs = [
-    {
-        text: "Time Saving Efficiency",
-        subtext: "Hirehalo heps you to Stop wasting time scouting for multiple openings on job board ans company websites. Our comprehensive search enggine can cater for your dream job search listings from a variety of network sources",
-        icon: ""
-    },
-    {
-        text: "Personalized Results",
-        subtext: "We can Tailor your job search based on your unique goals. Save your search filters and receive instant alerts whenever your new job opportunites matching your criteria are being posted",
-        icon: ""
-    }, {
-        text: "Uncover Hidden Gems",
-        subtext: "HireHalo Go beyond basic job boards and access a wider pool of job postings from diverse sources",
-        icon: ""
-    }, {
-        text: "UnMatched Accuracy",
-        subtext: "We know you need advanced search and filter system, so we provide you the ability to target and search for the exact type you need for your job search",
-        icon: ""
-    }, {
-        text: "Save Valuable Time",
-        subtext: "We know you need advanced search and filter system, so we provide you the ability to target and search for the exact type you need for your job search",
-        icon: ""
-    }, {
-        text: "Laser Focus Your  Search",
-        subtext: "We know you need advanced search and filter system, so we provide you the ability to target and search for the exact type you need for your job search",
-        icon: ""
-    },
-]
-// candidate Mock Data
-export const ApplicantDataList = [
-    {
-        "hired": [
-            {
-                ApplicantName: "Hans Christain",
-                ApplicantImage: "/images/face/avatar_1.jpg",
-                jobtitle: "Entry-level Javascript Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-            {
-                ApplicantName: "Vicentius Raggia",
-                ApplicantImage: "/images/face/avatar_2.png",
-                jobtitle: "UI / UX Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-
-        ]
-    },
-    {
-        "pending": [
-            {
-                ApplicantName: "Herola Francis",
-                ApplicantImage: "/images/face/avatar_3.png",
-                jobtitle: "Entry-level Javascript Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-            {
-                ApplicantName: "Promise Raggia",
-                ApplicantImage: "/images/face/avatar_1.jpg",
-                jobtitle: "UI / UX Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-            {
-                ApplicantName: "Lisa Havrley",
-                ApplicantImage: "/images/face/avatar_3.png",
-                jobtitle: "Frontend Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-            {
-                ApplicantName: "Caroline Ziconni",
-                ApplicantImage: "/images/face/avatar_4.png",
-                jobtitle: "UI / UX Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-        ]
-    },
-    {
-        "outsourced": [
-            {
-                ApplicantName: "Hans Christain",
-                ApplicantImage: "/images/face/avatar_1.jpg",
-                jobtitle: "Entry-level Javascript Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-            {
-                ApplicantName: "Vicentius Raggia",
-                ApplicantImage: "/images/face/avatar_2.png",
-                jobtitle: "UI / UX Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-            {
-                ApplicantName: "Lisa Havrley",
-                ApplicantImage: "/images/face/avatar_3.png",
-                jobtitle: "Frontend Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            }
-        ]
-    },
-    {
-        "internal interview": [
-            {
-                ApplicantName: "Hans Christain",
-                ApplicantImage: "/images/face/avatar_1.jpg",
-                jobtitle: "Entry-level Javascript Developer",
-                company: "Proxify",
-                bgColor: "#FFE1CC",
-            },
-        ]
-    }
-]
-
-// job filter type data
-export const JobfilterData = [
-    "Full Time",
-    "Internship",
-    "Freelance",
-    "Volunteer",
-]
-
-export const LocationfilterData = [
-    "Remote",
-    "On-site",
-    "Hybrid",
-]
-
-export type JobType = {
-    CompanyLogo: string;
-    BgColor: string;
-    Salary: number;
-    Title: string;
-    JobType: string;
-    Description: string;
-    Company: string;
-    Location: string;
-    Remote: boolean;
-    EmploymentType: string;
-    ExperienceLevel: string;
-    Experience: number;
-    Skills: string;
-    Application: [];
-    PostedAt: string;
-    UpdatedAt: string;
-    AuthorId: string;
-}
-
-
-// application form data type
-export type ApplicationFormDataType = {
-    candidatename: string;
-    username: string;
-    email: string;
-    linkedln: string;
-    country: string;
-    salary: string;
-    employmentScholarship: boolean;
-    authorizationToWork: boolean;
-    englishFluency: boolean;
-    noticePeriod: boolean;
-};
 
 export type ProfileFormDataItem = {
     id: number;
@@ -788,6 +291,124 @@ export const MESSAGE_URL = "/api/v1/message";
 
 // ------------- API REQUEST ROUTE END -----------------
 
+
+
+
+// ------------- MOCK USER LISTS  -----------------
+export const MockUserList = [
+    {
+        name: "Mike Micheal",
+        image: "/images/user_1.jpg",
+        lastMessage: "Hello! How are you doing",
+
+    },
+    {
+        name: "Kristin Watson",
+        image: "/images/user_2.jpg",
+        lastMessage: "Hello! How are you doing",
+
+    }, {
+        name: "Cameroon Wiliamson",
+        image: "/images/user_3.jpg",
+        lastMessage: "Hello! How are you doing",
+    }, {
+        name: "James Cooper",
+        image: "/images/user_4.jpg",
+        lastMessage: "Hello! How are you doing",
+    }, {
+        name: "Kelvin Nguyen",
+        image: "/images/user_5.jpg",
+
+        lastMessage: "Hello! How are you doing",
+
+    },
+]
+// ------------- MOCK USER LISTS  -----------------
+
+
+// ------------- MOCK USER LISTS  -----------------
+ export type MockMessageType = {
+    sender: {
+        image: string,
+        name: string
+    };
+    receiver: {
+        image: string,
+        name: string
+    };
+    text: string;
+    image?: string;
+     createdAt?:string;
+}
+
+export const MockMessages: MockMessageType[] = [
+    {
+        receiver: {
+            name: "Mike Micheal",
+            image: "/images/user_1.jpg",
+        },
+        text: "Hi Mike, I am looking forward to seeing you",
+        createdAt: "20th November 2024",
+        image: "",
+        sender: {
+            name: "Kristin Watson",
+            image: "/images/user_2.jpg",
+        }
+    },
+    {
+        sender: {
+            name: "Mike Micheal",
+            image: "/images/user_1.jpg",
+        },
+        text: "Hi Kristin, I am looking forward to that",
+        createdAt: "20th November 2024",
+        image: "",
+        receiver: {
+            name: "Kristin Watson",
+            image: "/images/user_2.jpg",
+        }
+    },
+    {
+        sender: {
+            name: "Mike Micheal",
+            image: "/images/user_1.jpg",
+        },
+        text: "I will be availble for the meeting",
+        createdAt: "20th November 2024",
+        image: "",
+        receiver: {
+            name: "Kristin Watson",
+            image: "/images/user_2.jpg",
+        }
+    },
+    {
+        sender: {
+            name: "Mike Micheal",
+            image: "/images/user_1.jpg",
+        },
+        text: "I hope it suits you",
+        createdAt: "20th November 2024",
+        image: "",
+        receiver: {
+            name: "Kristin Watson",
+            image: "/images/user_2.jpg",
+        }
+    },
+    {
+        receiver: {
+            name: "Mike Micheal",
+            image: "/images/user_1.jpg",
+        },
+        text: "Sure Mike, It fit my schedule",
+        createdAt: "20th November 2024",
+        image: "",
+        sender: {
+            name: "Kristin Watson",
+            image: "/images/user_2.jpg",
+        }
+    },
+]
+// ------------- MOCK USER LISTS  -----------------
 
 
 
