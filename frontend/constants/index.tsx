@@ -295,7 +295,12 @@ export const MESSAGE_URL = "/api/v1/message";
 
 
 // ------------- MOCK USER LISTS  -----------------
-export const MockUserList = [
+export type MockChatType = {
+    image: string,
+    name: string
+    lastMessage: string;
+}
+export const MockUserList: MockChatType[] = [
     {
         name: "Mike Micheal",
         image: "/images/user_1.jpg",
@@ -327,7 +332,7 @@ export const MockUserList = [
 
 
 // ------------- MOCK USER LISTS  -----------------
- export type MockMessageType = {
+export type MockMessageType = {
     sender: {
         image: string,
         name: string
@@ -338,7 +343,7 @@ export const MockUserList = [
     };
     text: string;
     image?: string;
-     createdAt?:string;
+    createdAt?: string;
 }
 
 export const MockMessages: MockMessageType[] = [

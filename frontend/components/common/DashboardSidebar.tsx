@@ -6,7 +6,7 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
     return (
         <div className=' bg-[#fff] border-r lg:block hidden h-[100%] overflow-auto sticky top-0'>
             <div className="w-full h-full flex flex-col gap-2">
-                <div className="h-[70px] px-4 w-full border-b flex justify-between items-center">
+                <div className="h-[61px] px-4 w-full border-b flex justify-between items-center">
                     <h4 className="text-base md:text-lg family2">Conversations</h4>
                     <span className="text-xl">
                         <MdKeyboardDoubleArrowLeft />
