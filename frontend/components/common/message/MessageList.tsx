@@ -6,8 +6,8 @@ import MessageDetails from "./MessageDetails";
 const MessageList = () => {
     return (
         <div style={{
-            height: "calc(100% - 75px - 100px)"
-        }} className='items-start flex flex-col gap-4 w-full px-4'>
+            maxHeight: "calc(100% - 75px - 100px)"
+        }} className='items-start overflow-auto flex flex-col gap-4 w-full px-4'>
            {
                 MockMessages?.map((message,index)=> {
                     return <MessageDetails isSender={true} key={index} message={message}/>
