@@ -300,36 +300,42 @@ export type MockChatType = {
     name: string
     email: string
     lastMessage: string;
+    createdAt: string;
 }
 export const MockUserList: MockChatType[] = [
     {
         email: "MikeMicheal@gmail.com",
         name: "Mike Micheal",
         image: "/images/user_1.jpg",
+        createdAt:"24th Oct 2024",
         lastMessage: "Absolutely consistency is key for usability. wWe'll ensure that the layout is uniform across..",
     },
     {
         email: "RobertWatson@gmail.com",
         name: "Robert Watson",
         image: "/images/user_2.jpg",
+        createdAt:"24th Oct 2024",
         lastMessage: "Great, thank you Cameron. i think we should foster the onboarding process to be more seamless",
 
     }, {
         email: "CameroonWiliamson@gmail.com",
         name: "Cameroon Wiliamson",
         image: "/images/user_3.jpg",
+        createdAt:"24th Oct 2024",
         lastMessage: "This is a key issue. We will work on improving the dashboard enforcing usability across",
     }, {
         email: "KristinCooper@gmail.com",
 
         name: "Kristin Cooper",
         image: "/images/user_4.jpg",
+        createdAt:"24th Oct 2024",
         lastMessage: "Well, first off, I am not entirely convinced the font choice. It feels a bit casual for the srevice we are offering",
     }, {
         email: "KelvinNguyen@gmail.com",
         name: "Kelvin Nguyen",
         image: "/images/user_5.jpg",
 
+        createdAt:"24th Oct 2024",
         lastMessage: "I just recall the issue Amazon had in refining hetr Dashboard which led to a 25% decrease in interaction among her clients",
 
     },
