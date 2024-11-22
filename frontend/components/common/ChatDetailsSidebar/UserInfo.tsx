@@ -33,7 +33,7 @@ const UserInfo = () => {
                         Contact
                     </span>
                 </h4>
-                <div className="w-full flex py-6 flex-col gap-3">
+                <div className="w-full flex flex-col gap-3">
                     <div className="flex items-center gap-4 px-4">
                         <div className="flex items-center gap-2">
                             <span className="text-lg"><MdOutlineMailOutline /></span>
