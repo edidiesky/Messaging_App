@@ -2,6 +2,7 @@ import React from 'react';
 import DashboardSidebar from './DashboardSidebar';
 import DashboardHeader from './DashboardHeader';
 import Message from './message';
+import ChatDetailsSidebar from './ChatDetailsSidebar';
 const DashboardLayout = ({ children, sidebarlinks }: { children: React.ReactNode, sidebarlinks?: { id: number; tab: { title: string; path: string; icon: React.JSX.Element; }; list: never[]; }[] }) => {
     return <div className="w-full h-[100vh] sticky flex top-0 overflow-hidden flex-col items-start">
         {/* Header */}
@@ -15,9 +16,10 @@ const DashboardLayout = ({ children, sidebarlinks }: { children: React.ReactNode
                 {/* outlet */}
                 {children}
             </div>
-            <div className="w-full h-full flex flex-col">
+            <div className="w-full h-full flex items-start">
                 {/* messages */}
                 <Message />
+                <ChatDetailsSidebar/>
             </div>
         </div>
     </div>

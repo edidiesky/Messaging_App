@@ -6,7 +6,7 @@ import MessageForm from './MessageForm';
 
 const Message = () => {
     return (
-        <div className='h-full flex flex-col overflow-hidden'>
+        <div className='h-full flex-1 flex flex-col overflow-hidden'>
             <MessageHeader />
             <MessageList/>
             <MessageForm/>
