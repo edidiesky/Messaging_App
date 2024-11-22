@@ -14,7 +14,7 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
                         <div className="flex-1 flex items-end flex-col justify-end gap-1">
                             <span className="text-sm family2  text-dark">Me</span>
 
-                            <span className="max-w-[200px] md:max-w-[450px] rounded-3xl  text-sm md:text-base leading-[1.6]
+                            <span className="max-w-[200px] md:max-w-[400px] rounded-[40px]  text-sm md:text-base leading-[1.6]
                              text-white flex items-center bg-[#7D22FF] justify-center py-3 md:py-4 px-4 md:px-6">
                                 {message?.text}
                             </span>
@@ -54,7 +54,7 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
 
                         <div className="flex-1 flex items-start flex-col justify-start gap-1">
                             <span className="text-sm family2  text-dark">{message?.sender?.name}</span>
-                            <span className="max-w-[200px] md:max-w-[450px] rounded-3xl  text-sm md:text-base leading-[1.6] text-dark flex items-center bg-[#e9e9e9] justify-center p-3 md:py-4 px-4 md:px-6">
+                            <span className="max-w-[200px] md:max-w-[400px] rounded-[40px]  text-sm md:text-base leading-[1.6] text-dark flex items-center bg-[#e9e9e9] justify-center p-3 md:py-4 px-4 md:px-6">
                                 {message?.text}
                             </span>
                             <span className="text-xs  text-dark">{message?.createdAt}</span>

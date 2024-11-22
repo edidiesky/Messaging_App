@@ -336,7 +336,7 @@ export const MockUserList: MockChatType[] = [
         image: "/images/user_5.jpg",
 
         createdAt:"24th Oct 2024",
-        lastMessage: "I just recall the issue Amazon had in refining hetr Dashboard which led to a 25% decrease in interaction among her clients",
+        lastMessage: "I just recall the issue Amazon had in refining her Dashboard which led to a 25% decrease in interaction among her clients",
 
     },
 ]
@@ -440,7 +440,7 @@ export const MockMessages: MockMessageType[] = [
             image: "/images/user_1.jpg",
             id: "347489409dkcncbdgye74"
         },
-        text: "I just recall the issue Amazon had in refining hetr Dashboard which led to a 25% decrease in interaction among her clients.. What do you think about this",
+        text: "I just recall the issue Amazon had in refining her Dashboard which led to a 25% decrease in interaction among her clients.. What do you think about this",
         createdAt: "20th November 2024",
         image: "",
         receiverid: "347489409dkcncbdgye74",
