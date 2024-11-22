@@ -7,8 +7,8 @@ const MessageList = () => {
     const userInfo = { id: "ryrg34555dgdhfkfgogusga" }
     return (
         <div style={{
-            maxHeight: "calc(100% - 75px - 100px)"
-        }} className='items-start overflow-auto flex flex-col gap-4 w-full px-4'>
+            maxHeight: "calc(100% - 63px - 90px)",
+        }} className='items-start overflow-auto flex py-4 flex-col gap-8 w-full px-4'>
             {
                 MockMessages?.map((message, index) => {
                     const isSender = userInfo?.id === message?.sender?.id

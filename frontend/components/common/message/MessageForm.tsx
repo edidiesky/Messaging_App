@@ -6,8 +6,8 @@ import { BiSolidSend } from "react-icons/bi";
 const MessageForm = () => {
     return (
         <div className="w-full px-8 py-4">
-            <div className='h-[120px] w-full border rounded-lg p-2 flex flex-col gap-4 justify-between'>
-                <textarea placeholder="Write your Message here..." className="h-[110px] p-4 bg-transparent resize-none outline-none"></textarea>
+            <div className='min-h-[90px] w-full border rounded-lg flex flex-col gap-4 justify-between'>
+                <textarea placeholder="Write your Message here..." className="h-[80px] p-4 bg-transparent resize-none outline-none"></textarea>
                 <div className="w-full flex items-center gap-4 justify-between">
                     <div className="flex items-center">
                         <div className="w-10 text-lg rounded-full cursor-pointer hover:bg-[#eee] h-10 flex items-center justify-center">

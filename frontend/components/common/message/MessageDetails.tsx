@@ -3,10 +3,10 @@ import { MockMessageType } from "@/constants";
 import Image from "next/image";
 
 const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSender: boolean }) => {
-    
+
     return (
 
-        <div className="w-full flex px-2 flex-col gap-3">
+        <div className="w-full flex px-2 flex-col gap-4">
             {/* first receiver Message */}
             {isSender ? (
                 <div className="w-full flex items-center justify-end">
@@ -37,7 +37,7 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
                 </div>
             ) : (
                 <div className="w-full flex items-center justify-start gap-3">
-                    <div className="flex w-full justify-start items-end gap-3">
+                    <div className="flex w-full justify-start items-start gap-3">
                         {message?.sender?.image ? (
                             <Image
                                 width={40}
@@ -53,7 +53,7 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
                         )}
 
                         <div className="flex-1 flex items-start flex-col justify-start gap-1">
-                                <span className="text-sm family2  text-dark">{message?.sender?.name}</span>
+                            <span className="text-sm family2  text-dark">{message?.sender?.name}</span>
                             <span className="max-w-[200px] md:max-w-[450px] rounded-3xl  text-sm md:text-base leading-[1.6] text-dark flex items-center bg-[#e9e9e9] justify-center p-3 md:py-4 px-4 md:px-6">
                                 {message?.text}
                             </span>

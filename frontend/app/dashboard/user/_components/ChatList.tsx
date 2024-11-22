@@ -20,9 +20,12 @@ const ChatList = ({ chat }: { chat: MockChatType }) => {
                     <span className="family2">
                         {chat?.name}
                     </span>
+                    <span className="text-sm block">
+                        {chat?.email}
+                    </span>
                 </h4>
             </div>
-            <h5 className="text-sm  text-[#777]">
+            <h5 className="text-sm  text-[#3c3c3c]">
                 {chatLength?.length > 34 ? `${chatLength}...` : chatLength}
             </h5>
         </div>
