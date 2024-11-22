@@ -1,13 +1,30 @@
 import { FiSettings } from "react-icons/fi";
-import { BiMessage, BiSolidDashboard, BiStats } from "react-icons/bi";
-import { BsLuggage } from "react-icons/bs";
+import { BiMessage, BiSolidDashboard, BiSolidTrash, BiPhoneCall } from "react-icons/bi";
 export const userDashboardLinks = [
     {
-        id: 1,
+        id: 6,
         tab: {
-            title: "Dashboard",
-            path: "/user",
-            icon: <BiSolidDashboard fontSize={"24px"} />,
+            icon: <BiMessage fontSize={"22px"} />,
+            title: "All Chats",
+            path: "/user/applied-jobs",
+        },
+        list: [],
+    },
+    // {
+    //     id: 1,
+    //     tab: {
+    //         title: "My Conversations",
+    //         path: "/user",
+    //         icon: <BiSolidDashboard fontSize={"24px"} />,
+    //     },
+    //     list: [],
+    // },
+    {
+        id: 210,
+        tab: {
+            icon: <BiPhoneCall fontSize={"20px"} />,
+            title: "My Contacts",
+            path: "/user/profile",
         },
         list: [],
     },
@@ -15,7 +32,7 @@ export const userDashboardLinks = [
         id: 200,
         tab: {
             icon: <FiSettings fontSize={"20px"} />,
-            title: "Candidate Profile",
+            title: "Settings",
             path: "/user/profile",
         },
         list: [],
@@ -23,30 +40,13 @@ export const userDashboardLinks = [
     {
         id: 61,
         tab: {
-            icon: <BsLuggage fontSize={"22px"} />,
-            title: "Jobs",
+            icon: <BiSolidTrash fontSize={"22px"} />,
+            title: "Trash",
             path: "/user/jobs",
         },
         list: [],
     },
-    {
-        id: 6,
-        tab: {
-            icon: <BsLuggage fontSize={"22px"} />,
-            title: "Applied Jobs",
-            path: "/user/applied-jobs",
-        },
-        list: [],
-    },
-    {
-        id: 6,
-        tab: {
-            icon: <BiMessage fontSize={"23px"} />,
-            title: "Messages",
-            path: "/user/message",
-        },
-        list: [],
-    },
+
 ]
 
 
@@ -298,33 +298,39 @@ export const MESSAGE_URL = "/api/v1/message";
 export type MockChatType = {
     image: string,
     name: string
+    email: string
     lastMessage: string;
 }
 export const MockUserList: MockChatType[] = [
     {
+        email: "MikeMicheal@gmail.com",
         name: "Mike Micheal",
         image: "/images/user_1.jpg",
-        lastMessage: "Hello! How are you doing",
-
+        lastMessage: "Absolutely consistency is key for usability. wWe'll ensure that the layout is uniform across..",
     },
     {
-        name: "Kristin Watson",
+        email: "RobertWatson@gmail.com",
+        name: "Robert Watson",
         image: "/images/user_2.jpg",
-        lastMessage: "Hello! How are you doing",
+        lastMessage: "Great, thank you Cameron. i think we should foster the onboarding process to be more seamless",
 
     }, {
+        email: "CameroonWiliamson@gmail.com",
         name: "Cameroon Wiliamson",
         image: "/images/user_3.jpg",
-        lastMessage: "Hello! How are you doing",
+        lastMessage: "This is a key issue. We will work on improving the dashboard enforcing usability across",
     }, {
-        name: "James Cooper",
+        email: "KristinCooper@gmail.com",
+
+        name: "Kristin Cooper",
         image: "/images/user_4.jpg",
-        lastMessage: "Hello! How are you doing",
+        lastMessage: "Well, first off, I am not entirely convinced the font choice. It feels a bit casual for the srevice we are offering",
     }, {
+        email: "KelvinNguyen@gmail.com",
         name: "Kelvin Nguyen",
         image: "/images/user_5.jpg",
 
-        lastMessage: "Hello! How are you doing",
+        lastMessage: "I just recall the issue Amazon had in refining hetr Dashboard which led to a 25% decrease in interaction among her clients",
 
     },
 ]
@@ -335,12 +341,17 @@ export const MockUserList: MockChatType[] = [
 export type MockMessageType = {
     sender: {
         image: string,
-        name: string
+        name: string,
+        id: string,
     };
     receiver: {
         image: string,
-        name: string
+        name: string,
+        id: string,
+
     };
+    senderid?: string;
+    receiverid?: string;
     text: string;
     image?: string;
     createdAt?: string;
@@ -351,65 +362,87 @@ export const MockMessages: MockMessageType[] = [
         receiver: {
             name: "Mike Micheal",
             image: "/images/user_1.jpg",
+            id: "347489409dkcncbdgye74"
         },
-        text: "Hi Mike, I am looking forward to seeing you",
+        text: "Absolutely consistency is key for usability. wWe'll ensure that the layout is uniform across..",
         createdAt: "20th November 2024",
         image: "",
+
+        receiverid: "347489409dkcncbdgye74",
+        senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Kristin Watson",
             image: "/images/user_2.jpg",
+            id: "ryrg34555dgdhfkfgogusga"
         }
     },
     {
+        receiverid: "347489409dkcncbdgye74",
+        senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Mike Micheal",
             image: "/images/user_1.jpg",
+            id: "347489409dkcncbdgye74"
         },
-        text: "Hi Kristin, I am looking forward to that",
+        text: "Great, thank you Kristin. i think we should foster the onboarding process to be more seamless",
+        createdAt: "20th November 2024",
+        image: "/images/upload_1.jpeg",
+        receiver: {
+            name: "Kristin Watson",
+            image: "/images/user_2.jpg",
+            id: "ryrg34555dgdhfkfgogusga"
+        }
+    },
+    {
+        receiverid: "347489409dkcncbdgye74",
+        senderid: "ryrg34555dgdhfkfgogusga",
+        sender: {
+            name: "Mike Micheal",
+            image: "/images/user_1.jpg",
+            id: "347489409dkcncbdgye74"
+        },
+        text: "This is a key issue. We will work on improving the dashboard enforcing usability across",
         createdAt: "20th November 2024",
         image: "",
         receiver: {
             name: "Kristin Watson",
             image: "/images/user_2.jpg",
+            id: "ryrg34555dgdhfkfgogusga"
         }
     },
     {
+        receiverid: "347489409dkcncbdgye74",
+        senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Mike Micheal",
             image: "/images/user_1.jpg",
+            id: "347489409dkcncbdgye74"
         },
-        text: "I will be availble for the meeting",
+        text: "Well, first off, I am not entirely convinced the font choice. It feels a bit casual for the srevice we are offering",
         createdAt: "20th November 2024",
-        image: "",
+        image: "/images/upload_2.jpeg",
+
         receiver: {
             name: "Kristin Watson",
             image: "/images/user_2.jpg",
-        }
-    },
-    {
-        sender: {
-            name: "Mike Micheal",
-            image: "/images/user_1.jpg",
-        },
-        text: "I hope it suits you",
-        createdAt: "20th November 2024",
-        image: "",
-        receiver: {
-            name: "Kristin Watson",
-            image: "/images/user_2.jpg",
+            id: "ryrg34555dgdhfkfgogusga"
         }
     },
     {
         receiver: {
             name: "Mike Micheal",
             image: "/images/user_1.jpg",
+            id: "347489409dkcncbdgye74"
         },
-        text: "Sure Mike, It fit my schedule",
+        text: "I just recall the issue Amazon had in refining hetr Dashboard which led to a 25% decrease in interaction among her clients.. What do you think about this",
         createdAt: "20th November 2024",
         image: "",
+        receiverid: "347489409dkcncbdgye74",
+        senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Kristin Watson",
             image: "/images/user_2.jpg",
+            id: "ryrg34555dgdhfkfgogusga"
         }
     },
 ]

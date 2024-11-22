@@ -36,9 +36,9 @@ const DashboardHeader = ({ }) => {
                         <div className="flex w-full relative pb-3 border-b px-4 items-center gap-4 cursor-pointer">
                             <Image
                                 src={'/images/user_3.jpg'}
-                                width={50}
-                                height={50}
-                                className='rounded-full'
+                                width={45}
+                                height={45}
+                                 className='rounded-full w-[45px] h-[45px] object-cover'
                                 alt='Avatar for user'
                             />
                             <span className="text-base family2 family2">

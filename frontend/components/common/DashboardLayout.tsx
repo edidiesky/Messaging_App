@@ -9,16 +9,11 @@ const DashboardLayout = ({ children, sidebarlinks }: { children: React.ReactNode
         <div style={{
             height: "calc(100vh - 80px)"
         }} className="w-full flex items-start sticky top-0">
-            <div className="flex lg:w-[900px] border-r h-full items-start">
+            <div className="flex lg:w-[650px] border-r h-full items-start">
                 {/* sidebar */}
-                <div className="flex-1 h-full">
-                    <DashboardSidebar sidebarlinks={sidebarlinks} />
-                </div>
+                <DashboardSidebar sidebarlinks={sidebarlinks} />
                 {/* outlet */}
-                <div className="flex-1 h-full">
-                    {children}
-                </div>
-
+                {children}
             </div>
             <div className="w-full h-full flex flex-col">
                 {/* messages */}

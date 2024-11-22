@@ -4,7 +4,7 @@ import About from "./(landing_pages)/_components/About";
 import TopCompanies from "./(landing_pages)/_components/TopCompanies";
 import Reviews from "./(landing_pages)/_components/Reviews";
 import Community from "./(landing_pages)/_components/Community";
-import WhyChoose from "./(landing_pages)/_components/WhyChoose";
+// import WhyChoose from "./(landing_pages)/_components/WhyChoose";
 import Newsletter from "../components/common/Newsletter";
 // Newsletter
 import Header from "@/components/common/Header";
@@ -23,7 +23,7 @@ export default function Home() {
       {/* <DreamJob isLoading={isLoading} job={Jobs?.job} /> */}
       <TopCompanies />
       <Community />
-      <WhyChoose />
+      {/* <WhyChoose /> */}k
       <Reviews />
       <Newsletter />
       <Footer />

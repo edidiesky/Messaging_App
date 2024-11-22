@@ -6,7 +6,7 @@ import ConversationList from "./_components/ConversationList";
 
 export default function Home() {
   return (
-    <div className="w-full bg-white min-h-[100%] flex flex-col gap-2">
+    <div className="w-full bg-white min-h-[100%] flex flex-col">
       <div className='h-[63px] sticky top-0 items-center flex border-b w-full px-4'>
         <div className="flex p-1 px-3 hover:bg-[#eee] cursor-pointer rounded-lg items-center gap-4">
           <Image
