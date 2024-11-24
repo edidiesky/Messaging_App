@@ -3,7 +3,7 @@ import Image from "next/image";
 import { MdOutlineMailOutline, MdOutlinePhone } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 const UserInfo = () => {
-    const userInfo = { id: "ryrg34555dgdhfkfgogusga", phone: "01733739933", email: "lexlieAlexander@gmail.com", name: " Lexlie Alexander", role: "CoFounder at UxCel" }
+    const userInfo = { id: "ryrg34555dgdhfkfgogusga",createdAt:"24th Set 2024", phone: "01733739933", email: "lexlieAlexander@gmail.com", name: " Lexlie Alexander", role: "CoFounder at UxCel" }
     return (
         <div style={{
             maxHeight: "calc(100% - 63px)",
@@ -57,6 +57,19 @@ const UserInfo = () => {
                         <h4 className="text-start">
                             <span className="family2 text-sm">
                                 {userInfo?.phone}
+                            </span>
+                        </h4>
+                    </div>
+                    <div className="flex items-center gap-4 px-4">
+                        <div className="flex items-center gap-2">
+                            <span className="text-lg"><CiCalendarDate /></span>
+
+                            <span className="text-sm">Created</span>
+                        </div>
+
+                        <h4 className="text-start">
+                            <span className="family2 text-sm">
+                                {userInfo?.createdAt}
                             </span>
                         </h4>
                     </div>
