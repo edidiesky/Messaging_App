@@ -370,7 +370,7 @@ export const MockMessages: MockMessageType[] = [
             image: "/images/user_1.jpg",
             id: "347489409dkcncbdgye74"
         },
-        text: "Absolutely consistency is key for usability. wWe'll ensure that the layout is uniform across..",
+        text: "Absolutely consistency is key for usability. We'll ensure that the layout is uniform across..",
         createdAt: "20th November 2024",
         image: "",
 

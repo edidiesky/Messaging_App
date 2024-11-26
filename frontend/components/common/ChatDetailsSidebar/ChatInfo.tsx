@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { MdOutlineMailOutline, MdOutlinePhone } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
-const UserInfo = () => {
+const ChatInfo = () => {
     const userInfo = { id: "ryrg34555dgdhfkfgogusga",createdAt:"24th Set 2024", phone: "01733739933", email: "lexlieAlexander@gmail.com", name: " Lexlie Alexander", role: "CoFounder at UxCel" }
     return (
         <div style={{
@@ -82,4 +82,4 @@ const UserInfo = () => {
 }
 
 
-export default UserInfo;
+export default ChatInfo;
