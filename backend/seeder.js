@@ -1,9 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import { PrismaClient } from "@prisma/client";
-import { apartmentDataList } from "./data/roomdata.js";
-import { user } from "./data/seller.js";
-import { bookingData } from "./data/bookingData.js";
+import { MockUserList } from "./data/users.js";
 // bookingData
 
 dotenv.config();
@@ -25,16 +23,9 @@ mongoose.connection.on("error", (error) =>
 
 const importData = async () => {
   try {
-    //  await prisma.rooms.createMany({
-    //    data: apartmentDataList,
-    //  });
-    // Prisma to insert data
-    await prisma.reservations.createMany({
-      data: bookingData,
+    await prisma.user.createMany({
+      data: MockUserList,
     });
-    // await prisma.user.createMany({
-    //   data: user,
-    // });
     console.log("Data Imported!");
     process.exit();
   } catch (error) {
@@ -46,7 +37,7 @@ const importData = async () => {
 const destroyData = async () => {
   try {
     // Use Prisma to delete data
-    await prisma.rooms.deleteMany();
+    await prisma.user.deleteMany();
     console.log("Data Destroyed!");
     process.exit();
   } catch (error) {

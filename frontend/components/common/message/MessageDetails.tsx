@@ -15,15 +15,15 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
                             <span className="text-sm md:text-base family2  text-dark">Me</span>
 
                             <div className="flex flex-1 flex-col gap-1">
-                                <span className="max-w-[200px] md:max-w-[400px] rounded-[40px]  text-sm md:text-sm leading-[1.6]
+                                <span className="max-w-[210px] md:max-w-[400px] rounded-[40px]  text-sm md:text-sm leading-[1.6]
                              text-white flex items-center bg-[#7D22FF] justify-center py-3 md:py-4 px-4 md:px-6">
                                     {message?.text}
                                 </span>
                                 {
-                                    message?.image && <div className="w-full min-w-[200px] md:min-w-[320px]">
+                                    message?.image && <div className="h-[250px] relative w-[250px] md:w-[310px]">
                                         <Image
                                             fill
-                                            className='rounded-lg  object-cover'
+                                            className='rounded-lg w-full object-cover'
                                             src={message?.image}
                                             alt="message_image"
                                         />
@@ -67,18 +67,18 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
                         <div className="flex-1 flex items-start flex-col justify-start gap-1">
                             <span className="text-sm md:text-base family2  text-dark">{message?.sender?.name}</span>
                             <div className="flex-1 flex flex-col gap-1">
-                                <span className="max-w-[200px] md:max-w-[400px] rounded-[40px]  text-sm md:text-sm leading-[1.6] text-dark flex items-center bg-[#e9e9e9] justify-center p-3 md:py-4 px-4 md:px-6">
+                                <span className="max-w-[210px] md:max-w-[400px] rounded-[40px]  text-sm md:text-sm leading-[1.6] text-dark flex items-center bg-[#e9e9e9] justify-center p-3 md:py-4 px-4 md:px-6">
                                     {message?.text}
                                 </span>
                                 {
-                                    message?.image && <div className="w-full min-w-[200px] md:min-w-[320px]">
-                                        <Image
-                                            fill
-                                            className='rounded-lg  object-cover'
-                                            src={message?.image}
-                                            alt="message_image"
-                                        />
-                                    </div>
+                                        message?.image && <div className="h-[250px] relative w-[250px] md:w-[310px]">
+                                            <Image
+                                                fill
+                                                className='rounded-lg  object-cover'
+                                                src={message?.image}
+                                                alt="message_image"
+                                            />
+                                        </div>
                                 }
                             </div>
                             <span className="text-xs  text-dark">{message?.createdAt}</span>

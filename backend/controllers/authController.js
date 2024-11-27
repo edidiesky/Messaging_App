@@ -2,14 +2,15 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import prisma from "../prisma/index.js";
+import { generateToken } from "../utils/generateToken.js";
 
 // @description  Register a new User
 // @route  POST /auth/register
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, email, hashedPassword, username } = req.body;
+  const { name, email, password, username } = req.body;
   //
-  if (!email || !hashedPassword || !name) {
+  if (!email || !password || !name) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
   }
@@ -25,41 +26,30 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("The user does exist");
   }
   const salt = await bcrypt.genSalt(10);
-  const hashedpassword = await bcrypt.hash(req.body.hashedPassword, salt);
+  const hashedpassword = await bcrypt.hash(req.body.password, salt);
   const Tempuser = {
     email,
-    hashedPassword: hashedpassword,
+    password: hashedpassword,
     name,
     username,
   };
+  const verificationToken = Math.floor(9000 * Math.random() + 1000).toString();
+  const verifiedTokenExpiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
   const user = await prisma.user.create({
     data: Tempuser,
   });
-  const token = jwt.sign(
-    {
-      userId: user?.id,
-    },
-    process.env.JWT_CODE,
-    { expiresIn: "12d" }
-  );
-
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-  //  await delete user?.hashedPassword
-  res.cookie("accessToken", token, {
-    httpOnly: true,
-
-    expires: new Date(Date.now() + 60 * 60 * 24 * 1000),
-  });
-  res.status(200).json({ user, token });
+  const { hashedPassword: _, ...userInfo } = user;
+  res.status(200).json({ user: userInfo });
 });
 
 // @description  Login a new User
 // @route  POST /auth/login
 // @access  Public
 const LoginUser = asyncHandler(async (req, res) => {
-  const { email, hashedPassword } = req.body;
-  if (!email || !hashedPassword) {
+  const { email, password } = req.body;
+  if (!email || !password) {
     res.status(404);
     throw new Error("Please fill in the valid credentails");
   }
@@ -74,37 +64,29 @@ const LoginUser = asyncHandler(async (req, res) => {
     res.status(404);
     throw new Error("You do not have any record with us!!!");
   }
-  const verifyPassword = await bcrypt.compare(
-    hashedPassword,
-    userExist.hashedPassword
-  );
+  const verifyPassword = await bcrypt.compare(password, userExist.password);
   if (!verifyPassword) {
     res.status(404);
     throw new Error("Please provide a valid Password!!");
   }
 
-  //
-  const token = jwt.sign(
-    {
-      userId: userExist.id,
-    },
-    process.env.JWT_CODE,
-    { expiresIn: "12d" }
-  );
+  generateToken(res, userExist.id);
 
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-  res.cookie("accessToken", token, {
-    httpOnly: true,
-
-    expires: new Date(Date.now() + 60 * 60 * 24 * 1000),
-    domain: "localhost", // or your specific domain
-    path: "/", // root path
-    secure: false, // if your site uses HTTPS
-
-    // withcredential: true
-  });
-  res.status(200).json({ user: userExist, token });
+  const { hashedPassword: _, ...userInfo } = userExist;
+  res.status(200).json({ user: userInfo });
 });
 
-export { registerUser, LoginUser };
+const LogoutUser = asyncHandler(async (req, res) => {
+  // console.log(token);
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    sameSite: "strict",
+    secure: process.env.NODE_ENV === "production",
+    expires: new Date(0),
+    path: "/",
+  });
+});
+
+export { registerUser, LoginUser, LogoutUser };
