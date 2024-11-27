@@ -92,7 +92,7 @@ const getAllUserConversation = asyncHandler(async (req, res) => {
   // loop to set the receiver in the conversation object
   for (let singleconversation of conversation) {
     // get the receiverid
-    const receiverid = singleconversation.userIDs.find(
+    const receiverid = singleconversation.userIds.find(
       (id) => id != tokenUserId
     );
     // find the user (receiver)

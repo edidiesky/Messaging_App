@@ -20,13 +20,14 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
                                     {message?.text}
                                 </span>
                                 {
-                                    message?.image && <Image
-                                        width={40}
-                                        height={40}
-                                        className='rounded-lg min-w-[200px] md:min-w-[320px] object-cover'
-                                        src={message?.image}
-                                        alt="message_image"
-                                    />
+                                    message?.image && <div className="w-full min-w-[200px] md:min-w-[320px]">
+                                        <Image
+                                            fill
+                                            className='rounded-lg  object-cover'
+                                            src={message?.image}
+                                            alt="message_image"
+                                        />
+                                    </div>
                                 }
                             </div>
                             <span className="text-xs  text-dark">{message?.createdAt}</span>
@@ -70,13 +71,14 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
                                     {message?.text}
                                 </span>
                                 {
-                                    message?.image && <Image
-                                        width={40}
-                                        height={40}
-                                        className='rounded-lg min-w-[200px] md:min-w-[320px] object-cover'
-                                        src={message?.image}
-                                        alt="message_image"
-                                    />
+                                    message?.image && <div className="w-full min-w-[200px] md:min-w-[320px]">
+                                        <Image
+                                            fill
+                                            className='rounded-lg  object-cover'
+                                            src={message?.image}
+                                            alt="message_image"
+                                        />
+                                    </div>
                                 }
                             </div>
                             <span className="text-xs  text-dark">{message?.createdAt}</span>
