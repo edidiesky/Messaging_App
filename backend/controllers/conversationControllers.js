@@ -1,8 +1,9 @@
 import asyncHandler from "express-async-handler";
 import prisma from "../prisma/index.js";
-// POST
-// Create prisma.
-//  Public
+import redisClient from "../utils/redisClient.js";
+// @description  Create a Single User's Conversation
+// @route  GET /conversation
+// @access  Private
 const createConversation = asyncHandler(async (req, res) => {
   const { userId, isGroup, users, name, description, image } = req.body;
   // get the token id
@@ -17,10 +18,10 @@ const createConversation = asyncHandler(async (req, res) => {
     conversation = await prisma.conversations.create({
       data: { isGroup: true, name, description, image, userIds },
     });
-    res.status(200).json({ conversation });
+    return res.status(200).json({ conversation });
   } else {
     conversation = await prisma.conversations.findFirst({
-      where: { userIds: { hasEvery: [tokenUserId, userId] } },
+      where: { isGroup: false, userIds: { hasEvery: [tokenUserId, userId] } },
     });
     if (!conversation) {
       conversation = await prisma.conversations.create({
@@ -30,98 +31,99 @@ const createConversation = asyncHandler(async (req, res) => {
       });
     }
 
+    return res.status(200).json({ conversation });
+  }
+});
+
+// @description  GET A Single User's Conversation
+// @route  GET /conversation/:id
+// @access  Private
+const getSingleUserConversation = asyncHandler(async (req, res) => {
+  const tokenUserId = req.user?.userId;
+  const cachedKey = `user_conversation:${tokenUserId}`;
+  const cachedConversation = await redisClient.get(cachedKey);
+  if (cachedConversation) {
+    res.status(200).json({ conversation: cachedConversation });
+  } else {
+    const conversation = await prisma.conversations.findUnique({
+      where: {
+        id: req.params.id,
+        userIDs: {
+          hasSome: [tokenUserId],
+        },
+      },
+    });
+
+    // update the read parameter
+    await prisma.conversations.update({
+      where: {
+        id: req.params.id,
+      },
+      data: {
+        seenBy: {
+          push: [tokenUserId],
+        },
+      },
+    });
+    await redisClient.set(cachedKey, conversation, { EX: 1200 });
     res.status(200).json({ conversation });
   }
 });
 
-// GET Review of the user conversation
-//  Public
-// send the conversation Id only
-const getSingleUserConversation = asyncHandler(async (req, res) => {
-  const tokenUserId = req.user?.userId;
-  const conversation = await prisma.conversations.findUnique({
-    where: {
-      id: req.params.id,
-      userIDs: {
-        hasSome: [tokenUserId],
-      },
-    },
-    include: {
-      messages: {
-        include: {
-          receiver: {
-            select: {
-              name: true,
-              id: true,
-              username: true,
-              image: true,
-            },
-          },
-          sender: {
-            select: {
-              name: true,
-              id: true,
-              username: true,
-              image: true,
-            },
-          },
-        },
-        orderBy: {
-          createdAt: "asc",
-        },
-      },
-    },
-  });
-
-  // update the read parameter
-  await prisma.conversations.update({
-    where: {
-      id: req.params.id,
-    },
-    data: {
-      seenBy: {
-        push: [tokenUserId],
-      },
-    },
-  });
-
-  res.status(200).json({ conversation });
-});
-
+// @description  GET All User's Conversation
+// @route  GET /conversation/
+// @access  Private
 const getAllUserConversation = asyncHandler(async (req, res) => {
   // get the conversation id from the req params
   const tokenUserId = req.user?.userId;
-  const conversation = await prisma.conversations.findMany({
-    where: {
-      userIds: {
-        hasSome: [tokenUserId],
-      },
-    },
-  });
-  // loop to set the receiver in the conversation object
-  for (let singleconversation of conversation) {
-    // get the receiverid
-    const receiverid = singleconversation.userIds.find(
-      (id) => id != tokenUserId
-    );
-    // find the user (receiver)
-    const receiver = await prisma.user.findUnique({
+  const cachedKey = `all_user_conversation:${tokenUserId}`;
+  const cachedConversation = await redisClient.get(cachedKey);
+  if (cachedConversation) {
+    res.status(200).json({ conversation: cachedConversation });
+  } else {
+    const conversation = await prisma.conversations.findMany({
       where: {
-        id: receiverid,
+        userIds: {
+          hasSome: [tokenUserId],
+        },
       },
-      select: {
-        id: true,
-        name: true,
-        image: true,
-        username: true,
+      include: {
+        users: {
+          select: {
+            name: true,
+            id: true,
+            image: true,
+          },
+        },
       },
     });
-    singleconversation.receiver = receiver;
+    // loop to set the receiver in the conversation object
+    const formattedConversation = conversation.map((conversation) => {
+      if (!conversation.isGroup) {
+        const { users: _, ...Otherconversation } = conversation;
+        return {
+          ...Otherconversation,
+          participants: conversation.users,
+        };
+      }
+      // for DM
+
+      const receiver = conversation.users.filter(
+        (user) => user?.id !== tokenUserId
+      );
+      return {
+        ...conversation,
+        participants: receiver,
+      };
+    });
+    await redisClient.set(cachedKey, formattedConversation, { EX: 1200 });
+    res.status(200).json({ conversation: formattedConversation });
   }
-  res.status(200).json({ conversation });
 });
 
-//  Public
+// @description  Delete a Conversation
+// @route  DELETE /conversation/:id
+// @access  Private
 const DeleteConversation = asyncHandler(async (req, res) => {
   // get the request body
   const tokenUserId = req.user?.userId;
