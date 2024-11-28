@@ -12,7 +12,8 @@ export const initSocket = (server) => {
       origin: process.env.WEB_ORIGIN,
     },
   });
-  setUpSocketHandlers(io);
-  setupRedisSubscriber(io);
+  let OnlineUsers = [];
+  setUpSocketHandlers(io, OnlineUsers);
+  setupRedisSubscriber(io, OnlineUsers);
   return io;
 };

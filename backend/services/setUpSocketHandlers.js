@@ -1,8 +1,9 @@
-import { publishConnectedUsers } from "./messageServices.js";
+import { DIRECT_MESSAGE_UPDATED_CHANNEL } from "../constants.js";
+import { publishConnectedUsers, publishMessage } from "./messageServices.js";
 import { addUserId } from "./onLineUsers.js";
 
-export const setUpSocketHandlers = (io) => {
-  let OnlineUsers = [];
+export const setUpSocketHandlers = (io, OnlineUsers) => {
+
   // io.emit('message','Connected form the backend and testing sending of the data form the socket server')
   io.on("connection", (socket) => {
     console.log("a user connected");
@@ -14,18 +15,11 @@ export const setUpSocketHandlers = (io) => {
       io.emit("getAllConnectedUser", OnlineUsers);
     });
 
-    socket.on("sendMessage", ({ receiverid, ...data }) => {
-      // get the specific usre u intend to send the message to
-      const newuser = getASpecificUser(receiverid, OnlineUsers);
-      // console.log(newuser);
-      // console.log(newuser?.socketId)
-      console.log({ receiverid });
-      if (newuser?.socketId) {
-        io.to(newuser?.socketId).emit("getMessage", {
-          receiverid,
-          ...data,
-        });
-      }
+    socket.on(DIRECT_MESSAGE_UPDATED_CHANNEL, ({ receiverid, ...data }) => {
+      publishMessage({
+        receiverid,
+        ...data,
+      })
     });
 
     socket.on("disconnect", () => {

@@ -20,7 +20,9 @@ const createMessage = asyncHandler(async (req, res) => {
   });
   if (!conversation) {
     res.status(404);
-    throw new Error("You are not authorized to view this message");
+    throw new Error(
+      "You are not authorized to send messages in this conversation."
+    );
   }
   // created the user message
   const message = await prisma.message.create({
@@ -44,9 +46,9 @@ const createMessage = asyncHandler(async (req, res) => {
     },
   });
 
-  publishMessage({
+  await publishMessage({
     ...message,
-    createdAt: Date.now(),
+    conversationId,
   });
   res.status(200).json(message);
 });
