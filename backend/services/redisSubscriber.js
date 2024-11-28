@@ -19,7 +19,9 @@ const setupRedisSubscriber = async (io) => {
         });
       }
     });
-  } catch (error) {}
+  } catch (error) {
+    throw new Error(error)
+  }
 };
 
 export default setupRedisSubscriber;

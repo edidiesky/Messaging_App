@@ -15,7 +15,7 @@ model User {
   name                        String
   username                    String
   email                       String?         @unique
-  phone                       String?       
+  phone                       String?
   emailVerified               DateTime?
   image                       String?
   password                    String?
@@ -28,9 +28,10 @@ model User {
   conversationIds             String[]        @db.ObjectId
   conversations               Conversations[] @relation(fields: [conversationIds], references: [id])
 
-  seenMessageIds String[]  @db.ObjectId
-  seenMessages   Message[] @relation("Seen", fields: [seenMessageIds], references: [id])
-  messages       Message[]
+  seenMessageIds  String[]  @db.ObjectId
+  seenMessages    Message[] @relation("Seen", fields: [seenMessageIds], references: [id])
+  Message         Message[] @relation("senderMessage")
+  ReceiverMessage Message[] @relation("receiverMessage")
 }
 
 model Conversations {
@@ -44,9 +45,9 @@ model Conversations {
   image         String?
   messagesIds   String[]  @db.ObjectId
   messages      Message[]
-
-  userIds String[] @db.ObjectId
-  users   User[]   @relation(fields: [userIds], references: [id])
+  seenBy        String[]  @db.ObjectId
+  userIds       String[]  @db.ObjectId
+  users         User[]    @relation(fields: [userIds], references: [id])
 }
 
 model Message {
@@ -60,7 +61,8 @@ model Message {
 
   conversationId String?        @db.ObjectId
   conversation   Conversations? @relation(fields: [conversationId], references: [id], onDelete: Cascade)
-
-  senderId String @db.ObjectId
-  sender   User   @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  receiverId     String         @db.ObjectId
+  receiver       User           @relation("receiverMessage", fields: [receiverId], references: [id], onDelete: Cascade)
+  senderId       String         @db.ObjectId
+  sender         User           @relation("senderMessage", fields: [senderId], references: [id], onDelete: Cascade)
 }
