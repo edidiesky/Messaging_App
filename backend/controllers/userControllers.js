@@ -2,6 +2,7 @@ import asyncHandler from "express-async-handler";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import prisma from "../prisma/index.js";
+import redisClient from "../utils/redisClient.js";
 // @description  Get a single user for the admin useing his ID
 // @route  POST /user/:id
 // @access  Private
@@ -73,7 +74,7 @@ const AdminUpdateUser = asyncHandler(async (req, res) => {
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
 
-  res.status(200).json({ user:updatedUser });
+  res.status(200).json({ user: updatedUser });
 });
 
 // @description  Delete a single user profile
@@ -106,21 +107,35 @@ const GetAllUser = asyncHandler(async (req, res) => {
   const page = req.query.page || 1;
   const skip = (page - 1) * limit;
 
-  const totalUser = await prisma.user.count({});
+  const user_key = "users";
+  const cachedUsers = await redisClient.get(user_key);
+  if (cachedUsers) {
+    res.status(200).json(cachedUsers);
+  } else {
+    const totalUser = await prisma.user.count({});
 
-  const user = await prisma.user.findMany({
-    skip: skip,
-    take: limit,
-    orderBy:{
-      createdAt:"desc"
-    }
-  });
+    const user = await prisma.user.findMany({
+      skip: skip,
+      take: limit,
+      orderBy: {
+        createdAt: "desc",
+      },
+      select: {
+        name: true,
+        image: true,
+        username: true,
+        id: true,
+      },
+    });
 
-  const noOfPages = Math.ceil(totalUser / limit);
-  res.setHeader("Content-Type", "text/html");
-  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+    const noOfPages = Math.ceil(totalUser / limit);
+    const result = { user, noOfPages, totalUser };
+    res.setHeader("Content-Type", "text/html");
+    res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
+    await redisClient.set(user_key, result, { EX: 3600 });
 
-  res.status(200).json({ user, noOfPages, totalUser });
+    res.status(200).json(result);
+  }
 });
 
 export {

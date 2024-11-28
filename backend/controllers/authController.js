@@ -1,5 +1,4 @@
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
 import prisma from "../prisma/index.js";
 import { generateToken } from "../utils/generateToken.js";

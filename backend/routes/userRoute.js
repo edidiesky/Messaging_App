@@ -13,7 +13,7 @@ import {
   GetUsersProfile,
 } from "../controllers/userControllers.js";
 
-router.get("/", authMiddleware, adminMiddleware, GetAllUser);
+router.get("/", authMiddleware, GetAllUser);
 // router.get('/stats', authMiddleware, adminMiddleware, AggregateUserStats)
 router
   .route("/:id")
