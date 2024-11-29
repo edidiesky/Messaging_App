@@ -8,7 +8,7 @@ export const publishMessage = async (message) => {
       DIRECT_MESSAGE_UPDATED_CHANNEL,
       JSON.stringify(message)
     );
-    console.log(`Message published to ${DIRECT_MESSAGE_UPDATED_CHANNEL}`);
+    // console.log(`Message published to ${DIRECT_MESSAGE_UPDATED_CHANNEL}`);
   } catch (error) {
     console.log(error);
   }
