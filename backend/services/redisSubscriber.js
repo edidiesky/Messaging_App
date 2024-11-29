@@ -15,10 +15,11 @@ const setupRedisSubscriber = async (io, OnlineUsers) => {
     });
     subscriber.on("message", (channel, message) => {
       if (channel === DIRECT_MESSAGE_UPDATED_CHANNEL) {
-        const user = getASpecificUser(message.receiverId, OnlineUsers);
-        console.log(user);
-        io.to(message?.socketId).emit(DIRECT_MESSAGE_UPDATED_CHANNEL, {
-          message,
+        const parsedMessage = JSON.parse(message);
+        const user = getASpecificUser(parsedMessage.receiverId, OnlineUsers);
+        // console.log(user);
+        io.to(user?.socketId).emit(DIRECT_MESSAGE_UPDATED_CHANNEL, {
+          parsedMessage,
         });
       }
     });
