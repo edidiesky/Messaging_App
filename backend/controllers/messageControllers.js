@@ -46,8 +46,8 @@ const createMessage = asyncHandler(async (req, res) => {
     },
   });
   await publishMessage({
-    ...message,
     conversationId,
+    ...message,
   });
   res.status(200).json(message);
 });
