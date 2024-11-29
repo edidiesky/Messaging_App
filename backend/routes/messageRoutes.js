@@ -1,13 +1,21 @@
 import express from "express";
 const router = express.Router();
 
-import {
-  authMiddleware,
-} from "../middleware/authentication.js";
+import { authMiddleware } from "../middleware/authentication.js";
 import {
   createMessage,
-} from "../controllers/messageControllers.js"
+  DeleteMessage,
+  getAllMessageofAConversation,
+  UpdateMessage,
+} from "../controllers/messageControllers.js";
 
-router.route("/:id").post(authMiddleware, createMessage);
+router
+  .route("/:id")
+  .post(authMiddleware, createMessage)
+  .get(authMiddleware, getAllMessageofAConversation);
+router
+  .route("/:id/:conversationid")
+  .delete(authMiddleware, DeleteMessage)
+  .put(authMiddleware, UpdateMessage);
 
 export default router;
