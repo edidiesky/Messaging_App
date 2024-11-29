@@ -125,7 +125,7 @@ const DeleteMessage = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Message has been  deleted succesfully" });
 });
 // @description  Update a Single User's message
-// @route  PUT /message/:conversationid
+// @route  PUT /message/:conversationid/:id
 // @access  Private
 const UpdateMessage = asyncHandler(async (req, res) => {
   const tokenUserId = req.user?.userId;
