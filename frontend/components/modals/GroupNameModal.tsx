@@ -16,6 +16,7 @@ const GroupNameModal = () => {
     const [formValue, setFormValue] = useState({
         name: "",
     })
+   
     const dispatch = useDispatch()
     const noEntry = formValue.name === "";
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +26,7 @@ const GroupNameModal = () => {
         e.preventDefault();
 
     };
+
     const handleFileUpload = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 

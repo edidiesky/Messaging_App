@@ -120,11 +120,7 @@ form input:hover {
   transition: all 0.3s;
   outline: 1px solid #5d5d5e;
 }
-input:focus {
-  box-shadow: 0 0 0 6px var(--shadow_color);
-  transition: all 0.3s;
-  outline: 1px solid #5d5d5e;
-}
+
 /* input styles stop */
 .shadows:hover {
   border: 1px solid var(--background_dark);
