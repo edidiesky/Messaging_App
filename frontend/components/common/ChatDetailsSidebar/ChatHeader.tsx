@@ -1,8 +1,10 @@
 "use client"
-
+import React from 'react';
 import Image from "next/image";
 import { RxCross1 } from "react-icons/rx";
-const ChatHeader = () => {
+const ChatHeader = ({ setActive }: {
+    setActive: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
     return (
         <div className='min-h-[63px] items-center sticky top-0 flex border-b w-full px-4'>
             <div className="flex w-full items-center justify-between gap-4">
@@ -22,7 +24,7 @@ const ChatHeader = () => {
                 </div>
                 <div className="flex flex-1 justify-end items-center gap-2">
                   
-                    <div className="text-xl h-10 w-10 rounded-full hover:bg-[#fafafa] cursor-pointer flex items-center justify-center ">
+                    <div onClick={() => setActive(false)} className="text-xl h-10 w-10 rounded-full hover:bg-[#fafafa] cursor-pointer flex items-center justify-center ">
                         <RxCross1/>
                     </div>
                 </div>

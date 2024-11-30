@@ -40,7 +40,7 @@ const LoginModal = () => {
     };
 
 
-    const handleOnRegistertModal = () => {
+    const handleOnRegisterModal = () => {
         dispatch(offLoginModal(""))
         dispatch(onRegisterModal(""))
     }
@@ -115,7 +115,7 @@ const LoginModal = () => {
                             <span className="text-sm font-normal text-dark">
                                 <span className="">Not yet a Member?</span>{" "}
                                 <span
-                                    onClick={handleOnRegistertModal}
+                                    onClick={handleOnRegisterModal}
                                     style={{ textDecoration: "underline" }}
                                     className="font-booking_font_bold family2 cursor-pointer"
                                 >

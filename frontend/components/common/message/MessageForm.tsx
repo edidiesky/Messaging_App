@@ -10,7 +10,7 @@ const MessageForm = () => {
         }} className="w-full bg-[rgba(255,255,255,0.27)] px-8 py-4">
             <div className='min-h-[90px] w-full border rounded-lg flex flex-col gap-4 justify-between'>
                 <textarea placeholder="Write your Message here..." className="h-[80px] p-4 bg-transparent resize-none outline-none"></textarea>
-                <div className="w-full flex items-center gap-4 justify-between">
+                <div className="w-full px-4 pb-3 flex items-center gap-4 justify-between">
                     <div className="flex items-center">
                         <div className="w-10 text-lg rounded-full cursor-pointer hover:bg-[#eee] h-10 flex items-center justify-center">
                             <CiImageOn />

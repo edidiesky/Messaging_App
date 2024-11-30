@@ -4,7 +4,7 @@ import { MockUserList } from "@/constants";
 import ChatList from "./ChatList";
 import { BsSearch } from 'react-icons/bs';
 
-const ConversationList = ({}) => {
+const ContactList = () => {
     return (
         <div style={{
             maxHeight: "calc(100% - 63px)",
@@ -15,20 +15,10 @@ const ConversationList = ({}) => {
                 <span className="w-4 h-4 absolute left-8">
                     <BsSearch />
                 </span>
-                <input type="text" placeholder='Search anything' className="text-base pl-12 font-normal bg-white rounded-full w-full " />
+                <input type="text" placeholder='Search for contacts' className="text-base pl-12 font-normal bg-white rounded-full w-full " />
             </form>
-            {/* messages */}
             <div className="w-full flex flex-col">
-                <h4 className="text-sm text-[#3c3c3c] p-1 px-4 lg:pl-6">GROUPS & CHANNELS</h4>
-                {
-                    MockUserList?.slice(0, 2).map((chat, index) => {
-                        return <ChatList type={'group'} key={index} chat={chat} />
-                    })
-                }
-            </div>
-            {/* messages */}
-            <div className="w-full flex flex-col">
-                <h4 className="text-sm text-[#3c3c3c] uppercase p-1 px-4 lg:pl-6">All Messages</h4>
+                <h4 className="text-sm text-[#3c3c3c] uppercase p-1 px-4 lg:pl-6">All Contacts</h4>
                 {
                     MockUserList?.map((chat, index) => {
                         return <ChatList key={index} chat={chat} />
@@ -40,4 +30,4 @@ const ConversationList = ({}) => {
 }
 
 
-export default ConversationList;
+export default ContactList;

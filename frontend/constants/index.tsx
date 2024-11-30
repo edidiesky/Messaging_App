@@ -1,39 +1,30 @@
-import { FiSettings } from "react-icons/fi";
-import { BiMessage, BiSolidDashboard, BiSolidTrash, BiPhoneCall } from "react-icons/bi";
+import { BiMessage,BiSolidDashboard, BiSolidTrash, BiPhoneCall } from "react-icons/bi";
+
 export const userDashboardLinks = [
     {
         id: 6,
         tab: {
-            icon: <BiMessage fontSize={"22px"} />,
+            icon: <BiSolidDashboard fontSize={"22px"} />,
             title: "All Chats",
-            path: "/user/applied-jobs",
+            path: "/",
         },
         list: [],
     },
-    // {
-    //     id: 1,
-    //     tab: {
-    //         title: "My Conversations",
-    //         path: "/user",
-    //         icon: <BiSolidDashboard fontSize={"24px"} />,
-    //     },
-    //     list: [],
-    // },
     {
         id: 210,
         tab: {
             icon: <BiPhoneCall fontSize={"20px"} />,
             title: "My Contacts",
-            path: "/user/profile",
+            path: "/contacts",
         },
         list: [],
     },
     {
-        id: 200,
+        id: 210,
         tab: {
-            icon: <FiSettings fontSize={"20px"} />,
-            title: "Settings",
-            path: "/user/profile",
+            icon: <BiMessage fontSize={"20px"} />,
+            title: "Archived Chat",
+            path: "/archived",
         },
         list: [],
     },
@@ -42,7 +33,7 @@ export const userDashboardLinks = [
         tab: {
             icon: <BiSolidTrash fontSize={"22px"} />,
             title: "Trash",
-            path: "/user/jobs",
+            path: "/trash",
         },
         list: [],
     },

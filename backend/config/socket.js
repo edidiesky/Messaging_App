@@ -2,7 +2,6 @@ import { Server } from "socket.io";
 import dotenv from "dotenv";
 import setupRedisSubscriber from "../services/redisSubscriber.js";
 import { setUpSocketHandlers } from "../services/setUpSocketHandlers.js";
-// import { setupRedisSubscriber } from "../services/redisSubscriber";
 
 dotenv.config();
 
@@ -12,7 +11,7 @@ export const initSocket = (server) => {
       origin: process.env.WEB_ORIGIN,
     },
   });
-  let OnlineUsers = [];
+  let OnlineUsers = new Map()
   setUpSocketHandlers(io, OnlineUsers);
   setupRedisSubscriber(io, OnlineUsers);
   return io;

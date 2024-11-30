@@ -16,7 +16,7 @@ const MessageDetails = ({ message, isSender }: { message: MockMessageType, isSen
 
                             <div className="flex flex-1 flex-col gap-1">
                                 <span className="max-w-[210px] md:max-w-[400px] rounded-[40px]  text-sm md:text-sm leading-[1.6]
-                             text-white flex items-center bg-[#7D22FF] justify-center py-3 md:py-4 px-4 md:px-6">
+                             text-white flex items-center bg-[#3e3aff] justify-center py-3 md:py-4 px-4 md:px-6">
                                     {message?.text}
                                 </span>
                                 {

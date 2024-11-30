@@ -1,6 +1,6 @@
 import { subscriber } from "../config/redis.js";
 import { DIRECT_MESSAGE_UPDATED_CHANNEL } from "../constants.js";
-import { getASpecificUser } from "./onLineUsers.js";
+import { getASpecificUser } from "./helpers.js";
 
 const setupRedisSubscriber = async (io, OnlineUsers) => {
   try {

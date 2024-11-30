@@ -1,6 +1,6 @@
 import { DIRECT_MESSAGE_UPDATED_CHANNEL } from "../constants.js";
 import { publishConnectedUsers, publishMessage } from "./messageServices.js";
-import { addUserId } from "./onLineUsers.js";
+import { addUserId } from "./helpers.js";
 
 export const setUpSocketHandlers = (io, OnlineUsers) => {
 

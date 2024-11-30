@@ -3,7 +3,10 @@
 import Image from "next/image";
 import { PiDotsThreeCircleFill } from "react-icons/pi";
 import { IoCheckmarkOutline } from "react-icons/io5";
-const MessageHeader = () => {
+const MessageHeader = ({ setActive, active }: {
+    active: boolean,
+    setActive: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
     return (
         <div style={{
             backdropFilter: "blur(54px)"
@@ -29,7 +32,7 @@ const MessageHeader = () => {
                         <IoCheckmarkOutline />
                         Mark as Read
                     </div>
-                    <div className="text-2xl text-[#7D22FF] cursor-pointer flex items-center justify-center ">
+                    <div onClick={() => setActive(!active)} className="text-2xl text-[#7D22FF] cursor-pointer flex items-center justify-center ">
                         <PiDotsThreeCircleFill fontSize={'30px'} />
                     </div>
                 </div>
