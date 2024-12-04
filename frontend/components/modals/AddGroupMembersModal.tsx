@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { offGroupMemberModal } from '@/services/modalSlice';
 import { slide } from '@/constants/framer';
 import { PiCheck } from "react-icons/pi";
-import { MockChatType, MockUserList } from "@/constants";
+import {  MockUserList } from "@/constants";
 
 const AddGroupMembersModal = () => {
     const { addgroupmembersmodal } = useSelector((store: { modal: { addgroupmembersmodal: boolean } }) => store.modal);
@@ -15,7 +15,7 @@ const AddGroupMembersModal = () => {
         name: "",
     })
     const dispatch = useDispatch()
-    const [newMembers, setNewMembers] = useState<MockChatType[]>([])
+
     // let newMembers = new Map()
     const noEntry = formValue.name === "";
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +25,14 @@ const AddGroupMembersModal = () => {
         e.preventDefault();
 
     };
+    type MockChatType = {
+        image: string,
+        name: string
+        email: string
+        lastMessage: string;
+        createdAt: string;
+    }
+    const [newMembers, setNewMembers] = useState<MockChatType[]>([])
     const handleAddNewMembers = (data: MockChatType) => {
         setNewMembers((prev) => {
             const contactExists = prev.find((user) => user?.email === data?.email)
@@ -38,7 +46,7 @@ const AddGroupMembersModal = () => {
     const handleOnGroupMembersModal = () => {
         dispatch(offGroupMemberModal(""))
     }
-
+// @EOEboh
     return (
         <motion.div
             initial={{ opacity: 0 }}
