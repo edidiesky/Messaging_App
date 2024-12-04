@@ -7,8 +7,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import { createServer } from "node:http";
-import { Server } from "socket.io";
-
 const app = express();
 const server = createServer(app);
 import { errorHandler, NotFound } from "./middleware/error-handler.js";
@@ -31,6 +29,7 @@ import userAuth from "./routes/userRoute.js";
 import uploadRoute from "./routes/uploadRoute.js";
 import ConversationRoute from "./routes/conversationRoutes.js";
 import messageRoute from "./routes/messageRoutes.js";
+import workspaceRoute from "./routes/workspaceRoutes.js";
 import { initSocket } from "./config/socket.js";
 // notificationRoutes
 
@@ -39,6 +38,7 @@ app.use("/api/v1/user", userAuth);
 app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/conversation", ConversationRoute);
 app.use("/api/v1/message", messageRoute);
+app.use("/api/v1/workspace", workspaceRoute);
 // // Middlewares
 app.use(NotFound);
 app.use(errorHandler);
