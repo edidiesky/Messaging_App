@@ -13,7 +13,7 @@ import {
   UNAUTHORIZED_STATUS_CODE,
 } from "../constants.js";
 
-// @description  Create a workspace channel Contr
+// @description  Create a workspace channel handler
 // @route  POST /channel
 // @access  Private
 const createChannelHandler = asyncHandler(async (req, res) => {

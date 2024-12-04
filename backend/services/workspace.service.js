@@ -30,13 +30,16 @@ const createWorkSpaceService = async (
 const getAllUserWorkSpaceService = async (userid) => {
   let workSpace = await prisma.workSpaceUser.findMany({
     where: { userid },
-    include: {
+    select: {
+      id: true,
       workspace: {
         select: { name: true, id: true, image: true, slug: true },
       },
     },
   });
-  return workSpace;
+  return workSpace.map((entry) => {
+    return { id: entry.id, workspace: entry.workspace };
+  });
 };
 
 // @description  DELETE a User's WorkSpace Service
