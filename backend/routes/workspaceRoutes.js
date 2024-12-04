@@ -8,6 +8,7 @@ import {
   getAllUserWorkSpace,
   UpdateWorkSpace,
 } from "../controllers/workspaceControllers.js";
+import checkRole from "../middleware/checkRole.js";
 
 router
   .route("/")
@@ -16,6 +17,6 @@ router
 router
   .route("/:id/:workspaceuserid")
   .delete(authMiddleware, DeleteWorkSpace)
-  .put(authMiddleware, UpdateWorkSpace);
+  .put(authMiddleware, checkRole("admin"), UpdateWorkSpace);
 
 export default router;

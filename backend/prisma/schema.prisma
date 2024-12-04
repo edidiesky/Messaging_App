@@ -41,7 +41,7 @@ model WorkSpace {
   name          String
   description   String?
   image         String?
-  slug          String?         @unique
+  slug          String         @unique
   createdAt     DateTime        @default(now())
   lastMessageAt DateTime        @default(now())
   channel       Channel[]

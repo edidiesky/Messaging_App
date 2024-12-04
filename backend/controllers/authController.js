@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import prisma from "../prisma/index.js";
 import { generateToken } from "../utils/generateToken.js";
+import { BAD_REQUEST_STATUS_CODE } from "../constants.js";
 
 // @description  Register a new User
 // @route  POST /auth/register
@@ -10,7 +11,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password, username } = req.body;
   //
   if (!email || !password || !name) {
-    res.status(404);
+    res.status(BAD_REQUEST_STATUS_CODE);
     throw new Error("Please fill in the valid credentails");
   }
   // check if the user exist
@@ -21,7 +22,7 @@ const registerUser = asyncHandler(async (req, res) => {
   });
 
   if (userExist) {
-    res.status(404);
+    res.status(BAD_REQUEST_STATUS_CODE);
     throw new Error("The user does exist");
   }
   const salt = await bcrypt.genSalt(10);
@@ -49,7 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
 const LoginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    res.status(404);
+    res.status(BAD_REQUEST_STATUS_CODE);
     throw new Error("Please fill in the valid credentails");
   }
   // Find the user in the database
@@ -60,12 +61,12 @@ const LoginUser = asyncHandler(async (req, res) => {
     },
   });
   if (!userExist) {
-    res.status(404);
+    res.status(BAD_REQUEST_STATUS_CODE);
     throw new Error("You do not have any record with us!!!");
   }
   const verifyPassword = await bcrypt.compare(password, userExist.password);
   if (!verifyPassword) {
-    res.status(404);
+    res.status(BAD_REQUEST_STATUS_CODE);
     throw new Error("Please provide a valid Password!!");
   }
 
