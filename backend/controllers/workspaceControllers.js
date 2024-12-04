@@ -6,7 +6,7 @@ import {
   deleteWorkSpaceService,
   getWorkSpaceUserService,
   updateWorkSpaceService,
-} from "../services/workspace.services.js";
+} from "../services/workspace.service.js";
 import {
   BAD_REQUEST_STATUS_CODE,
   SUCCESSFULLY_CREATED_STATUS_CODE,

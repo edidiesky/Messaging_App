@@ -1,5 +1,5 @@
 import prisma from "../prisma/index.js";
-import { getASingleUserService } from "./user.services.js";
+import { getASingleUserService } from "./user.service.js";
 // @description  Create a User's WorkSpace Service
 const createWorkSpaceService = async (
   name,
