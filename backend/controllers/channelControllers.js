@@ -1,170 +1,102 @@
 import asyncHandler from "express-async-handler";
-import prisma from "../prisma/index.js";
-// import { publishChannel } from "../services/ChannelServices.js";
-// @description  Create a User's Channel
-// @route  POST /Channel/:conversationid
+import {
+  createChannelService,
+  updateChannelService,
+  getAllUserChannelService,
+  deleteChannelService,
+  getASingleChannelService,
+  getChannelUserService,
+} from "../services/channel.service.js";
+import {
+  BAD_REQUEST_STATUS_CODE,
+  SUCCESSFULLY_CREATED_STATUS_CODE,
+  UNAUTHORIZED_STATUS_CODE,
+} from "../constants.js";
+
+// @description  Create a workspace channel Contr
+// @route  POST /channel
 // @access  Private
-const createChannel = asyncHandler(async (req, res) => {
-  // get the body Channel
-  const conversationId = req.params.id;
-  const { body, image, receiverId } = req.body;
-  // console.log(conversationId)
-  const senderid = req.user?.userId;
-  const conversation = await prisma.conversations.findFirst({
-    where: {
-      id: conversationId,
-      userIds: {
-        hasSome: [senderid],
-      },
-    },
-  });
-  if (!conversation) {
-    res.status(404);
-    throw new Error(
-      "You are not authorized to send Channels in this conversation."
-    );
+const createChannelHandler = asyncHandler(async (req, res) => {
+  // get the body data
+  const { name, slug, image, description } = req.body;
+  const tokenUserID = req.user?.userId;
+  const workspaceID = req.params?.id;
+  // finding existing channel
+  const existingChannel = await getASingleChannelService(name, slug);
+  if (existingChannel) {
+    res.status(BAD_REQUEST_STATUS_CODE);
+    throw new Error("A channel with this slug already exists");
   }
-  // created the user Channel
-  const Channel = await prisma.Channel.create({
-    data: {
-      body,
-      conversationId,
-      senderId: senderid,
-      image,
-      receiverId: receiverId,
-    },
-  });
-  // updated the conversation
-  await prisma.conversations.update({
-    where: {
-      id: conversationId,
-    },
-    data: {
-      seenBy: [senderid],
-      lastChannel: body,
-      lastChannelAt: new Date(),
-    },
-  });
-  await publishChannel({
-    conversationId,
-    ...Channel,
-  });
-  res.status(200).json(Channel);
-});
-  
-// @description  GET All User's Channel
-// @route  GET /Channel/:conversationid
-// @access  Private
-const getAllChannelofAConversation = asyncHandler(async (req, res) => {
-  const tokenUserId = req.user?.userId;
-  const conversationId = req.params.id;
-  const conversation = await prisma.conversations.findUnique({
-    where: {
-      id: conversationId,
-      userIds: {
-        hasSome: [tokenUserId],
-      },
-    },
-  });
-  if (!conversation) {
-    res.status(404);
-    throw new Error("You are not authorized to view this Channel");
-  }
-  let Channels = await prisma.Channel.findMany({
-    where: {
-      conversationId: conversationId,
-    },
-    include: {
-      sender: {
-        select: {
-          name: true,
-          id: true,
-          image: true,
-        },
-      },
-    },
-  });
-  res.status(200).json({ Channel: Channels });
+  // create the user channel
+  const channel = await createChannelService(
+    name,
+    slug,
+    image,
+    description,
+    tokenUserID,
+    workspaceID
+  );
+
+  res.status(201).json(channel);
 });
 
-// @description  DELETE a Single User's Channel
-// @route  DELETE /Channel/:conversationid/:id
+// @description  GET All User's channel
+// @route  GET /channel
 // @access  Private
-const DeleteChannel = asyncHandler(async (req, res) => {
+const getAllUserChannelHandler = asyncHandler(async (req, res) => {
   const tokenUserId = req.user?.userId;
-  const { conversationid: conversationId, id: ChannelId } = req.params;
-  // checking if the user is part of the conversation
-  const conversation = await prisma.conversations.findUnique({
-    where: {
-      id: conversationId,
-      userIds: {
-        hasSome: [tokenUserId],
-      },
-    },
-  });
 
-  if (!conversation) {
-    res.status(403); // forbidden since the user is not part of the chat conversation
-    throw new Error(
-      "You are not authorized to delete Channels in this conversation."
-    );
-  }
-  // deleting th emssage
-
-  const deletedChannel = await prisma.Channel.delete({
-    where: {
-      conversationId: conversationId,
-      senderId: tokenUserId,
-      id: ChannelId,
-    },
-  });
-  if (deletedChannel.count === 0) {
-    res.status(403);
-    throw new Error("Channel was not found, unauthorized action");
-  }
-  res.status(200).json({ Channel: "Channel has been  deleted succesfully" });
+  let workSpaces = await getAllUserChannelService(tokenUserId);
+  res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(workSpaces);
 });
-// @description  Update a Single User's Channel
-// @route  PUT /Channel/:conversationid/:id
-// @access  Private
-const UpdateChannel = asyncHandler(async (req, res) => {
-  const tokenUserId = req.user?.userId;
-  const { conversationid: conversationId, id: ChannelId } = req.params;
 
-  const conversation = await prisma.conversations.findUnique({
-    where: {
-      id: conversationId,
-      userIds: {
-        hasSome: [tokenUserId],
-      },
-    },
-  });
-  if (!conversation) {
-    res.status(403); // forbidden since the user is not part of the chat conversation
-    throw new Error(
-      "You are not authorized to send Channels in this conversation."
-    );
+// @description  DELETE a User's channel
+// @route  DELETE /channel/:workspaceid
+// @access  Private
+const DeleteChannelHandler = asyncHandler(async (req, res) => {
+  const userid = req.user?.userId;
+  const { workspaceuserid: workspaceuserid, id: workspaceid } = req.params;
+  if (!workspaceuserid || !workspaceid) {
+    res.status(BAD_REQUEST_STATUS_CODE);
+    throw new Error("Workspace ID and WorkspaceUser ID are needed");
   }
-  const newChannel = await prisma.Channel.update({
-    where: {
-      conversationId: conversationId,
-      senderId: tokenUserId,
-      id: ChannelId,
-    },
-    data: {
-      ...req.body,
-    },
-  });
-  if (newChannel.count === 0) {
-    res.status(403);
-    throw new Error("Channel was not found, unauthorized action");
+  // checking if the user has a role of admin in the channel
+  let deletedChannel = await deleteChannelService(
+    workspaceuserid,
+    workspaceid,
+    userid
+  );
+  if (!deletedChannel) {
+    res.status(UNAUTHORIZED_STATUS_CODE);
+    throw new Error("channel was not found, unauthorized action");
   }
-  res.status(200).json({ Channel: newChannel });
+  res
+    .status(SUCCESSFULLY_CREATED_STATUS_CODE)
+    .json({ channel: "channel has been deleted succesfully" });
+});
+
+// @description  Update a Single User's channel
+// @route  PUT /channel/:id
+// @access  Private
+const UpdateChannelHandler = asyncHandler(async (req, res) => {
+  const tokenUserId = req.user?.userId;
+  const workspaceid = req.params?.id;
+  const isAdmin = await getChannelUserService(tokenUserId);
+  if (!isAdmin) {
+    res.status(UNAUTHORIZED_STATUS_CODE);
+    throw new Error("Forbidden: Role is only for Admins");
+  }
+  const updatedChannel = await updateChannelService(
+    tokenUserId,
+    workspaceid,
+    ...req.body
+  );
+  res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(updatedChannel);
 });
 
 export {
-  createChannel,
-  DeleteChannel,
-  getAllChannelofAConversation,
-  UpdateChannel,
+  createChannelHandler,
+  DeleteChannelHandler,
+  getAllUserChannelHandler,
+  UpdateChannelHandler,
 };

@@ -41,7 +41,7 @@ model WorkSpace {
   name          String
   description   String?
   image         String?
-  slug          String         @unique
+  slug          String          @unique
   createdAt     DateTime        @default(now())
   lastMessageAt DateTime        @default(now())
   channel       Channel[]
@@ -64,6 +64,7 @@ model Channel {
   name        String
   description String?
   image       String?
+  slug        String        @unique
   createdAt   DateTime      @default(now())
   workspaceid String        @db.ObjectId
   workspace   WorkSpace     @relation(fields: [workspaceid], references: [id])
@@ -72,15 +73,13 @@ model Channel {
 }
 
 model ChannelUser {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  description String?
-  image       String?
-  createdAt   DateTime @default(now())
-  channelid   String   @db.ObjectId
-  channel     Channel  @relation(fields: [channelid], references: [id])
-  userid      String   @db.ObjectId
-  user        User     @relation(fields: [userid], references: [id])
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  role      RoleStatus @default(user)
+  createdAt DateTime   @default(now())
+  channelid String     @db.ObjectId
+  channel   Channel    @relation(fields: [channelid], references: [id])
+  userid    String     @db.ObjectId
+  user      User       @relation(fields: [userid], references: [id])
 }
 
 model Message {

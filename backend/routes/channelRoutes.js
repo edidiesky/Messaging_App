@@ -7,17 +7,17 @@ import {
   DeleteWorkSpace,
   getAllUserWorkSpace,
   UpdateWorkSpace,
-} from "../controllers/workspaceControllers.js";
+} from "../controllers/channelControllers.js";
 import checkRole from "../middleware/checkRole.js";
-import { validate } from "../middleware/validation.js";
 import {
-  createWorkSpaceSchema,
-  updateWorkSpaceSchema,
-} from "../validations/workspace.validation.js";
+  createChannelSchema,
+  updateChannelSchema,
+} from "../validations/channel.validation.js";
+import { validate } from "../middleware/validation.js";
 
 router
   .route("/")
-  .post(authMiddleware, validate(createWorkSpaceSchema), createWorkSpace)
+  .post(authMiddleware, validate(createChannelSchema), createWorkSpace)
   .get(authMiddleware, getAllUserWorkSpace);
 router
   .route("/:id/:workspaceuserid")
@@ -25,7 +25,7 @@ router
   .put(
     authMiddleware,
     checkRole("admin"),
-    validate(updateWorkSpaceSchema),
+    validate(updateChannelSchema),
     UpdateWorkSpace
   );
 

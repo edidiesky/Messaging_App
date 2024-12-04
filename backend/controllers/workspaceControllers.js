@@ -20,10 +20,6 @@ const createWorkSpace = asyncHandler(async (req, res) => {
   // get the body data
   const { name, slug, image, description } = req.body;
   const tokenUserID = req.user?.userId;
-  if (!name || !slug) {
-    res.status(BAD_REQUEST_STATUS_CODE);
-    throw new Error("Name and slug are required to create a workspace.");
-  }
   // finding existing workspace
   const exisitingworkSpace = await getASingleWorkSpaceService(name, slug);
   if (exisitingworkSpace) {
