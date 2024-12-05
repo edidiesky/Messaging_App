@@ -68,8 +68,8 @@ model Channel {
   createdAt   DateTime      @default(now())
   workspaceid String        @db.ObjectId
   workspace   WorkSpace     @relation(fields: [workspaceid], references: [id])
-  user        ChannelUser[]
-  Message     Message[]
+  channeluser ChannelUser[]
+  message     Message[]
 }
 
 model ChannelUser {

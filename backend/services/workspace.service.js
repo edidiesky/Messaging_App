@@ -1,3 +1,4 @@
+import { UNAUTHORIZED_STATUS_CODE } from "../constants.js";
 import prisma from "../prisma/index.js";
 import { getASingleUserService } from "./user.service.js";
 // @description  Create a User's WorkSpace Service
@@ -11,7 +12,7 @@ const createWorkSpaceService = async (
   // find the user that created the workspace
   const userExist = await getASingleUserService(userid);
   if (!userExist) {
-    res.status(401);
+    res.status(UNAUTHORIZED_STATUS_CODE);
     throw new Error("You do not have a record with us");
   }
   // create the user WorkSpace

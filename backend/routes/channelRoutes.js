@@ -3,10 +3,11 @@ const router = express.Router();
 
 import { authMiddleware } from "../middleware/authentication.js";
 import {
-  createWorkSpace,
-  DeleteWorkSpace,
-  getAllUserWorkSpace,
-  UpdateWorkSpace,
+  createChannelHandler,
+  DeleteChannelHandler,
+  getAllUserChannelHandler,
+  UpdateChannelHandler,
+  getSingleChannelHandler,
 } from "../controllers/channelControllers.js";
 import checkRole from "../middleware/checkRole.js";
 import {
@@ -16,17 +17,18 @@ import {
 import { validate } from "../middleware/validation.js";
 
 router
-  .route("/")
-  .post(authMiddleware, validate(createChannelSchema), createWorkSpace)
-  .get(authMiddleware, getAllUserWorkSpace);
+  .route("/:workspaceid")
+  .post(authMiddleware, validate(createChannelSchema), createChannelHandler)
+  .get(authMiddleware, getAllUserChannelHandler);
 router
-  .route("/:id/:workspaceuserid")
-  .delete(authMiddleware, checkRole("admin"), DeleteWorkSpace)
+  .route("/:id/:workspaceid")
+  .get(authMiddleware, getSingleChannelHandler)
+  .delete(authMiddleware, checkRole("admin"), DeleteChannelHandler)
   .put(
     authMiddleware,
     checkRole("admin"),
     validate(updateChannelSchema),
-    UpdateWorkSpace
+    UpdateChannelHandler
   );
 
 export default router;

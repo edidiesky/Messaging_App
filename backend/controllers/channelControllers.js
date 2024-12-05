@@ -6,6 +6,7 @@ import {
   deleteChannelService,
   getASingleChannelService,
   getChannelUserService,
+  getSingleChannelService,
 } from "../services/channel.service.js";
 import {
   BAD_REQUEST_STATUS_CODE,
@@ -14,13 +15,13 @@ import {
 } from "../constants.js";
 
 // @description  Create a workspace channel handler
-// @route  POST /channel
+// @route  POST /channel/:workspaceid
 // @access  Private
 const createChannelHandler = asyncHandler(async (req, res) => {
   // get the body data
   const { name, slug, image, description } = req.body;
   const tokenUserID = req.user?.userId;
-  const workspaceID = req.params?.id;
+  const workspaceID = req.params?.workspaceid;
   // finding existing channel
   const existingChannel = await getASingleChannelService(name, slug);
   if (existingChannel) {
@@ -50,19 +51,32 @@ const getAllUserChannelHandler = asyncHandler(async (req, res) => {
   res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(workSpaces);
 });
 
+// @description  GET A single User's channel
+// @route  GET /channel/:id/:workspaceid
+// @access  Private
+const getSingleChannelHandler = asyncHandler(async (req, res) => {
+  const { workspaceid: workspaceid, id: channelid } = req.params;
+  if (!workspaceid || !channelid) {
+    res.status(BAD_REQUEST_STATUS_CODE);
+    throw new Error("Workspace ID and WorkspaceUser ID are needed");
+  }
+  let channel = await getSingleChannelService(workspaceid, channelid);
+  res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(channel);
+});
+
 // @description  DELETE a User's channel
 // @route  DELETE /channel/:workspaceid
 // @access  Private
 const DeleteChannelHandler = asyncHandler(async (req, res) => {
   const userid = req.user?.userId;
-  const { workspaceuserid: workspaceuserid, id: workspaceid } = req.params;
-  if (!workspaceuserid || !workspaceid) {
+  const { workspaceid: workspaceid, id: channelid } = req.params;
+  if (!workspaceid || !channelid) {
     res.status(BAD_REQUEST_STATUS_CODE);
     throw new Error("Workspace ID and WorkspaceUser ID are needed");
   }
   // checking if the user has a role of admin in the channel
   let deletedChannel = await deleteChannelService(
-    workspaceuserid,
+    channelid,
     workspaceid,
     userid
   );
@@ -99,4 +113,5 @@ export {
   DeleteChannelHandler,
   getAllUserChannelHandler,
   UpdateChannelHandler,
+  getSingleChannelHandler,
 };

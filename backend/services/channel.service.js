@@ -1,3 +1,4 @@
+import { UNAUTHENTICATED_STATUS_CODE } from "../constants.js";
 import prisma from "../prisma/index.js";
 import { getASingleUserService } from "./user.service.js";
 // @description  Create a User's channel Service
@@ -7,12 +8,12 @@ const createChannelService = async (
   image,
   description,
   userid,
-  workspaceID
+  workspaceid
 ) => {
   // find the user that created the channel
   const userExist = await getASingleUserService(userid);
   if (!userExist) {
-    res.status(401);
+    res.status(UNAUTHENTICATED_STATUS_CODE);
     throw new Error("You do not have a record with us");
   }
   // create the user channel
@@ -22,7 +23,7 @@ const createChannelService = async (
       image,
       description,
       slug,
-      workspace: workspaceID,
+      workspaceid,
     },
   });
 
@@ -44,6 +45,31 @@ const getAllUserChannelService = async (userid) => {
     },
   });
   return channel;
+};
+// @description  DELETE a User's channel Service
+const getSingleChannelService = async (workspaceid, id) => {
+  const channelExist = await prisma.channel.findFirst({
+    where: { id, workspaceid },
+    select: {
+      channeluser: {
+        select: {
+          user: {
+            select: {
+              name: true,
+              id:true,
+              username: true,
+              image: true,
+            },
+          },
+        },
+      },
+      message: true,
+    },
+  });
+
+  if (!channelExist) throw new Error("Channel not found.");
+
+  return channelExist;
 };
 
 // @description  DELETE a User's channel Service
@@ -94,4 +120,5 @@ export {
   deleteChannelService,
   getASingleChannelService,
   getChannelUserService,
+  getSingleChannelService,
 };

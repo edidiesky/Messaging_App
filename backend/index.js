@@ -30,6 +30,7 @@ import uploadRoute from "./routes/uploadRoute.js";
 import ConversationRoute from "./routes/conversationRoutes.js";
 import messageRoute from "./routes/messageRoutes.js";
 import workspaceRoute from "./routes/workspaceRoutes.js";
+import channelRoute from "./routes/channelRoutes.js";
 import { initSocket } from "./config/socket.js";
 // notificationRoutes
 
@@ -39,6 +40,7 @@ app.use("/api/v1/upload", uploadRoute);
 app.use("/api/v1/conversation", ConversationRoute);
 app.use("/api/v1/message", messageRoute);
 app.use("/api/v1/workspace", workspaceRoute);
+app.use("/api/v1/channel", channelRoute);
 // // Middlewares
 app.use(NotFound);
 app.use(errorHandler);
