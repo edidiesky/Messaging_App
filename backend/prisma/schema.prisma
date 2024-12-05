@@ -46,7 +46,6 @@ model WorkSpace {
   lastMessageAt DateTime        @default(now())
   channel       Channel[]
   users         WorkSpaceUser[]
-  Message       Message[]
 }
 
 model WorkSpaceUser {
@@ -91,6 +90,8 @@ model Message {
   userid      String    @db.ObjectId
   user        User      @relation(fields: [userid], references: [id])
   createdAt   DateTime  @default(now())
-  workspaceid String    @db.ObjectId
-  workspace   WorkSpace @relation(fields: [workspaceid], references: [id])
+
+  parentid String?   @db.ObjectId
+  parent   Message?  @relation("Thread", fields: [parentid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  replies  Message[] @relation("Thread")
 }

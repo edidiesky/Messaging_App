@@ -63,7 +63,7 @@ const getSingleChannelService = async (workspaceid, id) => {
           },
         },
       },
-      message: true,
+      message: true
     },
   });
 
@@ -108,7 +108,8 @@ const getChannelUserService = async (userid, channelid) => {
 // @description  Update a Single User's channel Service
 const updateChannelService = async (userid, channelid, role, body) => {
   let updatedChannel = await prisma.channelUser.update({
-    where: { userid, channelid, role, body },
+    where: { userid, channelid },
+    data: { role, body },
   });
   return updatedChannel;
 };

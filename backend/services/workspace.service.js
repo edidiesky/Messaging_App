@@ -43,6 +43,29 @@ const getAllUserWorkSpaceService = async (userid) => {
   });
 };
 
+// @description  Get all User's WorkSpace Service
+const getASingleUserWorkSpaceService = async (userid, workspaceid, id) => {
+  let workSpace = await prisma.workSpaceUser.findFirst({
+    where: { userid, id, workspaceid },
+    select: {
+      id: true,
+      workspace: {
+        select: {
+          name: true,
+          id: true,
+          slug: true,
+          channel: {
+            select: {
+              id: true,
+              name: true,
+            },
+          },
+        },
+      },
+    },
+  });
+  return workSpace
+};
 // @description  DELETE a User's WorkSpace Service
 const deleteWorkSpaceService = async (workspaceuserid, workspaceid, userid) => {
   const isAdmin = await prisma.workSpaceUser.findFirst({
@@ -90,4 +113,5 @@ export {
   deleteWorkSpaceService,
   getASingleWorkSpaceService,
   getWorkSpaceUserService,
+  getASingleUserWorkSpaceService,
 };

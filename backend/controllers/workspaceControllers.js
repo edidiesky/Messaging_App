@@ -6,6 +6,7 @@ import {
   deleteWorkSpaceService,
   getWorkSpaceUserService,
   updateWorkSpaceService,
+  getASingleUserWorkSpaceService,
 } from "../services/workspace.service.js";
 import {
   BAD_REQUEST_STATUS_CODE,
@@ -43,9 +44,29 @@ const createWorkSpace = asyncHandler(async (req, res) => {
 // @access  Private
 const getAllUserWorkSpace = asyncHandler(async (req, res) => {
   const tokenUserId = req.user?.userId;
+  const workspaceID = req.params?.id;
 
-  let workSpaces = await getAllUserWorkSpaceService(tokenUserId);
+  let workSpaces = await getAllUserWorkSpaceService(tokenUserId, workspaceID);
   res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(workSpaces);
+});
+
+// @description  GET A Single User's workSpace
+// @route  GET /workSpace/:id/:workspaceuserid
+// @access  Private
+const getASingleUserWorkSpace = asyncHandler(async (req, res) => {
+  const tokenUserId = req.user?.userId;
+  const { workspaceuserid: workspaceuserid, id: workspaceid } = req.params;
+
+  if (!workspaceuserid || !workspaceid) {
+    res.status(BAD_REQUEST_STATUS_CODE);
+    throw new Error("Workspace ID and WorkspaceUser ID are needed");
+  }
+  let workSpace = await getASingleUserWorkSpaceService(
+    tokenUserId,
+    workspaceid,
+    workspaceuserid
+  );
+  res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(workSpace);
 });
 
 // @description  DELETE a User's workSpace
@@ -98,4 +119,5 @@ export {
   DeleteWorkSpace,
   getAllUserWorkSpace,
   UpdateWorkSpace,
+  getASingleUserWorkSpace,
 };

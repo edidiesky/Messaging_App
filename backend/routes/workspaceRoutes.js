@@ -7,6 +7,7 @@ import {
   DeleteWorkSpace,
   getAllUserWorkSpace,
   UpdateWorkSpace,
+  getASingleUserWorkSpace,
 } from "../controllers/workspaceControllers.js";
 import checkRole from "../middleware/checkRole.js";
 import { validate } from "../middleware/validation.js";
@@ -21,6 +22,7 @@ router
   .get(authMiddleware, getAllUserWorkSpace);
 router
   .route("/:id/:workspaceuserid")
+  .get(authMiddleware, getASingleUserWorkSpace)
   .delete(authMiddleware, checkRole("admin"), DeleteWorkSpace)
   .put(
     authMiddleware,
