@@ -10,7 +10,7 @@ const MessageHeader = ({ setActive, active }: {
     return (
         <div style={{
             backdropFilter: "blur(54px)"
-        }} className='bg-[rgba(255,255,255,0.2)] min-h-[63px] items-center sticky top-0 flex border-b w-full px-4'>
+        }} className='bg-[rgba(255,255,255,0.2)] min-h-[63px] items-center sticky top-0 flex border-b border-[#F3F3EE] w-full px-4'>
             <div className="flex w-full items-center justify-between gap-4">
                 <div className="flex p-1 px-3 hover:bg-[#eee] cursor-pointer rounded-lg items-center gap-4">
                     <Image
