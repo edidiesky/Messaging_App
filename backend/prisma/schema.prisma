@@ -16,11 +16,17 @@ enum RoleStatus {
   moderator
 }
 
+enum InvitationStatus {
+  pending
+  accepted
+  rejected
+}
+
 model User {
-  id                          String          @id @default(auto()) @map("_id") @db.ObjectId
+  id                          String                @id @default(auto()) @map("_id") @db.ObjectId
   name                        String
   username                    String
-  email                       String?         @unique
+  email                       String?               @unique
   phone                       String?
   emailVerified               DateTime?
   image                       String?
@@ -29,23 +35,25 @@ model User {
   resetPasswordToken          String?
   verifiedTokenExpiresAt      DateTime?
   resetPasswordTokenExpiresAt DateTime?
-  createdAt                   DateTime        @default(now())
-  updatedAt                   DateTime        @updatedAt
+  createdAt                   DateTime              @default(now())
+  updatedAt                   DateTime              @updatedAt
   WorkSpaceUser               WorkSpaceUser[]
   ChannelUser                 ChannelUser[]
   Message                     Message[]
+  WorkSpaceUserInvite         WorkSpaceUserInvite[]
 }
 
 model WorkSpace {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  description   String?
-  image         String?
-  slug          String          @unique
-  createdAt     DateTime        @default(now())
-  lastMessageAt DateTime        @default(now())
-  channel       Channel[]
-  users         WorkSpaceUser[]
+  id                  String                @id @default(auto()) @map("_id") @db.ObjectId
+  name                String
+  description         String?
+  image               String?
+  slug                String                @unique
+  createdAt           DateTime              @default(now())
+  lastMessageAt       DateTime              @default(now())
+  channel             Channel[]
+  users               WorkSpaceUser[]
+  WorkSpaceUserInvite WorkSpaceUserInvite[]
 }
 
 model WorkSpaceUser {
@@ -56,6 +64,20 @@ model WorkSpaceUser {
   workspace   WorkSpace  @relation(fields: [workspaceid], references: [id])
   userid      String     @db.ObjectId
   user        User       @relation(fields: [userid], references: [id])
+}
+
+model WorkSpaceUserInvite {
+  id                       String           @id @default(auto()) @map("_id") @db.ObjectId
+  invitationtoken          String           @unique
+  userEmail                String?
+  createdAt                DateTime         @default(now())
+  invitationtokenexpiresAt DateTime
+  role                     RoleStatus       @default(user)
+  status                   InvitationStatus @default(pending)
+  workspaceid              String           @db.ObjectId
+  workspace                WorkSpace        @relation(fields: [workspaceid], references: [id])
+  invitedByUserid          String           @db.ObjectId
+  invitedBy                User             @relation(fields: [invitedByUserid], references: [id])
 }
 
 model Channel {
@@ -82,14 +104,14 @@ model ChannelUser {
 }
 
 model Message {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  body        String?
-  image       String?
-  channelid   String    @db.ObjectId
-  channel     Channel   @relation(fields: [channelid], references: [id])
-  userid      String    @db.ObjectId
-  user        User      @relation(fields: [userid], references: [id])
-  createdAt   DateTime  @default(now())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  body      String?
+  image     String?
+  channelid String   @db.ObjectId
+  channel   Channel  @relation(fields: [channelid], references: [id])
+  userid    String   @db.ObjectId
+  user      User     @relation(fields: [userid], references: [id])
+  createdAt DateTime @default(now())
 
   parentid String?   @db.ObjectId
   parent   Message?  @relation("Thread", fields: [parentid], references: [id], onDelete: NoAction, onUpdate: NoAction)
