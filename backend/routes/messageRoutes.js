@@ -3,19 +3,28 @@ const router = express.Router();
 
 import { authMiddleware } from "../middleware/authentication.js";
 import {
-  createMessage,
-  DeleteMessage,
-  getAllMessageofAConversation,
-  UpdateMessage,
+  createMessageHandler,
+  updateMessageHandler,
+  getChannelMessageHandler,
+  deleteMessageHandler,
+  getASingleMessageThreadHandler,
+  ReplyToMessageHandler,
 } from "../controllers/messageControllers.js";
+import { validate } from "../middleware/validation.js";
+import {
+  createMessageSchema,
+  updateMessageSchema,
+} from "../validations/message.validation.js";
 
 router
   .route("/:id")
-  .post(authMiddleware, createMessage)
-  .get(authMiddleware, getAllMessageofAConversation);
+  .post(authMiddleware, validate(createMessageSchema), createMessageHandler)
+  .get(authMiddleware, getChannelMessageHandler);
 router
-  .route("/:id/:conversationid")
-  .delete(authMiddleware, DeleteMessage)
-  .put(authMiddleware, UpdateMessage);
+  .route("/:id/:channelid")
+  .delete(authMiddleware, deleteMessageHandler)
+  .post(authMiddleware, validate(createMessageSchema), ReplyToMessageHandler)
+  .get(authMiddleware, getASingleMessageThreadHandler)
+  .put(authMiddleware, validate(updateMessageSchema), updateMessageHandler);
 
 export default router;

@@ -51,6 +51,7 @@ const getSingleChannelService = async (workspaceid, id) => {
   const channelExist = await prisma.channel.findFirst({
     where: { id, workspaceid },
     select: {
+      id:true,
       channeluser: {
         select: {
           user: {

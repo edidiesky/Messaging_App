@@ -1,170 +1,111 @@
 import asyncHandler from "express-async-handler";
-import prisma from "../prisma/index.js";
-import { publishMessage } from "../services/messageServices.js";
+import {
+  createMessageService,
+  deleteMessageService,
+  getASingleMessageThreadService,
+  getChannelMessageService,
+  ReplyToMessageService,
+  updateMessageService,
+} from "../services/message.service.js";
+import {
+  SUCCESSFULLY_CREATED_STATUS_CODE,
+  SUCCESSFULLY_FETCHED_STATUS_CODE,
+} from "../constants.js";
+
 // @description  Create a User's message
-// @route  POST /message/:conversationid
+// @route  POST /message/:channelid
 // @access  Private
-const createMessage = asyncHandler(async (req, res) => {
+const createMessageHandler = asyncHandler(async (req, res) => {
   // get the body message
-  const conversationId = req.params.id;
-  const { body, image, receiverId } = req.body;
-  // console.log(conversationId)
-  const senderid = req.user?.userId;
-  const conversation = await prisma.conversations.findFirst({
-    where: {
-      id: conversationId,
-      userIds: {
-        hasSome: [senderid],
-      },
-    },
-  });
-  if (!conversation) {
-    res.status(404);
-    throw new Error(
-      "You are not authorized to send messages in this conversation."
-    );
-  }
-  // created the user message
-  const message = await prisma.message.create({
-    data: {
-      body,
-      conversationId,
-      senderId: senderid,
-      image,
-      receiverId: receiverId,
-    },
-  });
-  // updated the conversation
-  await prisma.conversations.update({
-    where: {
-      id: conversationId,
-    },
-    data: {
-      seenBy: [senderid],
-      lastMessage: body,
-      lastMessageAt: new Date(),
-    },
-  });
-  await publishMessage({
-    conversationId,
-    ...message,
-  });
-  res.status(200).json(message);
+  const { body, image } = req.body;
+  const tokenUserID = req.user?.userId;
+  const channelID = req.params?.id;
+  const message = await createMessageService(
+    body,
+    image,
+    tokenUserID,
+    channelID
+  );
+  res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(message);
 });
-  
-// @description  GET All User's message
-// @route  GET /message/:conversationid
+// ReplyToMessageService
+// @description  Create a User's message
+// @route  POST /message/:messageid/:channelid
 // @access  Private
-const getAllMessageofAConversation = asyncHandler(async (req, res) => {
-  const tokenUserId = req.user?.userId;
-  const conversationId = req.params.id;
-  const conversation = await prisma.conversations.findUnique({
-    where: {
-      id: conversationId,
-      userIds: {
-        hasSome: [tokenUserId],
-      },
-    },
-  });
-  if (!conversation) {
-    res.status(404);
-    throw new Error("You are not authorized to view this message");
-  }
-  let messages = await prisma.message.findMany({
-    where: {
-      conversationId: conversationId,
-    },
-    include: {
-      sender: {
-        select: {
-          name: true,
-          id: true,
-          image: true,
-        },
-      },
-    },
-  });
-  res.status(200).json({ message: messages });
+const ReplyToMessageHandler = asyncHandler(async (req, res) => {
+  // get the body message
+  const { body, image } = req.body;
+  const tokenUserID = req.user?.userId;
+  const { channelid: channelid, id: messageid } = req.params;
+
+  const message = await ReplyToMessageService(
+    body,
+    image,
+    tokenUserID,
+    channelid,
+    messageid
+  );
+  res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(message);
+});
+// @description  GET All channel's message
+// @route  GET /message/:channelID
+// @access  Private
+const getChannelMessageHandler = asyncHandler(async (req, res) => {
+  const channelID = req.params.id;
+  const message = await getChannelMessageService(channelID);
+  res.status(SUCCESSFULLY_FETCHED_STATUS_CODE).json(message);
+});
+
+// @description  GET All channel's message
+// @route  GET /message/:messageid/:channelid
+// @access  Private
+const getASingleMessageThreadHandler = asyncHandler(async (req, res) => {
+  const { channelid: channelid, id: messageid } = req.params;
+
+  const message = await getASingleMessageThreadService(channelid, messageid);
+  res.status(SUCCESSFULLY_FETCHED_STATUS_CODE).json(message);
 });
 
 // @description  DELETE a Single User's message
-// @route  DELETE /message/:conversationid/:id
+// @route  DELETE /message/:messageid/:channelid
 // @access  Private
-const DeleteMessage = asyncHandler(async (req, res) => {
-  const tokenUserId = req.user?.userId;
-  const { conversationid: conversationId, id: messageId } = req.params;
-  // checking if the user is part of the conversation
-  const conversation = await prisma.conversations.findUnique({
-    where: {
-      id: conversationId,
-      userIds: {
-        hasSome: [tokenUserId],
-      },
-    },
-  });
-
-  if (!conversation) {
-    res.status(403); // forbidden since the user is not part of the chat conversation
-    throw new Error(
-      "You are not authorized to delete messages in this conversation."
-    );
+const deleteMessageHandler = asyncHandler(async (req, res) => {
+  const { channelid: channelid, id: messageid } = req.params;
+  const tokenUserID = req.user?.userId;
+  const deletedMessage = await deleteMessageService(
+    channelid,
+    messageid,
+    tokenUserID
+  );
+  if (!deletedMessage) {
+    res.status(UNAUTHORIZED_STATUS_CODE);
+    throw new Error("message was not found, unauthorized action");
   }
-  // deleting th emssage
-
-  const deletedMessage = await prisma.message.delete({
-    where: {
-      conversationId: conversationId,
-      senderId: tokenUserId,
-      id: messageId,
-    },
-  });
-  if (deletedMessage.count === 0) {
-    res.status(403);
-    throw new Error("Message was not found, unauthorized action");
-  }
-  res.status(200).json({ message: "Message has been  deleted succesfully" });
+  res
+    .status(SUCCESSFULLY_FETCHED_STATUS_CODE)
+    .json({ message: "Message has being succesfully deleted" });
 });
-// @description  Update a Single User's message
-// @route  PUT /message/:conversationid/:id
-// @access  Private
-const UpdateMessage = asyncHandler(async (req, res) => {
-  const tokenUserId = req.user?.userId;
-  const { conversationid: conversationId, id: messageId } = req.params;
 
-  const conversation = await prisma.conversations.findUnique({
-    where: {
-      id: conversationId,
-      userIds: {
-        hasSome: [tokenUserId],
-      },
-    },
-  });
-  if (!conversation) {
-    res.status(403); // forbidden since the user is not part of the chat conversation
-    throw new Error(
-      "You are not authorized to send messages in this conversation."
-    );
-  }
-  const newMessage = await prisma.message.update({
-    where: {
-      conversationId: conversationId,
-      senderId: tokenUserId,
-      id: messageId,
-    },
-    data: {
-      ...req.body,
-    },
-  });
-  if (newMessage.count === 0) {
-    res.status(403);
-    throw new Error("Message was not found, unauthorized action");
-  }
-  res.status(200).json({ message: newMessage });
+// @description  Update a Single User's message
+// @route  PUT /message/:messageid/:channelid
+// @access  Private
+const updateMessageHandler = asyncHandler(async (req, res) => {
+  const { channelid: channelid, id: messageid } = req.params;
+  const tokenUserID = req.user?.userId;
+  const message = await updateMessageService(
+    tokenUserID,
+    channelid,
+    messageid,
+    ...req.body
+  );
+  res.status(SUCCESSFULLY_FETCHED_STATUS_CODE).json(message);
 });
 
 export {
-  createMessage,
-  DeleteMessage,
-  getAllMessageofAConversation,
-  UpdateMessage,
+  createMessageHandler,
+  updateMessageHandler,
+  getChannelMessageHandler,
+  deleteMessageHandler,
+  getASingleMessageThreadHandler,
+  ReplyToMessageHandler,
 };

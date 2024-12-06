@@ -6,7 +6,19 @@ const createMessageService = async (body, image, userid, channelid) => {
     data: { body, image, userid, channelid },
   });
 };
-
+// @description  Reply to parent message Service
+const ReplyToMessageService = async (
+  body,
+  image,
+  userid,
+  channelid,
+  parentid
+) => {
+  // create the user message thread
+  return await prisma.message.create({
+    data: { body, image, userid, channelid, parentid },
+  });
+};
 // @description  Get all User's message Service
 const getChannelMessageService = async (channelid) => {
   // fetched the messages that had no threads
@@ -23,7 +35,7 @@ const getChannelMessageService = async (channelid) => {
 // @description  DELETE a User's message Service
 const getASingleMessageThreadService = async (channelid, id) => {
   // fetched the messages that had no threads
-  let message = await prisma.message.findUnique({
+  let message = await prisma.message.findFirst({
     where: { channelid, id },
     include: {
       replies: {
@@ -43,7 +55,7 @@ const getASingleMessageThreadService = async (channelid, id) => {
 
 // @description  DELETE a User's message Service
 const deleteMessageService = async (channelid, id, userid) => {
-  const isOwner = await prisma.message.findFirst({
+  const isOwner = await prisma.message.findUnique({
     where: { channelid, userid, id },
   });
 
@@ -64,13 +76,13 @@ const updateMessageService = async (userid, channelid, id, body) => {
   if (!isOwner)
     throw new Error("You are not authorized to update this message.");
 
-  let updatedChannel = await prisma.message.update({
-    where: { userid, channelid, id },
+  let updatedMessage = await prisma.message.update({
+    where: { id },
     data: {
       body,
     },
   });
-  return updatedChannel;
+  return updatedMessage;
 };
 
 export {
@@ -79,4 +91,5 @@ export {
   getChannelMessageService,
   deleteMessageService,
   getASingleMessageThreadService,
+  ReplyToMessageService,
 };

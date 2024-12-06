@@ -36,7 +36,7 @@ const createWorkSpace = asyncHandler(async (req, res) => {
     tokenUserID
   );
 
-  res.status(201).json(workSpace);
+  res.status(SUCCESSFULLY_CREATED_STATUS_CODE).json(workSpace);
 });
 
 // @description  GET All User's workSpace
