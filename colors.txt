@@ -7,4 +7,5 @@
 
 ________ Maun style
 sidebar_small:#E8E8E8 OR #FFF5D1
+
 big-sidebar:#F9F9F9

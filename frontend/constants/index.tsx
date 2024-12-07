@@ -4,7 +4,7 @@ export const userDashboardLinks = [
     {
         id: 6,
         tab: {
-            icon: <BiSolidDashboard fontSize={"22px"} />,
+            icon: <BiSolidDashboard fontSize={"16px"} />,
             title: "Home",
             path: "/",
         },
@@ -34,7 +34,7 @@ export const sidebarLinksData = [
     {
         id: 6,
         tab: {
-            icon: <BiMessage fontSize={"22px"} />,
+            icon: <BiMessage fontSize={"16px"} />,
             title: "Threads",
             path: "/threads",
         },
@@ -43,7 +43,7 @@ export const sidebarLinksData = [
     {
         id: 210,
         tab: {
-            icon: <FaBookmark fontSize={"20px"} />,
+            icon: <FaBookmark fontSize={"16px"} />,
             title: "Bookmarks",
             path: "/Bookmarks",
         },
@@ -52,7 +52,32 @@ export const sidebarLinksData = [
 
 ]
 
+export const channelListsData = [
+    {
+        name: "General-Chat"
+    },
+    {
+        name: "Dev-team"
+    },
+    {
+        name: "Product Updates"
+    }, {
+        name: "Random"
+    }, {
+        name: "Projects"
+    }, {
+        name: "Events"
+    }, {
+        name: "Shoutouts"
+    }, {
+        name: "Strategy"
+    }, {
+        name: "Dev-Team"
+    }, {
+        name: "Product-team"
+    },
 
+]
 export type ProfileFormDataItem = {
     id: number;
     name: keyof FormValueType; // It ensures the name corresponds to keys in FormValueType

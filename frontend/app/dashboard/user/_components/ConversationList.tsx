@@ -29,7 +29,7 @@ const ConversationList = ({ }) => {
                     sidebarLinksData?.slice(0, 2).map((link, index) => {
                         return (
                             <Link key={index} href={`/workspace/user${link?.tab?.path}`}
-                                className='flex w-full hover:bg-[#F3F3EE] rounded-lg px-4 py-3 items-center text-sm gap-4'>
+                                className='flex w-full hover:bg-[#F3F3EE] rounded-lg family2 px-4 py-3 items-center text-sm gap-4'>
                                 {link.tab?.icon}
                                 {link?.tab?.title}
                             </Link>
@@ -42,9 +42,9 @@ const ConversationList = ({ }) => {
                 <div className="w-full px-2">
                     <Collapsible style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
-                            <button className='flex w-full hover:bg-[#F3F3EE] rounded-lg px-4 py-3 items-center text-sm gap-4'>
-                                <GoChevronDown /> <span className="text-sm">Channels</span>
-                            </button>
+                            <span className='flex w-full hover:bg-[#F3F3EE] rounded-lg px-4 py-3 items-center text-sm gap-4'>
+                                <GoChevronDown /> <span className="text-sm family2">Channels</span>
+                            </span>
                         </CollapsibleTrigger>
                         <CollapsibleContent>
                             {["General", 'Frontend Guys', 'Backend Guys', 'Dev Ops'].map((data, index) => {
@@ -58,9 +58,9 @@ const ConversationList = ({ }) => {
                 <div className="w-full px-2">
                     <Collapsible style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
-                            <button className='flex w-full hover:bg-[#F3F3EE] rounded-lg px-4 py-3 items-center text-sm gap-4'>
-                                <GoChevronDown /> <span className="text-sm">Direct Messages</span>
-                            </button>
+                            <span className='flex w-full hover:bg-[#F3F3EE] rounded-lg px-4 py-3 items-center text-sm gap-4'>
+                                <GoChevronDown /> <span className="text-sm family2">Direct Messages</span>
+                            </span>
                         </CollapsibleTrigger>
                         <CollapsibleContent>
                             {["General", 'Frontend Guys', 'Backend Guys', 'Dev Ops'].map((data, index) => {
