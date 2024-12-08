@@ -380,14 +380,7 @@ export type MockMessageType = {
         name: string,
         id: string,
     };
-    receiver: {
-        image: string,
-        name: string,
-        id: string,
-
-    };
     senderid?: string;
-    receiverid?: string;
     text: string;
     image?: string;
     createdAt?: string;
@@ -395,16 +388,10 @@ export type MockMessageType = {
 
 export const MockMessages: MockMessageType[] = [
     {
-        receiver: {
-            name: "Mike Micheal",
-            image: "/images/user_1.jpg",
-            id: "347489409dkcncbdgye74"
-        },
-        text: "Absolutely consistency is key for usability. We'll ensure that the layout is uniform across..",
+
+        text: "Hey guys, I have prepared all the styles and components according to our standards needed for the app development. All that remains is to add the states to the interactive elements.",
         createdAt: "20th November 2024",
         image: "",
-
-        receiverid: "347489409dkcncbdgye74",
         senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Kristin Watson",
@@ -413,7 +400,32 @@ export const MockMessages: MockMessageType[] = [
         }
     },
     {
-        receiverid: "347489409dkcncbdgye74",
+
+        senderid: "ryrg34555dgdhfkfgogusga",
+        sender: {
+            name: "Janel Kaurtney",
+            image: "/images/user_3.jpg",
+            id: "347489409dkcncbdgye74"
+        },
+        text: "Hey guys dont forget our meeting! I will be waiting for you guys at coxy 11:30am. Please endeavour to be there very early!",
+        createdAt: "20th November 2024",
+        image: "",
+
+
+    },
+    {
+
+        text: "Absolutely consistency is key for usability. We'll ensure that the layout is uniform across..",
+        createdAt: "20th November 2024",
+        image: "",
+        senderid: "ryrg34555dgdhfkfgogusga",
+        sender: {
+            name: "Kristin Watson",
+            image: "/images/user_2.jpg",
+            id: "ryrg34555dgdhfkfgogusga"
+        }
+    },
+    {
         senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Mike Micheal",
@@ -423,14 +435,10 @@ export const MockMessages: MockMessageType[] = [
         text: "Great, thank you Kristin. i think we should foster the onboarding process to be more seamless",
         createdAt: "20th November 2024",
         image: "/images/upload_1.jpeg",
-        receiver: {
-            name: "Kristin Watson",
-            image: "/images/user_2.jpg",
-            id: "ryrg34555dgdhfkfgogusga"
-        }
+
     },
     {
-        receiverid: "347489409dkcncbdgye74",
+
         senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Mike Micheal",
@@ -439,15 +447,12 @@ export const MockMessages: MockMessageType[] = [
         },
         text: "This is a key issue. We will work on improving the dashboard enforcing usability across",
         createdAt: "20th November 2024",
-        image: "",
-        receiver: {
-            name: "Kristin Watson",
-            image: "/images/user_2.jpg",
-            id: "ryrg34555dgdhfkfgogusga"
-        }
+        image: "/images/upload_3.jpeg",
+
+
     },
     {
-        receiverid: "347489409dkcncbdgye74",
+
         senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Mike Micheal",
@@ -458,22 +463,15 @@ export const MockMessages: MockMessageType[] = [
         createdAt: "20th November 2024",
         image: "/images/upload_2.jpeg",
 
-        receiver: {
-            name: "Kristin Watson",
-            image: "/images/user_2.jpg",
-            id: "ryrg34555dgdhfkfgogusga"
-        }
+
     },
     {
-        receiver: {
-            name: "Mike Micheal",
-            image: "/images/user_1.jpg",
-            id: "347489409dkcncbdgye74"
-        },
+
         text: "I just recall the issue Amazon had in refining her Dashboard which led to a 25% decrease in interaction among her clients.. What do you think about this",
         createdAt: "20th November 2024",
-        image: "",
-        receiverid: "347489409dkcncbdgye74",
+        image: "/images/upload_4.jpeg",
+
+
         senderid: "ryrg34555dgdhfkfgogusga",
         sender: {
             name: "Kristin Watson",

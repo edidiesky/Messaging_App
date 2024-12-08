@@ -5,7 +5,7 @@ import { MockUserList } from "@/constants";
 import { GoPlus } from "react-icons/go";
 import { TbDotsVertical } from "react-icons/tb";
 import { FiSettings } from "react-icons/fi";
-
+import { RiSideBarLine } from "react-icons/ri";
 import { PiDotsThreeCircleFill } from "react-icons/pi";
 import { IoCheckmarkOutline } from "react-icons/io5";
 const MessageHeader = ({ setActive, active }: {
@@ -42,7 +42,7 @@ const MessageHeader = ({ setActive, active }: {
                    </h4>
                 </div>
 
-                <div className="flex flex-1 justify-end items-center gap-6">
+                <div className="flex flex-1 justify-end items-center gap-2">
                     {/* <div className="p-2 text-sm border cursor-pointer rounded-full flex items-center gap-2">
                         <IoCheckmarkOutline />
                         Mark as Read
@@ -52,7 +52,7 @@ const MessageHeader = ({ setActive, active }: {
                         {
                             MockUserList?.map((user, index) => {
                                 return (
-                                    <div key={index} className={`${index !== 0 ? "-ml-2 border-[#3e3aff] border-2 p-2" : "p-2"} rounded-full w-[40px] h-[40px] relative`}>
+                                    <div key={index} className={`${index !== 0 ? "-ml-4 border-[#571F6A] border-4 p-2" : "p-2"} rounded-full w-[40px] h-[40px] relative`}>
                                         <Image
                                             src={user?.image}
                                             fill
@@ -64,15 +64,15 @@ const MessageHeader = ({ setActive, active }: {
                                 )
                             })
                         }
-                        <span className="w-[40px] h-[40px] -ml-2 bg-[#3e3aff] text-white p-2 text-base border-2 border-[#fff] rounded-full flex items-center justify-center">
-                            <GoPlus />
+                        <span className="w-[45px] h-[45px] -ml-3 bg-[#571F6A] cursor-pointer text-white p-2 z-4 text-sm border-4 border-[#fff] rounded-full flex items-center justify-center">
+                            10+
                         </span>
                     </div>
-                    <span className="w-[40px] h-[40px] bg-[#fff] text-[#000] hover:bg-[#eee] text-base rounded-full flex items-center justify-center">
+                    <span className="w-[40px] h-[40px] bg-[#fff] cursor-pointer text-[#000] hover:bg-[#eee] text-lg rounded-full flex items-center justify-center">
                         <TbDotsVertical />
                     </span>
-                    <div onClick={() => setActive(!active)} className="w-[40px] h-[40px] bg-[#fff] text-[#000] hover:bg-[#eee] text-base rounded-full flex items-center justify-center">
-                        <FiSettings fontSize={'30px'} />
+                    <div onClick={() => setActive(!active)} className="w-[40px] cursor-pointer h-[40px] bg-[#fff] text-[#000] hover:bg-[#eee] text-base rounded-full flex items-center justify-center">
+                        <RiSideBarLine fontSize={'20px'} />
                     </div>
                 </div>
             </div>

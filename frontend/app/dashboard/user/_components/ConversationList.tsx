@@ -1,16 +1,18 @@
 "use client"
 import Link from 'next/link';
+import { HiUserGroup } from "react-icons/hi2";
 import {
     Collapsible,
     CollapsibleContent,
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
+import { FaHome } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
 import { MockUserList, channelListsData } from "@/constants";
 import ChatList from "./ChatList";
 import Image from "next/image";
-import { IoMdSettings } from "react-icons/io";
-import { BiLink } from "react-icons/bi";
+// import { IoMdSettings } from "react-icons/io";
+import { BiLink, BiPlus } from "react-icons/bi";
 const ConversationList = ({ }) => {
     return (
         <div style={{
@@ -30,7 +32,7 @@ const ConversationList = ({ }) => {
                     sidebarLinksData?.slice(0, 2).map((link, index) => {
                         return (
                             <Link key={index} href={`/workspace/user${link?.tab?.path}`}
-                                className='flex w-full hover:bg-[#F3F3EE] rounded-full family2 px-4 py-3 items-center text-sm gap-4'>
+                                className='flex w-full hover:bg-[#8c5a9b16] rounded-full family2 px-4 py-3 items-center text-sm gap-4'>
                                 {link.tab?.icon}
                                 {link?.tab?.title}
                             </Link>
@@ -39,24 +41,51 @@ const ConversationList = ({ }) => {
                 }
             </div> */}
             <div className="w-full flex flex-col gap-[5px]">
+                <div className="flex flex-col gap-2 w-full">
+                    <span className='flex w-full bg-[#8c5a9b16] hover:bg-[#8c5a9b16] rounded-full px-4 py-[6px] items-center justify-between text-sm gap-4'>
+                        <div className="flex items-center gap-2">
+                            <span className="text-base">Getting Started</span>
+                        </div>
+                        <div className="flex items-center justify-end gap-1">
+                            <GoChevronDown fontSize={'18px'} />
+                            <span className="w-8 h-8 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
+                                <BiPlus fontSize={'18px'} />
+                            </span>
+                        </div>
+                    </span>
+                    <div className="w-full flex flex-col gap-1">
+                        {[{ name: "Home", icon: <FaHome /> }, { name: "Members", icon: <HiUserGroup /> }].map((data, index) => {
+                            return (
+                                <div key={index} className="w-full flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
+                                    <div className="w-8 h-8 bg-[#8c5a9b16] rounded-full flex items-center justify-center">
+                                        {data?.icon}
+                                    </div>
+                                    {data.name}</div>
+                            )
+                        })}
+                    </div>
+                </div>
                 {/* channels */}
                 <div className="w-full">
                     <Collapsible className='space-y-2' style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
-                            <span className='flex w-full bg-[#F3F3EE] hover:bg-[#fafafa] rounded-full px-4 py-2 items-center justify-between text-sm gap-4'>
+                            <span className='flex w-full bg-[#8c5a9b16] hover:bg-[#8c5a9b16] rounded-full px-4 py-[6px] items-center justify-between text-sm gap-4'>
                                 <div className="flex items-center gap-2">
-                                    <GoChevronDown fontSize={'18px'} /> <span className="text-base">Channels</span>
+                                    <span className="text-base">Channels</span>
                                 </div>
-                               <span className="w-8 h-8 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
-                                 <IoMdSettings fontSize={'18px'} />
-                               </span>
+                                <div className="flex items-center justify-end gap-1">
+                                    <GoChevronDown fontSize={'18px'} />
+                                    <span className="w-8 h-8 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
+                                        <BiPlus fontSize={'18px'} />
+                                    </span>
+                                </div>
                             </span>
                         </CollapsibleTrigger>
                         <CollapsibleContent>
-                            {channelListsData.map((data, index) => {
+                            {channelListsData.slice(0, 5).map((data, index) => {
                                 return (
-                                    <div key={index} className="w-full flex cursor-pointer rounded-full items-center py-2 hover:bg-[#fafafa] px-3 gap-3 text-sm">
-                                        <div className="w-8 h-8 bg-[#F3F3EE] rounded-full flex items-center justify-center">
+                                    <div key={index} className="w-full flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
+                                        <div className="w-8 h-8 bg-[#8c5a9b16] rounded-full flex items-center justify-center">
                                             <BiLink fontSize={'16px'} />
                                         </div>
                                         {data.name}</div>
@@ -70,19 +99,22 @@ const ConversationList = ({ }) => {
                 <div className="w-full">
                     <Collapsible className='space-y-2' style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
-                            <span className='flex w-full bg-[#F3F3EE] rounded-full px-4 py-2 items-center justify-between text-sm gap-4'>
+                            <span className='flex w-full bg-[#8c5a9b16] rounded-full px-4 py-[6px] items-center justify-between text-sm gap-4'>
                                 <div className="flex items-center gap-2">
-                                    <GoChevronDown fontSize={'18px'} /> <span className="text-base">Direct Messages</span>
+                                    <span className="text-base">Direct Messages</span>
                                 </div>
-                               <span className="w-8 h-8 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
-                                 <IoMdSettings fontSize={'18px'} />
-                               </span>
+                                <div className="flex items-center justify-end gap-1">
+                                    <GoChevronDown fontSize={'18px'} />
+                                    <span className="w-8 h-8 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
+                                        <BiPlus fontSize={'18px'} />
+                                    </span>
+                                </div>
                             </span>
                         </CollapsibleTrigger>
                         <CollapsibleContent>
                             {MockUserList.map((data, index) => {
                                 return (
-                                    <div key={index} className="w-full flex cursor-pointer rounded-full items-center py-2 hover:bg-[#fafafa] px-3 gap-3 text-sm">
+                                    <div key={index} className="w-full flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
                                         <Image
                                             width={35}
                                             height={35}
