@@ -8,7 +8,8 @@ import {
 import { GoChevronDown } from "react-icons/go";
 import { MockUserList, channelListsData } from "@/constants";
 import ChatList from "./ChatList";
-import { BsSearch } from 'react-icons/bs';
+import Image from "next/image";
+
 import { BiLink } from "react-icons/bi";
 const ConversationList = ({ }) => {
     return (
@@ -40,7 +41,7 @@ const ConversationList = ({ }) => {
             <div className="w-full flex flex-col gap-[5px]">
                 {/* channels */}
                 <div className="w-full">
-                    <Collapsible style={{ width: "100%" }}>
+                    <Collapsible className='space-y-2' style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
                             <span className='flex w-full bg-[#F3F3EE] hover:bg-[#fafafa] rounded-lg px-4 py-3 items-center justify-between text-sm gap-4'>
                                 <span className="text-base">Channels</span>  <GoChevronDown fontSize={'20px'} />
@@ -62,19 +63,23 @@ const ConversationList = ({ }) => {
 
                 {/* direct messages */}
                 <div className="w-full">
-                    <Collapsible style={{ width: "100%" }}>
+                    <Collapsible className='space-y-2' style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
                             <span className='flex w-full bg-[#F3F3EE] rounded-lg px-4 py-3 items-center justify-between text-sm gap-4'>
                                 <span className="text-base">Direct Messages</span>       <GoChevronDown fontSize={'20px'} />
                             </span>
                         </CollapsibleTrigger>
                         <CollapsibleContent>
-                            {channelListsData.map((data, index) => {
+                            {MockUserList.map((data, index) => {
                                 return (
                                     <div key={index} className="w-full flex cursor-pointer rounded-lg items-center py-2 hover:bg-[#fafafa] px-3 gap-3 text-sm">
-                                        <div className="w-8 h-8 bg-[#F3F3EE] rounded-full flex items-center justify-center">
-                                            <BiLink fontSize={'16px'} />
-                                        </div>
+                                        <Image
+                                            width={26}
+                                            height={26}
+                                            className='w-[26px] h-[26px] rounded-full object-cover'
+                                            src={data?.image}
+                                            alt="message_image"
+                                        />
                                         {data.name}</div>
                                 )
                             })}
