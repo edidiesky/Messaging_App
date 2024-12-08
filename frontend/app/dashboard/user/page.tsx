@@ -17,7 +17,7 @@ export default function Home() {
           <span className="text-sm md:text-base text-[#3e3aff] family2">48 New</span>
         </h4>
       </div> */}
-      <Header title="Development Rate" />
+      <Header title="Dev Expert" />
       <ConversationList />
     </div>
   );

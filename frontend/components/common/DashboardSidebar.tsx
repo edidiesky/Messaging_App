@@ -23,7 +23,7 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                                 return (
                                     <Link key={index} href={`/workspace/user${link?.tab?.path}`}
                                         className='flex justify-center w-full flex-col text-xs text-[#fff] items-center gap-1'>
-                                        <div className="w-[50px] h-[45px] rounded-lg flex
+                                        <div className="w-[50px] h-[45px] rounded-full flex
                                          bg-[#733590] hover:bg-[#9c48c3da] items-center justify-center text-xl text-[#fff]">
                                             {link.tab?.icon}
                                         </div>
@@ -34,7 +34,7 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                         }
                         <button
                             className='flex justify-center w-full flex-col text-xs text-[#fff] items-center gap-1'>
-                            <div className="w-[50px] h-[45px] rounded-lg flex bg-[#733590] hover:bg-[#9c48c3da] items-center justify-center text-xl text-[#fff]">
+                            <div className="w-[50px] h-[45px] rounded-full flex bg-[#733590] hover:bg-[#9c48c3da] items-center justify-center text-xl text-[#fff]">
                                 <FiPlus />
                             </div>
                             Add Channel
@@ -47,7 +47,7 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                     <button
                         className='flex justify-center w-full flex-col text-xs text-[#fff] items-center gap-1'>
                         Account
-                        <div className="w-[50px] h-[45px] rounded-lg flex bg-[#2fff66] items-center
+                        <div className="w-[50px] h-[45px] rounded-full flex bg-[#2fff66] items-center
                          justify-center text-xl text-[#3E595E]">
                             V
                         </div>
