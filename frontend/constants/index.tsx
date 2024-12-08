@@ -66,16 +66,18 @@ export const channelListsData = [
     }, {
         name: "Projects"
     }, {
-        name: "Events"
-    }, {
-        name: "Shoutouts"
-    }, {
         name: "Strategy"
     }, {
         name: "Dev-Team"
     }, {
         name: "Product-team"
     },
+
+    //  {
+    //     name: "Events"
+    // }, {
+    //     name: "Shoutouts"
+    // },
 
 ]
 export type ProfileFormDataItem = {

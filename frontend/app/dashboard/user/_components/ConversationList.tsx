@@ -6,10 +6,10 @@ import {
     CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { GoChevronDown } from "react-icons/go";
-import { MockUserList, sidebarLinksData } from "@/constants";
+import { MockUserList, channelListsData } from "@/constants";
 import ChatList from "./ChatList";
 import { BsSearch } from 'react-icons/bs';
-
+import { BiLink } from "react-icons/bi";
 const ConversationList = ({ }) => {
     return (
         <div style={{
@@ -24,7 +24,7 @@ const ConversationList = ({ }) => {
                 <input type="text" placeholder='Search anything' className="text-base pl-12 font-normal bg-white rounded-full w-full " />
             </form> */}
             {/* messages */}
-            <div className="w-full flex flex-col">
+            {/* <div className="w-full flex flex-col">
                 {
                     sidebarLinksData?.slice(0, 2).map((link, index) => {
                         return (
@@ -36,40 +36,52 @@ const ConversationList = ({ }) => {
                         )
                     })
                 }
-            </div>
-           <div className="w-full flex flex-col">
+            </div> */}
+            <div className="w-full flex flex-col gap-[5px]">
                 {/* channels */}
-                <div className="w-full px-2">
+                <div className="w-full">
                     <Collapsible style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
-                            <span className='flex w-full hover:bg-[#F3F3EE] rounded-lg px-4 py-3 items-center text-sm gap-4'>
-                                <GoChevronDown /> <span className="text-sm family2">Channels</span>
+                            <span className='flex w-full bg-[#F3F3EE] hover:bg-[#fafafa] rounded-lg px-4 py-3 items-center justify-between text-sm gap-4'>
+                                <span className="text-base">Channels</span>  <GoChevronDown fontSize={'20px'} />
                             </span>
                         </CollapsibleTrigger>
                         <CollapsibleContent>
-                            {["General", 'Frontend Guys', 'Backend Guys', 'Dev Ops'].map((data, index) => {
-                                return <div key={index} className="w-full px-4 text-sm">{data}</div>
+                            {channelListsData.map((data, index) => {
+                                return (
+                                    <div key={index} className="w-full flex cursor-pointer rounded-lg items-center py-2 hover:bg-[#fafafa] px-3 gap-3 text-sm">
+                                        <div className="w-8 h-8 bg-[#F3F3EE] rounded-full flex items-center justify-center">
+                                            <BiLink fontSize={'16px'} />
+                                        </div>
+                                        {data.name}</div>
+                                )
                             })}
                         </CollapsibleContent>
                     </Collapsible>
                 </div>
 
                 {/* direct messages */}
-                <div className="w-full px-2">
+                <div className="w-full">
                     <Collapsible style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
-                            <span className='flex w-full hover:bg-[#F3F3EE] rounded-lg px-4 py-3 items-center text-sm gap-4'>
-                                <GoChevronDown /> <span className="text-sm family2">Direct Messages</span>
+                            <span className='flex w-full bg-[#F3F3EE] rounded-lg px-4 py-3 items-center justify-between text-sm gap-4'>
+                                <span className="text-base">Direct Messages</span>       <GoChevronDown fontSize={'20px'} />
                             </span>
                         </CollapsibleTrigger>
                         <CollapsibleContent>
-                            {["General", 'Frontend Guys', 'Backend Guys', 'Dev Ops'].map((data, index) => {
-                                return <div key={index} className="w-full px-4 text-sm">{data}</div>
+                            {channelListsData.map((data, index) => {
+                                return (
+                                    <div key={index} className="w-full flex cursor-pointer rounded-lg items-center py-2 hover:bg-[#fafafa] px-3 gap-3 text-sm">
+                                        <div className="w-8 h-8 bg-[#F3F3EE] rounded-full flex items-center justify-center">
+                                            <BiLink fontSize={'16px'} />
+                                        </div>
+                                        {data.name}</div>
+                                )
                             })}
                         </CollapsibleContent>
                     </Collapsible>
                 </div>
-           </div>
+            </div>
         </div>
     )
 }
