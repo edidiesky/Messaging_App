@@ -1,13 +1,8 @@
 "use client"
-
+import React from 'react';
 import { MockMessages } from "@/constants";
-import MessageDetails from "./MessageDetails";
-
-const MessageList = ({ setActiveThreadSidebar }:{
-    setActiveThreadSidebar: React.Dispatch<React.SetStateAction<boolean>>
-
-}) => {
-    // const userInfo = { id: "ryrg34555dgdhfkfgogusga" }
+import ThreadMessageDetail from "./ThreadMessageDetail";
+const ThreadMessageList = () => {
     return (
         <div style={{
             maxHeight: "calc(100% - 80px - 60px)",
@@ -15,7 +10,7 @@ const MessageList = ({ setActiveThreadSidebar }:{
             {
                 MockMessages?.map((message, index) => {
                     // const isSender = userInfo?.id === message?.sender?.id
-                    return <MessageDetails setActiveThreadSidebar={setActiveThreadSidebar} key={index} message={message} />
+                    return <ThreadMessageDetail key={index} message={message} />
                 })
             }
         </div>
@@ -23,4 +18,5 @@ const MessageList = ({ setActiveThreadSidebar }:{
 }
 
 
-export default MessageList;
+
+export default ThreadMessageList;

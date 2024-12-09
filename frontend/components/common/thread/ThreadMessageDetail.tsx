@@ -7,10 +7,7 @@ import { PiHandsClapping } from "react-icons/pi";
 import { TbMessageDots } from "react-icons/tb";
 import { AiFillDelete } from "react-icons/ai";
 import React from "react";
-const MessageDetails = ({ message, setActiveThreadSidebar }: {
-    setActiveThreadSidebar: React.Dispatch<React.SetStateAction<boolean>>,
-    message: MockMessageType
-}) => {
+const ThreadMessageDetail = ({ message }: { message: MockMessageType }) => {
     const [active, setActive] = React.useState(false)
     return (
 
@@ -19,7 +16,7 @@ const MessageDetails = ({ message, setActiveThreadSidebar }: {
                 <span className="text-lg w-[28px] h-[28px] hover:bg-[#eee] cursor-pointer rounded-full  flex items-center justify-center  text-[#4CEA95]"><IoIosCheckbox /></span>
                 <span className="text-lg w-[28px] h-[28px] hover:bg-[#eee] cursor-pointer rounded-full  flex items-center justify-center  text-[#000]"><PiEyesFill /></span>
                 <span className="text-lg w-[28px] h-[28px] hover:bg-[#eee] cursor-pointer rounded-full  flex items-center justify-center  text-[#000]"><PiHandsClapping /></span>
-                <span onClick={() => setActiveThreadSidebar(true)} className="flex items-center gap-1 p-2 hover:bg-[#fafafa] text-sm rounded-md">
+                <span className="flex items-center gap-1 p-2 hover:bg-[#fafafa] text-sm rounded-md">
                     <span className="text-lg cursor-pointer rounded-full  flex items-center justify-center
                       text-[#000]"> <TbMessageDots /></span>
                     Reply
@@ -46,15 +43,15 @@ const MessageDetails = ({ message, setActiveThreadSidebar }: {
 
             <div className="flex-1 flex items-start flex-col justify-start gap-1">
                 <div className="flex w-full items-center gap-2">
-                    <span className="text-sm md:text-lg family2 text-dark">{message?.sender?.name}</span>
+                    <span className="text-sm md:text-base family2 text-dark">{message?.sender?.name}</span>
                     <span className="text-xs md:text-sm text-dark">{message?.createdAt}</span>
                 </div>
                 <div className="flex-1 flex flex-col gap-1">
-                    <span className="max-w-[250px] md:max-w-[500px] text-sm md:text-base leading-[1.6] text-dark">
+                    <span className="max-w-[250px] md:max-w-[500px] text-sm md:text-sm leading-[1.6] text-dark">
                         {message?.text}
                     </span>
                     {
-                        message?.image && <div className="h-[280px] relative w-[250px] md:w-[450px]">
+                        message?.image && <div className="h-[200px] relative w-[250px] md:w-[300px]">
                             <Image
                                 fill
                                 className='rounded-lg  object-cover'
@@ -71,4 +68,4 @@ const MessageDetails = ({ message, setActiveThreadSidebar }: {
 }
 
 
-export default MessageDetails;
+export default ThreadMessageDetail;

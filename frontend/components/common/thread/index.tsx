@@ -1,8 +1,9 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion'
-import ChatHeader from './ChatHeader';
-import ChatInfo from './ChatInfo'
+import ThreadHeader from './ThreadHeader';
+import ThreadMessageList from './ThreadMessageList'
+import ThreadForm from './ThreadForm'
 const chatSlideLeft = {
     initial: {
         width: "0"
@@ -22,7 +23,7 @@ const chatSlideLeft = {
         },
     },
 };
-const ChatDetailsSidebar = ({ active, setActive }: {
+const ThreadSidebar = ({ active, setActive }: {
     active: boolean,
     setActive: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
@@ -33,13 +34,14 @@ const ChatDetailsSidebar = ({ active, setActive }: {
             exit='exit'
             animate={active ? "enter" : "exit"}
             className='h-full relative flex flex-col border-l overflow-hidden'>
-            <ChatHeader
-                setActive={setActive} 
+            <ThreadHeader
+                setActive={setActive}
             />
-            <ChatInfo />
+            <ThreadMessageList />
+            <ThreadForm/>
         </motion.div>
     )
 }
 
 
-export default ChatDetailsSidebar;
+export default ThreadSidebar;

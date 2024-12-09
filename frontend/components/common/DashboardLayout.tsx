@@ -5,8 +5,10 @@ import DashboardHeader from './DashboardHeader';
 import Message from './message';
 import ChatDetailsSidebar from './ChatDetailsSidebar';
 import { AnimatePresence } from 'framer-motion';
+import ThreadSidebar from './thread';
 const DashboardLayout = ({ children, sidebarlinks }: { children: React.ReactNode, sidebarlinks?: { id: number; tab: { title: string; path: string; icon: React.JSX.Element; }; list: never[]; }[] }) => {
     const [sidebaractive, setSidebarActive] = useState(false)
+    const [threadsidebaractive, setThreadSidebarActive] = useState(false)
     return <div className="w-full h-[100vh] p-2 bg-[#571F6A] sticky flex top-0 overflow-hidden flex-col items-start">
         {/* Header */}
         {/* <DashboardHeader /> */}
@@ -22,8 +24,12 @@ const DashboardLayout = ({ children, sidebarlinks }: { children: React.ReactNode
                 {/* messages */}
                 <Message
                     active={sidebaractive}
-
                     setActive={setSidebarActive}
+                    setActiveThreadSidebar={setThreadSidebarActive}
+                />
+                <ThreadSidebar
+                    active={threadsidebaractive}
+                    setActive={setThreadSidebarActive}
                 />
                 <ChatDetailsSidebar
                     active={sidebaractive}
