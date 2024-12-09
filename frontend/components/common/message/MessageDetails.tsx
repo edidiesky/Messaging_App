@@ -1,12 +1,32 @@
 "use client"
 import { MockMessageType } from "@/constants";
 import Image from "next/image";
-
+import { PiEyesFill } from "react-icons/pi";
+import { IoIosCheckbox } from "react-icons/io";
+import { PiHandsClapping } from "react-icons/pi";
+import { TbMessageDots } from "react-icons/tb";
+import { AiFillDelete } from "react-icons/ai";
+import React from "react";
 const MessageDetails = ({ message }: { message: MockMessageType }) => {
-
+    const [active, setActive] = React.useState(false)
     return (
 
-        <div className="flex w-full p-3 px-6 hover:bg-[#8c5a9b16] justify-start items-start gap-3">
+        <div onMouseMove={() => setActive(true)} onMouseLeave={() => setActive(false)} className="flex w-full p-3 px-6 hover:bg-[#9469a11a] justify-start relative items-start gap-3">
+            {active && <div className="absolute right-20 -top-5 p-1 px-2 border flex items-center gap-2 rounded-lg text-sm min-w-[300px] bg-white z-40">
+                <span className="text-lg w-[28px] h-[28px] hover:bg-[#eee] cursor-pointer rounded-full  flex items-center justify-center  text-[#4CEA95]"><IoIosCheckbox /></span>
+                <span className="text-lg w-[28px] h-[28px] hover:bg-[#eee] cursor-pointer rounded-full  flex items-center justify-center  text-[#000]"><PiEyesFill /></span>
+                <span className="text-lg w-[28px] h-[28px] hover:bg-[#eee] cursor-pointer rounded-full  flex items-center justify-center  text-[#000]"><PiHandsClapping /></span>
+                <span className="flex items-center gap-1 p-2 hover:bg-[#fafafa] text-sm rounded-md">
+                    <span className="text-lg cursor-pointer rounded-full  flex items-center justify-center
+                      text-[#000]"> <TbMessageDots /></span>
+                    Reply
+                </span>
+                <span className="flex items-center gap-1 p-2 hover:bg-[#fafafa] text-sm rounded-md">
+                    <span className="text-lg cursor-pointer rounded-full  flex items-center justify-center
+                      text-[#E93FA8]"> <AiFillDelete /></span>
+                    Delete
+                </span>
+            </div>}
             {message?.sender?.image ? (
                 <Image
                     width={46}
@@ -16,7 +36,7 @@ const MessageDetails = ({ message }: { message: MockMessageType }) => {
                     alt="user_image"
                 />
             ) : (
-                <div className="w-10 h-10 rounded-full  flex items-center justify-center text-lg text-white bg-[#2f3336]">
+                <div className="w-10 h-10 rounded-full  flex items-center justify-center text-lg text-white bg-[#571F6A]">
                     {message?.sender?.name && message?.sender?.name[0]}
                 </div>
             )}
