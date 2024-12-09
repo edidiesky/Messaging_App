@@ -42,22 +42,22 @@ const ConversationList = ({ }) => {
             </div> */}
             <div className="w-full flex flex-col gap-[5px]">
                 <div className="flex flex-col gap-2 w-full">
-                    <span className='flex w-full bg-[#8c5a9b16] hover:bg-[#8c5a9b16] rounded-full px-4 py-[6px] items-center justify-between text-sm gap-4'>
+                    <span className='flex w-full rounded-full px-4 py-[6px] items-center justify-between text-sm gap-4'>
                         <div className="flex items-center gap-2">
                             <span className="text-base">Getting Started</span>
                         </div>
                         <div className="flex items-center justify-end gap-1">
-                            <GoChevronDown fontSize={'18px'} />
-                            <span className="w-8 h-8 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
-                                <BiPlus fontSize={'18px'} />
+                            <GoChevronDown fontSize={'16px'} />
+                            <span className="cursor-pointer flex items-center justify-center">
+                                <BiPlus fontSize={'16px'} />
                             </span>
                         </div>
                     </span>
                     <div className="w-full flex flex-col gap-1">
                         {[{ name: "Home", icon: <FaHome /> }, { name: "Members", icon: <HiUserGroup /> }].map((data, index) => {
                             return (
-                                <div key={index} className="w-full flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
-                                    <div className="w-8 h-8 bg-[#8c5a9b16] rounded-full flex items-center justify-center">
+                                <div key={index} className="w-[90%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
+                                    <div className="flex items-center justify-center">
                                         {data?.icon}
                                     </div>
                                     {data.name}</div>
@@ -69,14 +69,14 @@ const ConversationList = ({ }) => {
                 <div className="w-full">
                     <Collapsible className='space-y-2' style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
-                            <span className='flex w-full bg-[#8c5a9b16] hover:bg-[#8c5a9b16] rounded-full px-4 py-[6px] items-center justify-between text-sm gap-4'>
+                            <span className='flex w-full rounded-full px-4 py-[6.5px] items-center justify-between text-sm gap-4'>
                                 <div className="flex items-center gap-2">
                                     <span className="text-base">Channels</span>
                                 </div>
                                 <div className="flex items-center justify-end gap-1">
-                                    <GoChevronDown fontSize={'18px'} />
-                                    <span className="w-8 h-8 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
-                                        <BiPlus fontSize={'18px'} />
+                                    <GoChevronDown fontSize={'16px'} />
+                                    <span className="cursor-pointer flex items-center justify-center">
+                                        <BiPlus fontSize={'16px'} />
                                     </span>
                                 </div>
                             </span>
@@ -84,9 +84,9 @@ const ConversationList = ({ }) => {
                         <CollapsibleContent>
                             {channelListsData.slice(0, 5).map((data, index) => {
                                 return (
-                                    <div key={index} className="w-full flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
-                                        <div className="w-8 h-8 bg-[#8c5a9b16] rounded-full flex items-center justify-center">
-                                            <BiLink fontSize={'16px'} />
+                                    <div key={index} className="w-[90%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
+                                        <div className="w-6 h-6 bg-[#8c5a9b16] rounded-full flex items-center justify-center">
+                                            <BiLink fontSize={'14px'} />
                                         </div>
                                         {data.name}</div>
                                 )
@@ -99,14 +99,14 @@ const ConversationList = ({ }) => {
                 <div className="w-full">
                     <Collapsible className='space-y-2' style={{ width: "100%" }}>
                         <CollapsibleTrigger style={{ width: "100%" }}>
-                            <span className='flex w-full bg-[#8c5a9b16] rounded-full px-4 py-[6px] items-center justify-between text-sm gap-4'>
+                            <span className='flex w-full rounded-full px-4 py-[6.5px] items-center justify-between text-sm gap-4'>
                                 <div className="flex items-center gap-2">
                                     <span className="text-base">Direct Messages</span>
                                 </div>
                                 <div className="flex items-center justify-end gap-1">
-                                    <GoChevronDown fontSize={'18px'} />
-                                    <span className="w-8 h-8 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
-                                        <BiPlus fontSize={'18px'} />
+                                    <GoChevronDown fontSize={'16px'} />
+                                    <span className="w-6 h-6 rounded-full hover:bg-[#eee] cursor-pointer flex items-center justify-center">
+                                        <BiPlus fontSize={'14px'} />
                                     </span>
                                 </div>
                             </span>
@@ -114,11 +114,11 @@ const ConversationList = ({ }) => {
                         <CollapsibleContent>
                             {MockUserList.map((data, index) => {
                                 return (
-                                    <div key={index} className="w-full flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
+                                    <div key={index} className="w-[95%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
                                         <Image
-                                            width={35}
-                                            height={35}
-                                            className='w-[35px] h-[35px] rounded-full object-cover'
+                                            width={30}
+                                            height={30}
+                                            className='w-[30px] h-[30px] rounded-full object-cover'
                                             src={data?.image}
                                             alt="message_image"
                                         />

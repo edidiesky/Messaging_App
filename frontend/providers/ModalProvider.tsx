@@ -6,8 +6,9 @@ import RegisterModal from '@/components/modals/RegisterModal';
 import { useSelector } from 'react-redux'
 import GroupNameModal from '@/components/modals/GroupNameModal';
 import AddGroupMembersModal from '@/components/modals/AddGroupMembersModal';
+import DeleteMessageModal from '@/components/modals/deleteModals/DeleteMessageModal';
 const ModalProvider = () => {
-    const { loginmodal, registermodal, groupnamemodal, addgroupmembersmodal } = useSelector((store: { modal?: any }) => store.modal);
+    const { loginmodal, registermodal, deletemessagemodal, groupnamemodal, addgroupmembersmodal } = useSelector((store: { modal?: any }) => store.modal);
 
     return (
         <>
@@ -24,6 +25,11 @@ const ModalProvider = () => {
             </AnimatePresence>
             <AnimatePresence mode='wait' >
                 {addgroupmembersmodal && <AddGroupMembersModal />}
+            </AnimatePresence>
+
+            {/* delete Message Modal */}
+            <AnimatePresence mode='wait' >
+                {deletemessagemodal && <DeleteMessageModal />}
             </AnimatePresence>
         </>
     );

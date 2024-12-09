@@ -5,6 +5,7 @@ const initialState = {
   registermodal: false,
   groupnamemodal: false,
   addgroupmembersmodal: false,
+  deletemessagemodal:false,
 };
 
 export const modalSlice = createSlice({
@@ -36,6 +37,12 @@ export const modalSlice = createSlice({
     offGroupMemberModal: (state, _action) => {
       state.addgroupmembersmodal = false;
     },
+    onDeleteMessageModal: (state, _action) => {
+      state.deletemessagemodal = true;
+    },
+    offDeleteMessageModal: (state, _action) => {
+      state.deletemessagemodal = false;
+    },
   },
 });
 
@@ -47,7 +54,9 @@ export const {
   onGroupNameModal,
   offGroupNameModal,
   onGroupMemberModal,
-  offGroupMemberModal
+  offGroupMemberModal,
+  onDeleteMessageModal,
+  offDeleteMessageModal
 } = modalSlice.actions;
 
 export default modalSlice.reducer;
