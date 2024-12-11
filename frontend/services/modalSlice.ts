@@ -5,7 +5,7 @@ const initialState = {
   registermodal: false,
   groupnamemodal: false,
   addgroupmembersmodal: false,
-  deletemessagemodal:false,
+  deletemessagemodal: false,
 };
 
 export const modalSlice = createSlice({

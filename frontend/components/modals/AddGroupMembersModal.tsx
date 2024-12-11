@@ -57,7 +57,7 @@ const AddGroupMembersModal = () => {
                 },
             }}
             animate={{ opacity: 1 }}
-            className='h-[100vh] bg-[#16161644] w-full fixed top-0 left-0 z-[5000] flex items-center justify-center'>
+            className='h-[100vh] bg-[#16161639] inset-0 backdrop-blur-sm  w-full fixed top-0 left-0 z-[5000] flex items-center justify-center'>
             <motion.div
                 variants={slide}
                 initial="initial"

@@ -37,7 +37,7 @@ const DeleteMessageModal = () => {
                 },
             }}
             animate={{ opacity: 1 }}
-            className='h-[100vh] bg-[#16161663] w-full fixed top-0 left-0 z-[5000] flex items-center justify-center'>
+            className='h-[100vh] bg-[#16161639] inset-0 backdrop-blur-sm w-full fixed top-0 left-0 z-[5000] flex items-center justify-center'>
             <motion.div
                 variants={slide}
                 initial="initial"
@@ -46,7 +46,7 @@ const DeleteMessageModal = () => {
                 className="w-full min-h-full md:w-[570px] md:max-w-[750px]  md:min-h-[280px] justify-center relative items-start md:rounded-[10px] flex flex-col gap-4 p-6 bg-white">
 
                 <div className="w-full flex items-center justify-between gap-1">
-                    <h3 className="text-3xl md:text-3xl family2">
+                    <h3 className="text-2xl md:text-2xl family2">
                         Delete Message
                     </h3>
                     <div onClick={() => dispatch(offDeleteMessageModal(""))} className="text-[#000] cursor-pointer w-12 h-12 flex items-center hover:bg-[#fafafa] rounded-full justify-center text-xl">
