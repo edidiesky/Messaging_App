@@ -26,6 +26,7 @@ const ChatDetailsSidebar = ({ active, setActive }: {
     active: boolean,
     setActive: React.Dispatch<React.SetStateAction<boolean>>
 }) => {
+    const isGroup = true
     return (
         <motion.div
             variants={chatSlideLeft}
@@ -34,9 +35,10 @@ const ChatDetailsSidebar = ({ active, setActive }: {
             animate={active ? "enter" : "exit"}
             className='h-full relative flex flex-col border-l overflow-hidden'>
             <ChatHeader
+            
                 setActive={setActive} 
             />
-            <ChatInfo />
+            <ChatInfo isGroup={isGroup} />
         </motion.div>
     )
 }
