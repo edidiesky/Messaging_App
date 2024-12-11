@@ -3,28 +3,35 @@ import Image from "next/image";
 import { MdOutlineMailOutline, MdOutlinePhone } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 const ChatInfo = () => {
-    const userInfo = { id: "ryrg34555dgdhfkfgogusga",createdAt:"24th Set 2024", phone: "01733739933", email: "lexlieAlexander@gmail.com", name: " Lexlie Alexander", role: "CoFounder at UxCel" }
+    const userInfo = { id: "ryrg34555dgdhfkfgogusga", createdAt: "24th Set 2024", phone: "01733739933", email: "lexlieAlexander@gmail.com",
+        name: " Development Channel", role: "CoFounder at UxCel" }
     return (
         <div style={{
             maxHeight: "calc(100% - 63px)",
-        }} className='items-start overflow-auto flex py-4 flex-col w-full'>
+        }} className='items-start overflow-auto flex flex-col w-full'>
             {/* top */}
-            <div className="w-full flex py-4 border-b justify-center items-center flex-col gap-4">
-                <Image
-                    src={'/images/user_1.jpg'}
-                    width={80}
-                    height={80}
-                    className='rounded-full w-[80px] h-[80px] object-cover'
-                    alt='Avatar for user'
-                />
-                <h4>
-                    <span className="family2 text-lg">
-                        {userInfo?.name}
-                    </span>
-                    <span className="text-base block text-[#777]">
-                        {userInfo?.role}
-                    </span>
-                </h4>
+            <div className="w-full  relative">
+                <div className="w-full h-40 bg-[#eee]">
+                </div>
+                <div className="w-full flex py-4 -mt-16 px-4 border-b flex-col gap-2">
+                    <div className="rounded-full w-[100px] h-[100px] border-[#fff] relative border-4 p-6 bg-white">
+                        <Image
+                            src={'/images/user_1.jpg'}
+                            fill
+                            className='rounded-full w-full h-full object-cover'
+                            alt='Avatar for user'
+                        />
+                    </div>
+                    <h4>
+                        <span className="family2 text-lg lg:text-xl">
+                            {userInfo?.name || "Development Channel"}
+                        </span>
+                        <span className="text-sm block text-[#777]">
+                            This is a professional channel that is dedicated to fostering the development and speed of Nexchat brand. The main aim is to welcome innovative minds
+                            
+                        </span>
+                    </h4>
+                </div>
             </div>
             {/* center */}
             <div className="w-full flex py-6 flex-col gap-6">
@@ -74,7 +81,7 @@ const ChatInfo = () => {
                         </h4>
                     </div>
                 </div>
-               
+
             </div>
             {/* bottom */}
         </div>
