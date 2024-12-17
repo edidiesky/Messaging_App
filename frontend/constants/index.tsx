@@ -309,18 +309,6 @@ export const PasswordFormData: ProfilePasswordDataItem[] = [
 // --------------------------- form Data List End --------------------
 
 
-// ------------- API REQUEST ROUTE -----------------
-export const BASE_URL =
-    process.env.NODE_ENV === "development" ? "http://localhost:4000" : "";
-
-export const CONVERSATION_URL = "/api/v1/conversation";
-export const USERS_URL = "/api/v1/users";
-export const AUTH_URL = "/api/v1/auth";
-export const UPLOAD_URL = "/api/v1/upload";
-export const MESSAGE_URL = "/api/v1/message";
-
-// ------------- API REQUEST ROUTE END -----------------
-
 
 
 
@@ -485,3 +473,19 @@ export const MockMessages: MockMessageType[] = [
 
 
 
+
+
+// ------------- API REQUEST ROUTE -----------------
+export const BASE_URL =
+    process.env.NODE_ENV === "development" ? "http://localhost:4000" : "";
+
+export const CONVERSATION_URL = "/api/v1/conversation";
+export const USERS_URL = "/api/v1/users";
+export const AUTH_URL = "/api/v1/auth";
+export const UPLOAD_URL = "/api/v1/upload";
+export const MESSAGE_URL = "/api/v1/message";
+export const WORKSPACE_URL = "/api/v1/workspace";
+export const WORKSPACE_INVITE_URL = "/api/v1/workspaceinvite";
+export const CHANNEL_URL = "/api/v1/channel";
+
+// ------------- API REQUEST ROUTE END -----------------
