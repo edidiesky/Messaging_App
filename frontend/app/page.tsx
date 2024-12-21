@@ -22,10 +22,10 @@ export default function Home() {
       <About />
       {/* <DreamJob isLoading={isLoading} job={Jobs?.job} /> */}
       <TopCompanies />
-      <Community />
-      {/* <WhyChoose /> */}k
+      {/* <Community />
+      {/* <WhyChoose /> */}
       <Reviews />
-      <Newsletter />
+      <Newsletter /> */}
       <Footer />
     </SmoothScroll>
   );
