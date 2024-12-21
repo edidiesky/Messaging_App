@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { BiCamera } from "react-icons/bi";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector, useDispatch } from 'react-redux'
-import { offGroupNameModal, onGroupMemberModal } from '@/services/modalSlice';
+import { offGroupNameModal, onGroupMemberModal } from '@/redux/slices/modalSlice';
 import { slide } from '@/constants/framer';
 
 const GroupNameModal = () => {

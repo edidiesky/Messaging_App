@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Image from "next/image";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector, useDispatch } from 'react-redux'
-import { offGroupMemberModal } from '@/services/modalSlice';
+import { offGroupMemberModal } from '@/redux/slices/modalSlice';
 import { slide } from '@/constants/framer';
 import { PiCheck } from "react-icons/pi";
 import {  MockUserList } from "@/constants";

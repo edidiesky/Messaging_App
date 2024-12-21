@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import Image from "next/image";
 import { FiChevronDown } from "react-icons/fi";
 import { LuPlus } from "react-icons/lu";
-import { onGroupNameModal } from '@/services/modalSlice';
+import { onGroupNameModal } from '@/redux/slices/modalSlice';
 import {
     Popover,
     PopoverContent,

@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import { RxCross2 } from "react-icons/rx";
 import { useSelector, useDispatch } from 'react-redux'
-import { offDeleteMessageModal } from '@/services/modalSlice';
+import { offDeleteMessageModal } from '@/redux/slices/modalSlice';
 import Image from "next/image";
 import { slide } from '@/constants/framer';
-import { useLoginMutation } from '@/services/userApi';
+import { useLoginMutation } from '@/redux/services/userApi';
 import toast from "react-hot-toast";
 import Loader from '../../common/loader';
 const DeleteMessageModal = () => {

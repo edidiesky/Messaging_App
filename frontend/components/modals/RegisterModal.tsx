@@ -4,10 +4,10 @@ import { motion } from 'framer-motion'
 import { RxCross2 } from "react-icons/rx";
 import { RegisterFormData } from '@/constants';
 import { useSelector, useDispatch } from 'react-redux'
-import { onLoginModal, offRegisterModal } from '@/services/modalSlice';
+import { onLoginModal, offRegisterModal } from '@/redux/slices/modalSlice';
 
 import { slide } from '@/constants/framer';
-import { useRegisterMutation } from '@/services/userApi';
+import { useRegisterMutation } from '@/redux/services/userApi';
 import Loader from '../common/loader';
 import toast from 'react-hot-toast';
 const RegisterModal = () => {

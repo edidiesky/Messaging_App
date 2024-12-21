@@ -1,7 +1,7 @@
 "use client"
 import { MockMessageType } from "@/constants";
 import Image from "next/image";
-import { onDeleteMessageModal } from '@/services/modalSlice';
+import { onDeleteMessageModal } from '@/redux/slices/modalSlice';
 import { useDispatch } from 'react-redux'
 import { FiEdit2 } from 'react-icons/fi';
 import { PiEyesFill } from "react-icons/pi";

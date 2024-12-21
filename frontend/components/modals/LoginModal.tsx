@@ -4,13 +4,13 @@ import { motion } from 'framer-motion'
 import { RxCross2 } from "react-icons/rx";
 import { LoginFormData } from '@/constants';
 import { useSelector, useDispatch } from 'react-redux'
-import { offLoginModal, onRegisterModal } from '@/services/modalSlice';
+import { offLoginModal, onRegisterModal } from '@/redux/slices/modalSlice';
 
 import { slide } from '@/constants/framer';
-import { useLoginMutation } from '@/services/userApi';
+import { useLoginMutation } from '@/redux/services/userApi';
 import toast from "react-hot-toast";
 
-import { setUserCredentials } from '@/services/authSlice';
+import { setUserCredentials } from '@/redux/slices/authSlice';
 import Loader from '../common/loader';
 const LoginModal = () => {
     const { loginmodal } = useSelector((store: { modal: { loginmodal: boolean } }) => store.modal);

@@ -1,6 +1,6 @@
 "use client"
-import { LogOut } from "@/services/authSlice";
-import { useLogoutMutation } from "@/services/userApi";
+import { LogOut } from "@/redux/slices/authSlice";
+import { useLogoutMutation } from "@/redux/services/userApi";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
