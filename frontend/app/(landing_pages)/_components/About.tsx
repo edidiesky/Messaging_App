@@ -7,16 +7,16 @@ import { HiOutlineChevronRight } from "react-icons/hi";
 import { MdOutlineCampaign } from "react-icons/md";
 const About = () => {
     return (
-        <div className='flex w-full py-20 items-center bg-[#fff] gap-8 justify-center'>
+        <div className='flex w-full py-24 items-center bg-[#fff] gap-8 justify-center'>
             <div className="max-w-custom mx-auto w-[90%] flex flex-col gap-12">
-                <h2 className="text-3xl lg:text-5xl max-w-[700px] leading-[1.3] capitalize text-dark family2">
+                <h2 className="text-3xl lg:text-5xl max-w-[700px] leading-[1.3] capitalize text-dark">
                     <AnimateTextWord>
                         Meet the workspace that delights your teams & customers
                     </AnimateTextWord>
                 </h2>
                 <div className="w-full grid lg:grid-cols-2 gap-12">
                     <div className="pt-8 border rounded-xl bg-[#fcfcfd]">
-                        <div className="w-full flex flex-col gap-6">
+                        <div className="w-full flex flex-col gap-8">
                             <div className="flex px-8 text-[#3e3aff] text-lg items-center gap-3">
                                 <RiInboxLine fontSize='23px' />
                                 Inbox
@@ -32,7 +32,7 @@ const About = () => {
                                 </h4>
 
                             </div>
-                            <div className="w-full relative inset-0 h-[250px] lg:h-[300px] rounded-[10px]">
+                            <div className="w-full relative inset-0 mt-8 h-[250px] lg:h-[300px] rounded-[10px]">
                                 <Image
                                     fill
                                     alt={'Photo Image Descriptioon'}
@@ -43,7 +43,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="pt-8 border rounded-xl bg-[#fcfcfd]">
-                        <div className="w-full flex flex-col gap-6">
+                        <div className="w-full flex flex-col gap-8">
                             <div className="flex px-8 text-[#3e3aff] text-lg items-center gap-3">
                                 <RiInboxLine fontSize='23px' />
                                 Inbox
@@ -59,7 +59,7 @@ const About = () => {
                                 </h4>
 
                             </div>
-                            <div className="w-full relative inset-0 h-[250px] lg:h-[300px] rounded-[10px]">
+                            <div className="w-full relative inset-0 mt-8 h-[250px] lg:h-[300px] rounded-[10px]">
                                 <Image
                                     fill
                                     alt={'Photo Image Descriptioon'}
@@ -70,7 +70,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="py-8 border rounded-xl bg-[#fcfcfd]">
-                        <div className="w-full flex flex-col gap-6">
+                        <div className="w-full flex flex-col gap-8">
                             <div className="flex px-8 text-[#3e3aff] text-lg items-center gap-3">
                                 <BsDatabaseDown fontSize='23px' />
                                 Database
@@ -91,7 +91,7 @@ const About = () => {
                         </div>
                     </div>
                     <div className="py-8 border rounded-xl bg-[#fcfcfd]">
-                        <div className="w-full flex flex-col gap-6">
+                        <div className="w-full flex flex-col gap-8">
                             <div className="flex px-8 text-[#3e3aff] text-lg items-center gap-3">
                                 <MdOutlineCampaign fontSize='23px' />
                                 Campaigns

@@ -37,7 +37,7 @@ const Hero = () => {
                     <Image
                         fill
                         alt={'Photo Image Descriptioon'}
-                        src={'/images/image_1.jpeg'}
+                        src={'https://framerusercontent.com/images/B4GigGWKpxUN5I48p86ta7D1XA.png'}
                         className='w-full object-cover'
                     />
                 </div>

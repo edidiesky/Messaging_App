@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["crisp.chat"],
+    domains: ["crisp.chat", "i.vimeocdn.com", "framerusercontent.com"],
     formats: ["image/avif", "image/webp"],
   },
   async headers() {

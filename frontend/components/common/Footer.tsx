@@ -7,9 +7,9 @@ const Footer = () => {
         <div
             className="relative"
         >
-            <div className="h-full py-20 flex flex-col gap-8 items-center justify-center w-full bg-[#f8f9f7]">
+            <div className="h-full py-20 pb-12 flex flex-col gap-8 items-center justify-center w-full bg-[#f8f9f7]">
                 <div className="w-full px-4 flex flex-col lg:items-center lg:justify-center gap-4">
-                    <h2 className="text-7xl md:text-[150px] lg:text-[280px] family2 lg:text-center">
+                    <h2 className="text-7xl md:text-[150px] lg:text-[290px] family2 lg:text-center">
                         <AnimateTextWord type='bigtext'>
                             NexChat
                         </AnimateTextWord>
@@ -17,73 +17,73 @@ const Footer = () => {
                     </h2>
                     <div className="md:w-[90%] mx-auto max-w-custom grid md:grid-cols-custom_2 gap-8">
                         <div className="w-[300px] flex flex-col gap-4">
-                            <h4 className="text-base family2">Get started</h4>
-                            <ul className="flex flex-col gap-4">
-                                <li className="text-sm">Sign In</li>
-                                <li className="text-sm">Sign Up</li>
+                            <h4 className="text-base px-4 family2">Get started</h4>
+                            <ul className="flex flex-col">
+                                <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">Sign In</li>
+                                <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">Sign Up</li>
                             </ul>
                         </div>
 
-                        <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-8">
                             <div className="flex flex-col gap-4">
-                                <h4 className="text-base family2">For Remote Candidates</h4>
-                                <ul className="flex flex-col gap-4">
-                                    <li className="text-sm">Overview</li>
-                                    <li className="text-sm">
+                                <h4 className="text-base px-4 family2">Product</h4>
+                                <ul className="flex flex-col">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">Overview</li>
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
                                         Startup Jobs</li>
-                                    <li className="text-sm">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
                                         Web3 Jobs
                                     </li>
-                                    <li className="text-sm">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
                                         Featured
                                     </li>
-                                    <li className="text-sm">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
                                         Startup Hiring Data</li>
-                                    <li className="text-sm">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
                                         Tech Startups
                                         Remote</li>
                                 </ul>
                             </div>
 
                             <div className="flex flex-col gap-4">
-                                <h4 className="text-base family2">For Recruiters</h4>
-                                <ul className="flex flex-col gap-4">
-                                    <li className="text-sm">Overview</li>
-                                    <li className="text-sm">
+                                <h4 className="text-base px-4 family2">Company</h4>
+                                <ul className="flex flex-col">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">Overview</li>
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
                                         Curated</li>
-                                    <li className="text-sm">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
                                         Recruit Pro
                                     </li>
-                                    <li className="text-sm">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
                                         RecruiterCloud
                                     </li>
-                                    <li className="text-sm">Hire Developers</li>
-                                    <li className="text-sm">Pricing</li>
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">Hire Developers</li>
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">Pricing</li>
                                 </ul>
                             </div>
 
                             <div className="flex flex-col gap-4">
-                                <h4 className="text-base family2">Resources</h4>
-                                <ul className="flex flex-col gap-4">
-                                    <li className="text-sm">About</li>
-                                    <li className="text-sm">
-                                        Help</li>
-                                    <li className="text-sm">
-                                        Blog
+                                <h4 className="text-base px-4 family2">Resources</h4>
+                                <ul className="flex flex-col">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">Read Our Blog</li>
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]"> Help Center</li>
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">
+                                        Security
                                     </li>
-                                    <li className="text-sm">
-                                        Terms & Risks
-                                    </li>
-                                    <li className="text-sm">Hire Developers</li>
-                                    <li className="text-sm">Privacy & Cookies</li>
-                                    <li className="text-sm">Careers</li>
-                                    <li className="text-sm">Education Center</li>
+                                </ul>
+                            </div>
+
+                            <div className="flex flex-col gap-4">
+                                <h4 className="text-base px-4 family2">Legal</h4>
+                                <ul className="flex flex-col">
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]">Terms Of Use</li>
+                                    <li className="text-sm p-2 cursor-pointer px-4 rounded-3xl hover:bg-[#fff]"> Privacy</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-      
+
             </div>
         </div>
     )

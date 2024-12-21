@@ -14,9 +14,9 @@ const config: Config = {
         custom_2: "auto 1fr",
       },
       maxWidth: {
-        custom: "1028px",
-        custom_1: "1028px",
-        custom_2: "1028px",
+        custom: "1108px",
+        custom_1: "1108px",
+        custom_2: "1108px",
       },
       colors: {
         background: "var(--background)",
