@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className="w-full px-4 flex flex-col lg:items-center lg:justify-center gap-4">
                     <h2 className="text-7xl md:text-[150px] lg:text-[280px] family2 lg:text-center">
                         <AnimateTextWord type='bigtext'>
-                            HIREHALO
+                            NexChat
                         </AnimateTextWord>
 
                     </h2>

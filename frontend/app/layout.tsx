@@ -3,7 +3,7 @@ import "./globals.css";
 import ProviderLayout from "@/providers/StoreProvider";
 
 export const metadata: Metadata = {
-  title: "HireHalo",
+  title: "NexChat",
   description: "Connecting Dreams with Opportunities",
 };
 

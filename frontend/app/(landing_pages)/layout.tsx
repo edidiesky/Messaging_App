@@ -5,7 +5,7 @@ import Footer from "@/components/common/Footer";
 import ProviderLayout from "@/providers/StoreProvider";
 
 export const metadata: Metadata = {
-    title: "HireHalo",
+    title: "NexChat",
     description: "Connecting Dreams with Opportunities",
 };
 

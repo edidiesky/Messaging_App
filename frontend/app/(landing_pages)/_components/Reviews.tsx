@@ -15,7 +15,7 @@ const Reviews = () => {
 
                         </span>
                         <AnimateTextWord type='bigtext'>
-                            Reviews of People who got jobs using Hirehalo
+                            Reviews of People who got jobs using NexChat
                         </AnimateTextWord>
 
                     </h2>
