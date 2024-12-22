@@ -6,7 +6,7 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 2,
-      easing: (t:number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // https://easings.net
+      easing: (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // https://easings.net
       smoothWheel: true,
       smoothTouch: true,
       wheelMultiplier: 1,
@@ -14,14 +14,25 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
       infinite: false, // Disable infinite scrolling
       direction: "vertical", // Vertical scrolling direction
     });
+    lenis.on("scroll", (e: any) => {
+      if (e.target.closest(".modal-content")) {
+        return; // Ignore Lenis scrolling for modal content
+      }
+    });
+
     function raf(time: number) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
 
     requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+
   }, []);
-  return children;
+  return <>{children}</>;
 };
 
 export default SmoothScroll;
