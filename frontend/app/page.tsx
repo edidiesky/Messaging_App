@@ -10,14 +10,11 @@ import Footer from "@/components/common/Footer";
 import SmoothScroll from "@/constants/SmoothScroll";
 
 export default function Home() {
-  // const { isLoading, data: Jobs } = useGetAllJobQuery("")
-  // console.log(Jobs)
   return (
     <SmoothScroll>
       <Header />
       <Hero />
       <About />
-      {/* <DreamJob isLoading={isLoading} job={Jobs?.job} /> */}
       <TopCompanies />
       <Reviews />
       <Newsletter /> 

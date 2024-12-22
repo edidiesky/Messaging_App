@@ -13,10 +13,10 @@ const Header = () => {
     const { currentUser } = useSelector((store: { auth?: any }) => store.auth)
     // console.log(currentUser);
     return (
-        <div className="w-full bg-[#08090a] p-3">
+        <div className="w-full bg-[#08090a] lg:p-3">
             <div
 
-                className="w-full p-4 border-[#e7e7e736] border min-h-[55px] rounded-xl max-w-custom mx-auto flex items-center justify-between">
+                className="w-full p-4 border-[#e7e7e736] lg:border min-h-[55px] rounded-xl max-w-custom mx-auto flex items-center justify-between">
                 <div className="flex items-center gap-8 lg:gap-12">
                     <Link href={'/'} className='text-lg lg:text-xl text-white family2'>NexChat</Link>
                 </div>
@@ -24,10 +24,10 @@ const Header = () => {
 
                 <div className="flex items-center justify-end gap-8 md:gap-12">
                     <div className="hidden lg:flex flex-1 justify-center items-center gap-12">
-                        <Link href={'/jobs'} className='text-base text-white font-normal'>Features</Link>
-                        <Link href={'/about'} className='text-base text-white font-normal'>App</Link>
-                        <Link href={'/companies'} className='text-base text-white font-normal'>Pricing</Link>
-                        <Link href={'/companies'} className='text-base text-white font-normal'>Integration</Link>
+                        <Link href={'#'} className='text-base text-white font-normal'>Features</Link>
+                        <Link href={'#'} className='text-base text-white font-normal'>App</Link>
+                        <Link href={'#'} className='text-base text-white font-normal'>Pricing</Link>
+                        <Link href={'#'} className='text-base text-white font-normal'>Integration</Link>
 
                     </div>
                   <div className="flex items-center justify-end">
