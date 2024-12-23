@@ -15,7 +15,9 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
       direction: "vertical", // Vertical scrolling direction
     });
     lenis.on("scroll", (e: any) => {
-      if (e.target.closest(".modal-content")) {
+      // Safeguard against cases where e.target is not an element
+      const target = e?.target as HTMLElement | null;
+      if (target && target.closest(".modal-content")) {
         return; // Ignore Lenis scrolling for modal content
       }
     });

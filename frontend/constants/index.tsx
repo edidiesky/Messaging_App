@@ -261,14 +261,14 @@ export const RegisterFormData: RegisterFormDataItem[] = [
         label: "Jane Doe",
         required: true,
     },
-    {
-        id: 12,
-        name: "username",
-        type: "text",
-        text: "UserName",
-        label: "JaneDoe@",
-        required: true,
-    },
+    // {
+    //     id: 12,
+    //     name: "username",
+    //     type: "text",
+    //     text: "UserName",
+    //     label: "JaneDoe@",
+    //     required: true,
+    // },
     {
         id: 1,
         name: "email",

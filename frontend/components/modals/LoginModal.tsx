@@ -66,13 +66,13 @@ const LoginModal = () => {
                     <div className="w-full flex flex-col justify-center gap-4 py-16 md:py-12 px-10">
                         <div className="w-full flex flex-col gap-1">
                             <h3 className="text-3xl capitalize md:text-4xl family2">
-                                Join us for better investments plans.
+                                Join us for better Team Collaboration.
                             </h3>
                             <span className="block text-base md:text-lg max-w-[250px] pt-1">
-                                Login to your account and check out your bookings
+                                Login to your account and check out your team's progress
                             </span>
                         </div>
-                        <form onSubmit={handleFormSubmision} className="w-full flex flex-col gap-3">
+                        <form onSubmit={handleFormSubmision} className="w-full mt-3 flex flex-col gap-2">
                             {
                                 LoginFormData?.map((formdata, index) => {
                                     return <label key={index} htmlFor="" className="text-sm flex flex-col gap-2">

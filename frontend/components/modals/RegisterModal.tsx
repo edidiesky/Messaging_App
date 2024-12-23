@@ -15,7 +15,6 @@ import Image from 'next/image';
 const RegisterModal = () => {
     const { registermodal } = useSelector((store?: any) => store.modal);
     const dispatch = useDispatch()
-
     const [formValue, setFormValue] = useState({
         password: "",
         name: "",
@@ -65,36 +64,38 @@ const RegisterModal = () => {
                 animate={registermodal ? "enter" : "exit"}
                 exit={"exit"}
                 className="modal-content w-full min-h-full md:w-[400px] md:max-w-[900px] lg:w-[900px] md:min-h-[600px] lg:h-[600px] justify-center relative items-start bg-white">
-                <div onClick={() => dispatch(offRegisterModal(""))} className="absolute top-4 right-4 text-[#000] cursor-pointer w-10 h-10 flex items-center hover:bg-[#fafafa]  rounded-full justify-center text-xl">
+                <div onClick={() => dispatch(offRegisterModal(""))} className="absolute top-4 right-4 text-[#000] cursor-pointer w-10 h-10 z-20 flex items-center hover:bg-[#aeaeae58]  rounded-full justify-center text-xl">
                     <RxCross2 />
                 </div>
                 <div className="w-full h-full grid lg:grid-cols-2">
-                    <div className="w-full flex flex-col justify-center gap-4 py-16 md:py-12 px-10">
+                    <div className="w-full flex flex-col justify-center gap-4 py-16 md:py-8 px-10">
                         <div className="w-full flex flex-col">
                             <h3 className="text-3xl capitalize md:text-4xl family2">
-                                Join us for better investments plans.
+                                Join NexChat for better Team Dev
                             </h3>
                             <span className="block text-base md:text-lg max-w-[250px] pt-1">
-                                Login to your account and check out your bookings
+                                Create an account and start building
                             </span>
                         </div>
-                        <form onSubmit={handleFormSubmision} className="w-full flex flex-col gap-3">
-                            <div className="w-full overflow-auto h-[100px] flex flex-col gap-4">
+                        <form onSubmit={handleFormSubmision} className="w-full mt-3 flex flex-col gap-2">
+                            <div className="w-full flex flex-col gap-2">
                                 {
                                     RegisterFormData?.map((formdata, index) => {
-                                        return <label key={index} htmlFor="" className="text-sm flex flex-col gap-1">
-                                            <span>{formdata?.text}</span>
-                                            <input
-                                                type={formdata?.type}
-                                                value={formValue[formdata.name]}
-                                                name={formdata.name}
-                                                onChange={(e) => onChange(e)}
-                                                placeholder={formdata?.label}
-                                                className="text-sm font-normal input bg-white rounded-full w-full "
+                                        return (
+                                            <label key={index} htmlFor="" className="text-sm flex flex-col gap-1">
+                                                <span className='text-[#939393]'>{formdata?.text}</span>
+                                                <input
+                                                    type={formdata?.type}
+                                                    value={formValue[formdata.name]}
+                                                    name={formdata.name}
+                                                    onChange={(e) => onChange(e)}
+                                                    placeholder={formdata?.label}
+                                                    className="text-sm font-normal input bg-white rounded-full w-full "
 
-                                            />
+                                                />
 
-                                        </label>
+                                            </label>
+                                        )
                                     })
                                 }
                             </div>

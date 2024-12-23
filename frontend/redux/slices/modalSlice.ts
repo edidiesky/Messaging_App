@@ -21,9 +21,11 @@ export const modalSlice = createSlice({
 
     onRegisterModal: (state, _action) => {
       state.registermodal = true;
+      document.body.classList.add("modal-open");
     },
     offRegisterModal: (state, _action) => {
       state.registermodal = false;
+      document.body.classList.remove("modal-open");
     },
     onGroupNameModal: (state, _action) => {
       state.groupnamemodal = true;

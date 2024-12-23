@@ -16,11 +16,11 @@
   --green_active_bg: #cdeed3;
   --green_active_color: #347345;
   --pending_background: #deddff;
-  --pending_color: #3e3aff;
+  --pending_color: #1972f5;
   --delay_background: #020202;
   --delay_color: #a37d18;
   --delay_2: #f3f3f1;
-  --button_color: #002b31;
+  --button_color: #1972f5;
   --grey_1: #f8f9f7;
   --dashbaord_width: 16rem;
   --dashoard_font-size: 13px;
@@ -76,26 +76,23 @@ text color style end
   justify-content: center;
   padding: 0 24px;
   transition: all 0.3s;
-  border: 1px solid var(--background_dark);
 }
 
 .btn.btn_2 {
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   color: var(--button_color);
   transition: all 0.3s;
 }
 .btn:hover {
-  border: 1px solid var(--background_dark);
   color: #fff;
-  box-shadow: 0 0 0 6px var(--shadow_color);
+  box-shadow: 0 0 0 4px var(--shadow_color);
   transition: all 0.3s;
 }
 .btn.btn_2:hover {
   color: var(--button_color);
   transition: all 0.3s;
   border: 1px solid var(--background_dark);
-  box-shadow: 0 0 0 6px var(--shadow_color);
+  box-shadow: 0 0 0 4px var(--shadow_color);
 }
 /* button styles stop */
 
@@ -106,6 +103,9 @@ text color style end
   border: 1.5px solid #e7e7e9;
   padding: 0 1rem;
   background-color: #fff !important;
+}
+input::placeholder {
+  color: #777;
 }
 form input {
   min-height: 49px;
