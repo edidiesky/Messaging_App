@@ -2,8 +2,10 @@ import React from 'react';
 import { MdEdit } from "react-icons/md";
 import { useDispatch } from 'react-redux'
 import Image from "next/image";
+import { HiUserGroup } from "react-icons/hi";
 import { FiChevronDown } from "react-icons/fi";
-import { LuPlus } from "react-icons/lu";
+import { BsPlusCircle } from "react-icons/bs";
+import { IoSettingsSharp } from "react-icons/io5";
 import { onGroupNameModal } from '@/redux/slices/modalSlice';
 import {
     Popover,
@@ -27,44 +29,23 @@ const Header = ({ title }: { title: string }) => {
                             </span>
                         </h4>
                     </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                        <div className="max-w-[450px] shadow-lg rounded-2xl bg-[#2B2D31] flex flex-col">
-                            <div className="w-full max-h-[250px] overflow-auto flex flex-col">
-                                <div className="w-full flex items-center gap-2 hover:bg-[#35373ed5] cursor-pointer border-b border-[#35373ed5] p-4">
-                                    <div className="w-12 h-12 rounded-lg flex items-center justify-center text-lg text-[#777] bg-[#000]">EV</div>
-                                    <h4 className="text-base">
-                                        <span className="family2">
-                                            Victor WorkSpace
-                                        </span>
-                                        <span className="text-sm block">A workspace dedicated for development of clients apps</span>
-                                    </h4>
-                                </div>
-                                <div className="w-full flex items-center gap-2 hover:bg-[#35373ed5] cursor-pointer border-b border-[#35373ed5] p-4">
-                                    <div className="w-12 h-12 rounded-lg flex items-center justify-center text-base text-[#777] bg-[#000]">EV</div>
-                                    <h4 className="text-base">
-                                        <span className="family2">
-                                            Backend WorkSpace
-                                        </span>
-                                        <span className="text-sm block">A workspace dedicated for development of clients apps</span>
-                                    </h4>
-                                </div>
-                                <div className="w-full flex items-center gap-2 hover:bg-[#35373ed5] cursor-pointer border-b border-[#35373ed5] p-4">
-                                    <div className="w-12 h-12 rounded-lg flex items-center justify-center text-base text-[#777] bg-[#000]">EV</div>
-                                    <h4 className="text-base">
-                                        <span className="family2">
-                                            Devops WorkSpace
-                                        </span>
-                                        <span className="text-sm block">A workspace dedicated for development of clients apps</span>
-                                    </h4>
-                                </div>
+                    <PopoverContent className="w-[230px] border-[#1E1F22] overflow-hidden bg-[#1E1F22] p-0" align="start">
+                        <div className="w-[100%] flex px-3 py-2 flex-col">
+                            <div className="w-full hover:bg-[#5865F2] rounded-md text-[#ddd] hover:text-[#fff] flex items-center p-2 justify-between">
+                                <span className="text-[15px]">Invite People</span>
+                                <span className="text-lg"><HiUserGroup /></span>
                             </div>
-                            <div className="w-full flex items-center gap-2 hover:bg-[#35373ed5] cursor-pointer border-b border-[#35373ed5] p-4">
-                                <div className="w-12 h-12 rounded-lg flex items-center justify-center text-base text-[#777] bg-[#000]"><LuPlus/></div>
-                                <h4 className="text-base">
-                                    <span className="family2">
-                                        Add a Workspace
-                                    </span>
-                               </h4>
+                            <div className="w-full hover:bg-[#5865F2] rounded-md text-[#ddd] hover:text-[#fff] flex items-center p-2 justify-between">
+                                <span className="text-[15px]">Workspace Settings</span>
+                                <span className="text-lg"><IoSettingsSharp /></span>
+                            </div>
+                            <div className="w-full hover:bg-[#5865F2] rounded-md text-[#ddd] hover:text-[#fff] flex items-center p-2 justify-between">
+                                <span className="text-[15px]">Delete Workspace</span>
+                                <span className="text-lg"><BsPlusCircle /></span>
+                            </div>
+                            <div className="w-full hover:bg-[#5865F2] rounded-md text-[#ddd] hover:text-[#fff] flex items-center p-2 justify-between">
+                                <span className="text-[15px]">Create A Channel</span>
+                                <span className="text-lg"><BsPlusCircle /></span>
                             </div>
                         </div>
                     </PopoverContent>

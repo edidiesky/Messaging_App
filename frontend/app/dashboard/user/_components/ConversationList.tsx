@@ -30,7 +30,7 @@ const ConversationList = ({ }) => {
                     <div className="w-full flex flex-col gap-1">
                         {[{ name: "Home", icon: <FaHome /> }, { name: "Members", icon: <HiUserGroup /> }].map((data, index) => {
                             return (
-                                <div key={index} className="w-[90%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
+                                <div key={index} className="w-[90%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#3F4248] px-3 gap-3 text-sm">
                                     <div className="flex items-center justify-center">
                                         {data?.icon}
                                     </div>
@@ -62,8 +62,8 @@ const ConversationList = ({ }) => {
                         <CollapsibleContent>
                             {channelListsData.slice(0, 5).map((data, index) => {
                                 return (
-                                    <div key={index} className="w-[90%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
-                                        <div className="w-6 h-6 bg-[#8c5a9b16] rounded-full flex items-center justify-center">
+                                    <div key={index} className="w-[90%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#3F4248] px-3 gap-3 text-sm">
+                                        <div className="w-6 h-6 bg-[#3F4248] rounded-full flex items-center justify-center">
                                             <BiLink fontSize={'14px'} />
                                         </div>
                                         {data.name}</div>
@@ -95,7 +95,7 @@ const ConversationList = ({ }) => {
                         <CollapsibleContent>
                             {MockUserList.map((data, index) => {
                                 return (
-                                    <div key={index} className="w-[95%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#8c5a9b16] px-3 gap-3 text-sm">
+                                    <div key={index} className="w-[95%] mx-auto flex cursor-pointer rounded-full items-center py-2 hover:bg-[#3F4248] px-3 gap-3 text-sm">
                                         <Image
                                             width={30}
                                             height={30}
