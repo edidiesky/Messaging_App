@@ -67,7 +67,7 @@ const MessageDetails = ({ message, setActiveThreadSidebar }: {
                             <span className="text-xs md:text-sm text-dark">{message?.createdAt}</span>
                         </div>
                         <div className="flex-1 flex flex-col gap-1">
-                            <span className="max-w-[250px] md:max-w-[500px] text-sm md:text-base leading-[1.6] text-dark">
+                            <span className="max-w-[250px] md:max-w-[500px] text-[#777] text-sm md:text-base leading-[1.6]">
                                 {message?.text}
                             </span>
                             {

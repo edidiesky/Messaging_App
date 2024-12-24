@@ -28,15 +28,7 @@ const DeleteMessageModal = () => {
         }
     }
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            exit={{
-                opacity: 0,
-                transition: {
-                    duration: 1.2,
-                },
-            }}
-            animate={{ opacity: 1 }}
+        <div
             className='h-[100vh] bg-[#16161639] inset-0 backdrop-blur-sm w-full fixed top-0 left-0 z-[5000] flex items-center justify-center'>
             <motion.div
                 variants={slide}
@@ -115,7 +107,7 @@ const DeleteMessageModal = () => {
                     </div>
                 </div>
             </motion.div>
-        </motion.div>
+        </div>
     )
 }
 

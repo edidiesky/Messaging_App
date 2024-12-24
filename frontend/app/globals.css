@@ -44,6 +44,7 @@ button:disabled {
 
 body {
   color: var(--text-dark);
+  line-height: 1.1;
   font-family: "Regular", Helvetica, sans-serif;
 }
 .family2 {
@@ -75,18 +76,15 @@ text color style end
   align-items: center;
   justify-content: center;
   padding: 0 24px;
-  transition: all 0.3s;
 }
 
 .btn.btn_2 {
   background-color: #fff;
   color: var(--button_color);
-  transition: all 0.3s;
 }
 .btn:hover {
   color: #fff;
   box-shadow: 0 0 0 4px var(--shadow_color);
-  transition: all 0.3s;
 }
 .btn.btn_2:hover {
   color: var(--button_color);
@@ -99,8 +97,7 @@ text color style end
 /* input styles */
 .input {
   min-height: 49px;
-  transition: all 0.3s;
-  border: 1.5px solid #e7e7e9;
+  border: 1.5px solid #1972f5;
   padding: 0 1rem;
   background-color: #fff !important;
 }
@@ -109,16 +106,14 @@ input::placeholder {
 }
 form input {
   min-height: 49px;
-  transition: all 0.3s;
-  border: 1.5px solid #e7e7e9;
+  border: 1.5px solid #1972f5;
   padding: 0 1rem;
   background-color: #fff !important;
 }
 
 form input:hover {
   box-shadow: 0 0 0 6px var(--shadow_color);
-  transition: all 0.3s;
-  outline: 1px solid #5d5d5e;
+  outline: 1px solid #1972f5;
 }
 
 /* input styles stop */

@@ -7,12 +7,12 @@ import { FiPlus } from "react-icons/fi";
 const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: { title: string; path: string; icon: React.JSX.Element; }; list: never[]; }[] }) => {
 
     return (
-        <div className=' bg-[#571F6A] lg:block hidden h-[100%] w-[120px] px-2 overflow-auto sticky py-3 top-0'>
+        <div className=' bg-[#1E1F22] lg:block hidden h-[100%] w-[120px] px-2 overflow-auto sticky py-3 top-0'>
             <div className="w-full h-full flex justify-between flex-col gap-3">
 
                 <div className="flex w-full flex-col gap-12">
                     <div className="w-full flex items-center justify-center">
-                        <div className="w-[50px] h-[45px] rounded-lg flex bg-[#fff] items-center justify-center text-xl text-[#000]">
+                        <div className="w-[60px] h-[60px] rounded-2xl flex bg-[#5865F2] items-center justify-center text-xl text-[#fff]">
                             VE
                         </div>
 
@@ -22,9 +22,8 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                             sidebarlinks?.map((link, index) => {
                                 return (
                                     <Link key={index} href={`/workspace/user${link?.tab?.path}`}
-                                        className='flex justify-center w-full flex-col text-xs text-[#fff] items-center gap-1'>
-                                        <div className="w-[50px] h-[45px] rounded-full flex
-                                         bg-[#733590] hover:bg-[#9c48c3da] items-center justify-center text-xl text-[#fff]">
+                                        className='flex justify-center w-full flex-col text-xs text-[#777] items-center gap-1'>
+                                        <div className="w-[60px] h-[60px] rounded-full flex bg-[#46474ab4] hover:bg-[#35373ed5] items-center justify-center text-xl text-[#fff]">
                                             {link.tab?.icon}
                                         </div>
                                         {link?.tab?.title}
@@ -33,8 +32,8 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                             })
                         }
                         <button
-                            className='flex justify-center w-full flex-col text-xs text-[#fff] items-center gap-1'>
-                            <div className="w-[50px] h-[45px] rounded-full flex bg-[#733590] hover:bg-[#9c48c3da] items-center justify-center text-xl text-[#fff]">
+                            className='flex justify-center w-full flex-col text-xs text-[#777] items-center gap-1'>
+                            <div className="w-[60px] h-[60px] rounded-full flex bg-[#46474ab4] hover:bg-[#35373ed5] items-center justify-center text-xl text-[#fff]">
                                 <FiPlus />
                             </div>
                             Add Channel
@@ -44,14 +43,14 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                 <div className="flex-1 pb-4 flex items-center justify-end flex-col text-xs gap-4">
 
 
-                    <button
+                    {/* <button
                         className='flex justify-center w-full flex-col text-xs text-[#fff] items-center gap-1'>
                         Account
-                        <div className="w-[50px] h-[45px] rounded-full flex bg-[#2fff66] items-center
-                         justify-center text-xl text-[#3E595E]">
+                        <div className="w-[60px] h-[60px] rounded-full flex bg-[#5865F2] items-center
+                         justify-center text-xl text-[#fff]">
                             V
                         </div>
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </div>

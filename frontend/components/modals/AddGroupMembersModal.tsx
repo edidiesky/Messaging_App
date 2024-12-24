@@ -48,15 +48,8 @@ const AddGroupMembersModal = () => {
     }
 // @EOEboh
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            exit={{
-                opacity: 0,
-                transition: {
-                    duration: 1,
-                },
-            }}
-            animate={{ opacity: 1 }}
+        <div
+           
             className='h-[100vh] bg-[#16161639] inset-0 backdrop-blur-sm  w-full fixed top-0 left-0 z-[5000] flex items-center justify-center'>
             <motion.div
                 variants={slide}
@@ -163,7 +156,7 @@ const AddGroupMembersModal = () => {
                     </button>
                 </div>
             </motion.div>
-        </motion.div>
+        </div>
     )
 }
 

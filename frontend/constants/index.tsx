@@ -10,24 +10,24 @@ export const userDashboardLinks = [
         },
         list: [],
     },
-    {
-        id: 210,
-        tab: {
-            icon: <BiPhoneCall fontSize={"20px"} />,
-            title: "Channels",
-            path: "/channels",
-        },
-        list: [],
-    },
-    {
-        id: 210,
-        tab: {
-            icon: <BiMessage fontSize={"20px"} />,
-            title: "Workspaces",
-            path: "/Workspaces",
-        },
-        list: [],
-    },
+    // {
+    //     id: 210,
+    //     tab: {
+    //         icon: <BiPhoneCall fontSize={"20px"} />,
+    //         title: "Channels",
+    //         path: "/channels",
+    //     },
+    //     list: [],
+    // },
+    // {
+    //     id: 210,
+    //     tab: {
+    //         icon: <BiMessage fontSize={"20px"} />,
+    //         title: "Workspaces",
+    //         path: "/Workspaces",
+    //     },
+    //     list: [],
+    // },
 
 ]
 export const sidebarLinksData = [
