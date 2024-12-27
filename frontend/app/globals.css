@@ -70,12 +70,12 @@ text color style end
   min-height: 50px;
   /* min-width: 130px; */
   border-radius: 50px;
-  background-color: var(--button_color);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 24px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .btn.btn_2 {

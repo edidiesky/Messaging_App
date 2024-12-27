@@ -6,6 +6,9 @@ const initialState = {
   groupnamemodal: false,
   addgroupmembersmodal: false,
   deletemessagemodal: false,
+  deletechannelmodal: false,
+  deleteworkspacemodal: false,
+  channelmodal: false
 };
 
 export const modalSlice = createSlice({
@@ -33,6 +36,12 @@ export const modalSlice = createSlice({
     offGroupNameModal: (state, _action) => {
       state.groupnamemodal = false;
     },
+    onCreateChannelModal: (state, _action) => {
+      state.channelmodal = true;
+    },
+    offCreateChannelModal: (state, _action) => {
+      state.channelmodal = false;
+    },
     onGroupMemberModal: (state, _action) => {
       state.addgroupmembersmodal = true;
     },
@@ -44,6 +53,20 @@ export const modalSlice = createSlice({
     },
     offDeleteMessageModal: (state, _action) => {
       state.deletemessagemodal = false;
+    },
+
+    onDeleteChannelModal: (state, _action) => {
+      state.deletechannelmodal = true;
+    },
+    offDeleteChannelModal: (state, _action) => {
+      state.deletechannelmodal = false;
+    },
+
+    onDeleteWorkspaceModal: (state, _action) => {
+      state.deleteworkspacemodal = true;
+    },
+    offDeleteWorkspaceModal: (state, _action) => {
+      state.deleteworkspacemodal = false;
     },
   },
 });
@@ -58,7 +81,13 @@ export const {
   onGroupMemberModal,
   offGroupMemberModal,
   onDeleteMessageModal,
-  offDeleteMessageModal
+  offDeleteMessageModal,
+  onCreateChannelModal,
+  offCreateChannelModal,
+  onDeleteChannelModal,
+  offDeleteChannelModal,
+  onDeleteWorkspaceModal,
+  offDeleteWorkspaceModal
 } = modalSlice.actions;
 
 export default modalSlice.reducer;

@@ -4,7 +4,7 @@ export const userDashboardLinks = [
     {
         id: 6,
         tab: {
-            icon: <BiSolidDashboard fontSize={"16px"} />,
+            icon: <BiSolidDashboard />,
             title: "Home",
             path: "/",
         },

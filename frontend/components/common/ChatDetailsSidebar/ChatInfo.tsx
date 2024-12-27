@@ -25,11 +25,11 @@ const ChatInfo = ({ isGroup }: { isGroup?: boolean }) => {
                 maxHeight: "calc(100% - 63px)",
             }} className='items-start overflow-auto flex flex-col w-full'>
                 {/* top */}
-                <div className="w-full  relative ">
+                <div className="w-full relative ">
                     <div className="w-full h-40 bg-[#eee]">
                     </div>
-                    <div className="w-full  px-4">
-                        <div className="w-full flex flex-col px-4 gap-2 border-b pb-8">
+                    <div className="w-full px-4">
+                        <div className="w-full flex flex-col px-4 border-b pb-8">
                             <div className="w-full flex py-4 -mt-16  flex-col gap-2">
                                 <div className="rounded-full w-[100px] h-[100px] border-[#fff] relative border-4 p-6 bg-white">
                                     <Image
@@ -48,7 +48,7 @@ const ChatInfo = ({ isGroup }: { isGroup?: boolean }) => {
                                     </span>
                                 </h4>
                             </div>
-                            <div className="flex p-3 hover:bg-[#fafafa] border rounded-full text-base items-center justify-center gap-6">
+                            <div className="flex p-3 hover:bg-[#fafafa] border rounded-full text-base items-center justify-center gap-4">
                                 <IoChatboxEllipsesOutline fontSize={'20px'} />
                                 Message
                             </div>
@@ -61,7 +61,7 @@ const ChatInfo = ({ isGroup }: { isGroup?: boolean }) => {
 
                 <div className="w-full flex py-6 px-4 flex-col gap-4">
                     <h4 className="text-start px-4">
-                        <span className="family2 text-lg lg:text-xl">
+                        <span className="family2 text-lg lg:text-lg">
                             Contact Information
                         </span>
                     </h4>
@@ -69,26 +69,26 @@ const ChatInfo = ({ isGroup }: { isGroup?: boolean }) => {
                         <div className="flex items-center gap-4 px-4">
                             <span className="text-lg w-12 h-12 rounded-full bg-[#f5f5f5] hover:bg-[#eee] flex items-center justify-center"><MdOutlineMailOutline /></span>
                             <h4 className="text-start">
-                                <span className="text-sm md:text-lg family2">Email</span>
-                                <span className="block text-sm md:text-base">
+                                <span className="text-sm md:text-base family2">Email</span>
+                                <span className="block text-sm md:text-sm">
                                     {userInfo?.email}
                                 </span>
                             </h4>
                         </div>
                         <div className="flex items-center gap-4 px-4">
-                            <span className="text-lg w-12 h-12 rounded-full bg-[#f5f5f5] hover:bg-[#eee] flex items-center justify-center"><MdOutlinePhone /></span>
+                            <span className="text-base w-12 h-12 rounded-full bg-[#f5f5f5] hover:bg-[#eee] flex items-center justify-center"><MdOutlinePhone /></span>
                             <h4 className="text-start">
-                                <span className="text-sm md:text-lg family2">Phone</span>
-                                <span className="text-sm block md:text-base">
+                                <span className="text-sm md:text-base family2">Phone</span>
+                                <span className="text-sm block md:text-sm">
                                     {userInfo?.phone}
                                 </span>
                             </h4>
                         </div>
                         <div className="flex items-center gap-4 px-4">
-                            <span className="text-lg w-12 h-12 rounded-full bg-[#f5f5f5] hover:bg-[#eee] flex items-center justify-center"><CiCalendarDate /></span>
+                            <span className="text-base w-12 h-12 rounded-full bg-[#f5f5f5] hover:bg-[#eee] flex items-center justify-center"><CiCalendarDate /></span>
                             <h4 className="text-start">
-                                <span className="text-sm md:text-lg family2">Date Joined</span>
-                                <span className="text-sm md:text-base block">
+                                <span className="text-sm md:text-base family2">Date Joined</span>
+                                <span className="text-sm md:text-sm block">
                                     {userInfo?.createdAt}
                                 </span>
                             </h4>

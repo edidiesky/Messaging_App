@@ -45,7 +45,7 @@ const ConversationList = ({ }) => {
                         <CollapsibleTrigger style={{ width: "100%" }}>
                             <span className='flex w-full rounded-full px-4 py-[6.5px] items-center justify-between text-sm gap-4'>
                                 <div className="flex items-center gap-2">
-                                       <span className="w-6 h-6 rounded-full hover:bg-[#ddd] cursor-pointer flex items-center justify-center">
+                                       <span className="w-6 h-6 cursor-pointer flex items-center justify-center">
                                         <GoChevronDown fontSize={'16px'} />
                                     </span>
                                     <span className="text-[15px] text-[#777]">Channels</span>
@@ -79,7 +79,7 @@ const ConversationList = ({ }) => {
                         <CollapsibleTrigger style={{ width: "100%" }}>
                             <span className='flex w-full rounded-full px-4 py-[6.5px] items-center justify-between text-sm gap-4'>
                                 <div className="flex items-center gap-2">
-                                    <span className="w-6 h-6 rounded-full hover:bg-[#ddd] cursor-pointer flex items-center justify-center">
+                                    <span className="w-6 h-6 cursor-pointer flex items-center justify-center">
                                         <GoChevronDown fontSize={'16px'} />
                                     </span>
                                     <span className="text-[15px] text-[#777]">Direct Messages</span>

@@ -22,7 +22,7 @@ const MessageDetails = ({ message, setActiveThreadSidebar }: {
 
     return (
 
-        <div onMouseMove={() => setActive(true)} onMouseLeave={() => setActive(false)} className="flex w-full p-3 px-6 hover:bg-[#9469a11a] justify-start relative items-start gap-3">
+        <div onMouseMove={() => setActive(true)} onMouseLeave={() => setActive(false)} className="flex w-full p-3 px-6 hover:bg-[#4f4f5110] justify-start relative items-start gap-3">
             {active && !isEdit && (
                 <div className="absolute right-20 -top-5 p-1 px-2 border flex items-center gap-2 rounded-lg text-sm min-w-[300px] bg-white z-40">
                     <span className="text-lg w-[28px] h-[28px] hover:bg-[#eee] cursor-pointer rounded-full  flex items-center justify-center  text-[#4CEA95]"><IoIosCheckbox /></span>
@@ -55,7 +55,7 @@ const MessageDetails = ({ message, setActiveThreadSidebar }: {
                     alt="user_image"
                 />
             ) : (
-                <div className="w-10 h-10 rounded-full  flex items-center justify-center text-lg text-white bg-[#571F6A]">
+                    <div className="w-10 h-10 rounded-full  flex items-center justify-center text-lg text-white bg-[#35373e41]">
                     {message?.sender?.name && message?.sender?.name[0]}
                 </div>
             )}
@@ -67,11 +67,11 @@ const MessageDetails = ({ message, setActiveThreadSidebar }: {
                             <span className="text-xs md:text-sm text-dark">{message?.createdAt}</span>
                         </div>
                         <div className="flex-1 flex flex-col gap-1">
-                            <span className="max-w-[250px] md:max-w-[500px] text-[#777] text-sm md:text-base leading-[1.6]">
+                            <span className="max-w-[100%] md:max-w-[500px] text-[#777] text-sm md:text-base leading-[1.6]">
                                 {message?.text}
                             </span>
                             {
-                                message?.image && <div className="h-[280px] relative w-[250px] md:w-[450px]">
+                                message?.image && <div className="h-[280px] relative w-full md:w-[450px]">
                                     <Image
                                         fill
                                         className='rounded-lg  object-cover'

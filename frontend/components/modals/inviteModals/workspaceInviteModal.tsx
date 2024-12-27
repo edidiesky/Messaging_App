@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { offGroupNameModal, onGroupMemberModal } from '@/redux/slices/modalSlice';
 import { slide } from '@/constants/framer';
 
-const GroupNameModal = () => {
+const WorkspaceInviteModal = () => {
     const { groupnamemodal } = useSelector((store: { modal: { groupnamemodal: boolean } }) => store.modal);
     const [image, setImage] = useState("");
     const [uploading, setUploading] = useState(false);
@@ -16,7 +16,7 @@ const GroupNameModal = () => {
     const [formValue, setFormValue] = useState({
         name: "",
     })
-   
+
     const dispatch = useDispatch()
     const noEntry = formValue.name === "";
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -113,4 +113,4 @@ const GroupNameModal = () => {
     )
 }
 
-export default GroupNameModal;
+export default WorkspaceInviteModal;

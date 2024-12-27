@@ -4,11 +4,25 @@ import { AnimatePresence } from "framer-motion";
 import LoginModal from '@/components/modals/LoginModal';
 import RegisterModal from '@/components/modals/RegisterModal';
 import { useSelector } from 'react-redux'
-import GroupNameModal from '@/components/modals/GroupNameModal';
+import CreateWorkspaceModal from '@/components/modals/createModals/CreateWorkspaceModal';
+import CreateChannelModal from '@/components/modals/createModals/CreateChannelModal';
+// CreateChannelM
 import AddGroupMembersModal from '@/components/modals/AddGroupMembersModal';
 import DeleteMessageModal from '@/components/modals/deleteModals/DeleteMessageModal';
+import DeleteWorkspaceModal from '@/components/modals/deleteModals/DeleteWorkspaceModal';
+import DeleteChannelModal from '@/components/modals/deleteModals/DeleteChannelModal';
+// DeleteWorkspaceModal DeleteWorkspaceModal
 const ModalProvider = () => {
-    const { loginmodal, registermodal, deletemessagemodal, groupnamemodal, addgroupmembersmodal } = useSelector((store: { modal?: any }) => store.modal);
+    const {
+        loginmodal,
+        registermodal,
+        deletemessagemodal,
+        groupnamemodal,
+        addgroupmembersmodal,
+        channelmodal,
+        deletechannelmodal,
+        deleteworkspacemodal
+    } = useSelector((store: { modal?: any }) => store.modal);
 
     return (
         <>
@@ -21,12 +35,25 @@ const ModalProvider = () => {
                 {registermodal && <RegisterModal />}
             </AnimatePresence>
             <AnimatePresence mode='wait' >
-                {groupnamemodal && <GroupNameModal />}
+                {groupnamemodal && <CreateWorkspaceModal />}
             </AnimatePresence>
+            {/* create channel modal */}
+            <AnimatePresence mode='wait' >
+                {channelmodal && <CreateChannelModal />}
+            </AnimatePresence>
+            {/* add group members modal */}
             <AnimatePresence mode='wait' >
                 {addgroupmembersmodal && <AddGroupMembersModal />}
             </AnimatePresence>
 
+            {/* delete channel modal */}
+            <AnimatePresence mode='wait' >
+                {deletechannelmodal && <DeleteChannelModal />}
+            </AnimatePresence>
+            {/* delete workspace modal */}
+            <AnimatePresence mode='wait' >
+                {deleteworkspacemodal && <DeleteWorkspaceModal />}
+            </AnimatePresence>
             {/* delete Message Modal */}
             <AnimatePresence mode='wait' >
                 {deletemessagemodal && <DeleteMessageModal />}

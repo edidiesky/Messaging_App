@@ -52,11 +52,11 @@ const MessageHeader = ({ setActive, active }: {
                         {
                             MockUserList?.map((user, index) => {
                                 return (
-                                    <div key={index} className={`${index !== 0 ? "-ml-4 border-[#571F6A] border-4 p-2" : "p-2"} rounded-full w-[40px] h-[40px] relative`}>
+                                    <div key={index} className={`${index !== 0 ? "-ml-4 border-[#f8f8f8] border-2 p-2" : "p-2"} rounded-full w-[40px] h-[40px] relative`}>
                                         <Image
                                             src={user?.image}
                                             fill
-                                            className='rounded-full relative object-cover'
+                                            className='rounded-full z-4 relative object-cover'
                                             alt='Avatar for user'
                                         />
 
@@ -64,7 +64,7 @@ const MessageHeader = ({ setActive, active }: {
                                 )
                             })
                         }
-                        <span className="w-[45px] h-[45px] -ml-3 bg-[#571F6A] cursor-pointer text-white p-2 z-4 text-sm border-4 border-[#fff] rounded-full flex items-center justify-center">
+                        <span className="w-[45px] h-[45px] -ml-3 bg-[#f8f8f8] cursor-pointer text-[#000] p-2 z-10 text-sm border-2 border-[#fff] rounded-full flex items-center justify-center">
                             10+
                         </span>
                     </div>

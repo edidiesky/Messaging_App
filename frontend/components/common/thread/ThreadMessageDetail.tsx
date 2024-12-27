@@ -41,17 +41,17 @@ const ThreadMessageDetail = ({ message }: { message: MockMessageType }) => {
                 </div>
             )}
 
-            <div className="flex-1 flex items-start flex-col justify-start gap-1">
+            <div className="flex-1 flex items-start flex-col justify-start">
                 <div className="flex w-full items-center gap-2">
                     <span className="text-sm md:text-base family2 text-dark">{message?.sender?.name}</span>
                     <span className="text-xs md:text-sm text-dark">{message?.createdAt}</span>
                 </div>
                 <div className="flex-1 flex flex-col gap-1">
-                    <span className="max-w-[250px] md:max-w-[500px] text-sm md:text-sm leading-[1.6] text-dark">
+                    <span className="max-w-[100%] text-sm text-[#777] md:text-sm leading-[1.6] text-dark">
                         {message?.text}
                     </span>
                     {
-                        message?.image && <div className="h-[200px] relative w-[250px] md:w-[300px]">
+                        message?.image && <div className="h-[200px] relative w-full">
                             <Image
                                 fill
                                 className='rounded-lg  object-cover'
