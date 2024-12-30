@@ -6,7 +6,7 @@ export const MockUserList = [
     username: "MikeMicheal",
     password: bcrypt.hashSync("12345", 10),
     phone: " (555) 603-1724",
-    image: "/images/user_1.jpg",
+   img: "/images/user_1.jpg",
   },
   {
     email: "RobertWatson@gmail.com",
@@ -14,7 +14,7 @@ export const MockUserList = [
     username: "RobertWatson",
     password: bcrypt.hashSync("12345", 10),
     phone: " (555) 603-1724",
-    image: "/images/user_2.jpg",
+   img: "/images/user_2.jpg",
   },
   {
     email: "CameroonWiliamson@gmail.com",
@@ -22,7 +22,7 @@ export const MockUserList = [
     username: "CameroonWiliamson",
     password: bcrypt.hashSync("12345", 10),
     phone: " (555) 603-1724",
-    image: "/images/user_3.jpg",
+   img: "/images/user_3.jpg",
   },
   {
     email: "KristinCooper@gmail.com",
@@ -31,7 +31,7 @@ export const MockUserList = [
     username: "KristinCooper",
     password: bcrypt.hashSync("12345", 10),
     phone: " (555) 603-1724",
-    image: "/images/user_4.jpg",
+   img: "/images/user_4.jpg",
   },
   {
     email: "KelvinNguyen@gmail.com",
@@ -39,6 +39,6 @@ export const MockUserList = [
     username: "KelvinNguyen",
     password: bcrypt.hashSync("12345", 10),
     phone: " (555) 603-1724",
-    image: "/images/user_5.jpg",
+   img: "/images/user_5.jpg",
   },
 ];

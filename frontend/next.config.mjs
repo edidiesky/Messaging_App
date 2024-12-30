@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
+ imgs: {
     domains: ["crisp.chat", "i.vimeocdn.com", "framerusercontent.com"],
     formats: ["image/avif", "image/webp"],
   },

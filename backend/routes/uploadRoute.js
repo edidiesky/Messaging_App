@@ -38,17 +38,17 @@ router.post("/", upload.array("files", 5), async (req, res) => {
       urls.push(result.secure_url);
     }
 
-    // Optionally, you can respond with the URLs of the uploaded images
+    // Optionally, you can respond with the URLs of the uploadedimgs
     res.setHeader("Content-Type", "application/json");
 
     res.json({ success: true, message: "Images uploaded successfully", urls });
   } catch (error) {
-    console.error("Error uploading images:", error);
+    console.error("Error uploadingimgs:", error);
     res.setHeader("Content-Type", "application/json");
 
     res
       .status(500)
-      .json({ success: false, message: "Failed to upload images" });
+      .json({ success: false, message: "Failed to uploadimgs" });
   }
 });
 

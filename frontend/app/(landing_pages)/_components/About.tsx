@@ -1,6 +1,6 @@
 import AnimateTextWord from '@/components/common/AnimateTextWord';
 import React from 'react';
-import Image from 'next/image';
+;
 import { BsDatabaseDown } from "react-icons/bs";
 import { RiInboxLine } from "react-icons/ri";
 import { HiOutlineChevronRight } from "react-icons/hi";
@@ -35,7 +35,7 @@ const About = () => {
                             <div className="w-full relative inset-0 mt-8 h-[250px] lg:h-[300px] rounded-[10px]">
                                 <Image
                                     fill
-                                    alt={'Photo Image Descriptioon'}
+                                    alt={'Photoimg Descriptioon'}
                                     src={'https://crisp.chat/_ipx/w_533/components/home/HomeFeatures/shared_inbox.png'}
                                     className='w-full object-cover'
                                 />
@@ -62,7 +62,7 @@ const About = () => {
                             <div className="w-full relative inset-0 mt-8 h-[250px] lg:h-[300px] rounded-[10px]">
                                 <Image
                                     fill
-                                    alt={'Photo Image Descriptioon'}
+                                    alt={'Photoimg Descriptioon'}
                                     src={'https://crisp.chat/_ipx/w_533/components/home/HomeFeatures/knowledge_base.png'}
                                     className='w-full object-cover'
                                 />

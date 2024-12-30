@@ -1,4 +1,4 @@
-import Image from 'next/image';
+;
 
 import React from 'react';
 import AnimateTextWord from '@/components/common/AnimateTextWord';
@@ -17,7 +17,7 @@ const TopCompanies = () => {
                             <Image
                                 width={50}
                                 height={50}
-                                alt={'Photo Image Description'}
+                                alt={'Photoimg Description'}
                                 src={'/images/user_5.jpg'}
                                 className='w-[50px] h-[50px] rounded-full object-cover'
                             />
@@ -47,7 +47,7 @@ const TopCompanies = () => {
                         <div className="w-[80px] h-[70px] relative rounded-[10px]">
                             <Image
                                 fill
-                                alt={'Photo Image Descriptioon'}
+                                alt={'Photoimg Descriptioon'}
                                 src={'/images/icon_1.png'}
                                 className='w-full object-cover'
                             />
@@ -64,7 +64,7 @@ const TopCompanies = () => {
                         <div className="w-[80px] h-[70px] relative rounded-[10px]">
                             <Image
                                 fill
-                                alt={'Photo Image Descriptioon'}
+                                alt={'Photoimg Descriptioon'}
                                 src={'/images/icon_2.png'}
                                 className='w-full object-cover'
                             />
@@ -81,7 +81,7 @@ const TopCompanies = () => {
                         <div className="w-[80px] h-[70px] relative rounded-[10px]">
                             <Image
                                 fill
-                                alt={'Photo Image Descriptioon'}
+                                alt={'Photoimg Descriptioon'}
                                 src={'/images/icons_3.png'}
                                 className='w-full object-cover'
                             />
@@ -102,7 +102,7 @@ const TopCompanies = () => {
                             <div className="w-[80px] h-[70px] relative rounded-[10px]">
                                 <Image
                                     fill
-                                    alt={'Photo Image Descriptioon'}
+                                    alt={'Photoimg Descriptioon'}
                                     src={'/images/icon_1.png'}
                                     className='w-full object-cover'
                                 />
@@ -119,7 +119,7 @@ const TopCompanies = () => {
                             <div className="w-[80px] h-[70px] relative rounded-[10px]">
                                 <Image
                                     fill
-                                    alt={'Photo Image Descriptioon'}
+                                    alt={'Photoimg Descriptioon'}
                                     src={'/images/icon_2.png'}
                                     className='w-full object-cover'
                                 />
@@ -136,7 +136,7 @@ const TopCompanies = () => {
                             <div className="w-[80px] h-[70px] relative rounded-[10px]">
                                 <Image
                                     fill
-                                    alt={'Photo Image Descriptioon'}
+                                    alt={'Photoimg Descriptioon'}
                                     src={'/images/icons_3.png'}
                                     className='w-full object-cover'
                                 />
@@ -155,7 +155,7 @@ const TopCompanies = () => {
                         <div className="w-full h-[380px] relative lg:h-[700px] rounded-2xl">
                             <Image
                                 fill
-                                alt={'Photo Image Descriptioon'}
+                                alt={'Photoimg Descriptioon'}
                                 src={'/images/image_1.jpeg'}
                                 className='w-full object-cover rounded-2xl'
                             />

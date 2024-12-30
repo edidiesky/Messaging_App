@@ -17,12 +17,12 @@ import {
 // @access  Private
 const createMessageHandler = asyncHandler(async (req, res) => {
   // get the body message
-  const { body, image } = req.body;
+  const { body,img } = req.body;
   const tokenUserID = req.user?.userId;
   const channelID = req.params?.id;
   const message = await createMessageService(
     body,
-    image,
+   img,
     tokenUserID,
     channelID
   );
@@ -34,13 +34,13 @@ const createMessageHandler = asyncHandler(async (req, res) => {
 // @access  Private
 const ReplyToMessageHandler = asyncHandler(async (req, res) => {
   // get the body message
-  const { body, image } = req.body;
+  const { body,img } = req.body;
   const tokenUserID = req.user?.userId;
   const { channelid: channelid, id: messageid } = req.params;
 
   const message = await ReplyToMessageService(
     body,
-    image,
+   img,
     tokenUserID,
     channelid,
     messageid

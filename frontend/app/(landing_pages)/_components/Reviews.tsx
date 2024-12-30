@@ -1,5 +1,5 @@
 import AnimateTextWord from '@/components/common/AnimateTextWord';
-import Image from "next/image";
+;
 import { FaStar } from 'react-icons/fa'
 import { ImQuotesLeft } from "react-icons/im";
 import React from 'react';
@@ -29,14 +29,14 @@ const Reviews = () => {
                         <div className="w-full h-[450px] rounded-2xl overflow-hidden flex items-center justify-center relative">
                             <Image
                                 fill
-                                alt={'Photo Image Description'}
+                                alt={'Photoimg Description'}
                                 src={'https://i.vimeocdn.com/video/1949860608-9bc6cb43c39893f3484f819cf94ea5f0454b2984b759ddc379fa07301cc6fc9a-d?mw=1500&q=85'}
                                 className='w-full object-cover absolute z-[20] top-0 left-0 h-full'
                             />
                             <div className="w-20 h-20 hover:scale-105 cursor-pointer relative z-[50]">
                                 <Image
                                     fill
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'https://crisp.chat/_ipx/s_16x16/components/common/CommonCardTestimonialVideo/play.svg'}
                                     className='w-full object-cover'
                                 />
@@ -63,7 +63,7 @@ const Reviews = () => {
                                 <Image
                                     width={50}
                                     height={50}
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'/images/user_1.jpg'}
                                     className='w-[50px] h-[50px] rounded-full object-cover'
                                 />
@@ -85,7 +85,7 @@ const Reviews = () => {
                                 <Image
                                     width={50}
                                     height={50}
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'/images/user_2.jpg'}
                                     className='w-[50px] h-[50px] rounded-full object-cover'
                                 />
@@ -112,14 +112,14 @@ const Reviews = () => {
                         <div className="w-full h-[450px] rounded-2xl overflow-hidden flex items-center justify-center relative">
                             <Image
                                 fill
-                                alt={'Photo Image Description'}
+                                alt={'Photoimg Description'}
                                 src={'https://i.vimeocdn.com/video/1949860608-9bc6cb43c39893f3484f819cf94ea5f0454b2984b759ddc379fa07301cc6fc9a-d?mw=1500&q=85'}
                                 className='w-full object-cover absolute z-[20] top-0 left-0 h-full'
                             />
                             <div className="w-20 h-20 hover:scale-105 cursor-pointer relative z-[50]">
                                 <Image
                                     fill
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'https://crisp.chat/_ipx/s_16x16/components/common/CommonCardTestimonialVideo/play.svg'}
                                     className='w-full object-cover'
                                 />
@@ -133,33 +133,33 @@ const Reviews = () => {
                                 <Image
                                     width={30}
                                     height={30}
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'https://crisp.chat/_ipx/s_28x28/common/icons/star.svg'}
                                     className=' h-[30px] w-[30px] object-cover'
                                 />
                                 <Image
                                     width={30}
                                     height={30}
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'https://crisp.chat/_ipx/s_28x28/common/icons/star.svg'}
                                     className=' h-[30px] w-[30px] object-cover'
                                 /> <Image
                                     width={30}
                                     height={30}
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'https://crisp.chat/_ipx/s_28x28/common/icons/star.svg'}
                                     className=' h-[30px] w-[30px] object-cover'
                                 /> <Image
                                     width={30}
                                     height={30}
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'https://crisp.chat/_ipx/s_28x28/common/icons/star.svg'}
                                     className=' h-[30px] w-[30px] object-cover'
                                 />
                                 <Image
                                     width={30}
                                     height={30}
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'https://crisp.chat/_ipx/s_28x28/common/icons/star.svg'}
                                     className=' h-[30px] w-[30px] object-cover'
                                 />
@@ -176,14 +176,14 @@ const Reviews = () => {
                         <div className="w-full h-[450px] rounded-2xl overflow-hidden flex items-center justify-center relative">
                             <Image
                                 fill
-                                alt={'Photo Image Description'}
+                                alt={'Photoimg Description'}
                                 src={'https://i.vimeocdn.com/video/1949860608-9bc6cb43c39893f3484f819cf94ea5f0454b2984b759ddc379fa07301cc6fc9a-d?mw=1500&q=85'}
                                 className='w-full object-cover absolute z-[20] top-0 left-0 h-full'
                             />
                             <div className="w-20 h-20 hover:scale-105 cursor-pointer relative z-[50]">
                                 <Image
                                     fill
-                                    alt={'Photo Image Description'}
+                                    alt={'Photoimg Description'}
                                     src={'https://crisp.chat/_ipx/s_16x16/components/common/CommonCardTestimonialVideo/play.svg'}
                                     className='w-full object-cover'
                                 />

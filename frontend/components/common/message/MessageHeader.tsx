@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image";
+;
 import { MockUserList } from "@/constants";
 import { GoPlus } from "react-icons/go";
 import { TbDotsVertical } from "react-icons/tb";

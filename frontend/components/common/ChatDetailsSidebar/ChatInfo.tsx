@@ -1,5 +1,5 @@
 "use client"
-import Image from "next/image";
+;
 import { MdOutlineMailOutline, MdOutlinePhone } from "react-icons/md";
 import { CiCalendarDate } from "react-icons/ci";
 import { BiLink, BiPlus } from "react-icons/bi";

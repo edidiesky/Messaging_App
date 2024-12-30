@@ -19,7 +19,7 @@ import {
 // @access  Private
 const createWorkSpace = asyncHandler(async (req, res) => {
   // get the body data
-  const { name, slug, image, description } = req.body;
+  const { name, slug,img, description } = req.body;
   const tokenUserID = req.user?.userId;
   // finding existing workspace
   const exisitingworkSpace = await getASingleWorkSpaceService(name, slug);
@@ -31,7 +31,7 @@ const createWorkSpace = asyncHandler(async (req, res) => {
   const workSpace = await createWorkSpaceService(
     name,
     slug,
-    image,
+   img,
     description,
     tokenUserID
   );

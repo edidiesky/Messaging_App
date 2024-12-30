@@ -5,7 +5,7 @@ import { getASingleUserService } from "./user.service.js";
 const createChannelService = async (
   name,
   slug,
-  image,
+ img,
   description,
   userid,
   workspaceid
@@ -20,7 +20,7 @@ const createChannelService = async (
   const channel = await prisma.channel.create({
     data: {
       name,
-      image,
+     img,
       description,
       slug,
       workspaceid,
@@ -40,7 +40,7 @@ const getAllUserChannelService = async (userid) => {
     where: { userid },
     include: {
       channel: {
-        select: { name: true, id: true, image: true },
+        select: { name: true, id: true,img: true },
       },
     },
   });
@@ -59,7 +59,7 @@ const getSingleChannelService = async (workspaceid, id) => {
               name: true,
               id:true,
               username: true,
-              image: true,
+             img: true,
             },
           },
         },

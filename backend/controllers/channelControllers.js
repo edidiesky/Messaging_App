@@ -19,7 +19,7 @@ import {
 // @access  Private
 const createChannelHandler = asyncHandler(async (req, res) => {
   // get the body data
-  const { name, slug, image, description } = req.body;
+  const { name, slug,img, description } = req.body;
   const tokenUserID = req.user?.userId;
   const workspaceID = req.params?.workspaceid;
   // finding existing channel
@@ -32,7 +32,7 @@ const createChannelHandler = asyncHandler(async (req, res) => {
   const channel = await createChannelService(
     name,
     slug,
-    image,
+   img,
     description,
     tokenUserID,
     workspaceID

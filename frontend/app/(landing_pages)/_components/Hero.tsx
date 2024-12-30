@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Image from 'next/image';
+;
 import {
     onLoginModal,
     onRegisterModal,
@@ -36,7 +36,7 @@ const Hero = () => {
                 }} className="w-full  bg-[#08090a] inset-0 h-[350px] lg:h-[700px] rounded-[10px]">
                     <Image
                         fill
-                        alt={'Photo Image Descriptioon'}
+                        alt={'Photoimg Descriptioon'}
                         src={'https://framerusercontent.com/images/B4GigGWKpxUN5I48p86ta7D1XA.png'}
                         className='w-full object-cover'
                     />

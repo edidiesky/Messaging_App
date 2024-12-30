@@ -96,8 +96,8 @@ text color style end
 
 /* input styles */
 .input {
-  min-height: 49px;
-  border: 1.5px solid #1972f5;
+  min-height: 45px;
+  border: 1.5px solid rgba(0, 0, 0, 0.02);
   padding: 0 1rem;
   background-color: #fff !important;
 }
@@ -105,15 +105,15 @@ input::placeholder {
   color: #777;
 }
 form input {
-  min-height: 49px;
-  border: 1.5px solid #1972f5;
+  min-height: 45px;
+  border: 1.5px solid rgba(0, 0, 0, 0.02);
   padding: 0 1rem;
   background-color: #fff !important;
 }
 
 form input:hover {
   box-shadow: 0 0 0 6px var(--shadow_color);
-  outline: 1px solid #1972f5;
+  outline: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 /* input styles stop */

@@ -5,7 +5,7 @@ import { getASingleUserService } from "./user.service.js";
 const createWorkSpaceService = async (
   name,
   slug,
-  image,
+ img,
   description,
   userid
 ) => {
@@ -17,7 +17,7 @@ const createWorkSpaceService = async (
   }
   // create the user WorkSpace
   const workSpace = await prisma.workSpace.create({
-    data: { name, slug, image, description },
+    data: { name, slug,img, description },
   });
 
   // creating the workspaceUser
@@ -34,7 +34,7 @@ const getAllUserWorkSpaceService = async (userid) => {
     select: {
       id: true,
       workspace: {
-        select: { name: true, id: true, image: true, slug: true },
+        select: { name: true, id: true,img: true, slug: true },
       },
     },
   });

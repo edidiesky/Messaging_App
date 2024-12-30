@@ -1,22 +1,22 @@
 import prisma from "../prisma/index.js";
 // @description  Create a User's message Service
-const createMessageService = async (body, image, userid, channelid) => {
+const createMessageService = async (body,img, userid, channelid) => {
   // create the user message
   return await prisma.message.create({
-    data: { body, image, userid, channelid },
+    data: { body,img, userid, channelid },
   });
 };
 // @description  Reply to parent message Service
 const ReplyToMessageService = async (
   body,
-  image,
+ img,
   userid,
   channelid,
   parentid
 ) => {
   // create the user message thread
   return await prisma.message.create({
-    data: { body, image, userid, channelid, parentid },
+    data: { body,img, userid, channelid, parentid },
   });
 };
 // @description  Get all User's message Service
@@ -26,7 +26,7 @@ const getChannelMessageService = async (channelid) => {
     where: { channelid, parentid: null },
     include: {
       user: {
-        select: { name: true, id: true, image: true },
+        select: { name: true, id: true,img: true },
       },
     },
   });
@@ -42,9 +42,9 @@ const getASingleMessageThreadService = async (channelid, id) => {
         select: {
           body: true,
           id: true,
-          image: true,
+         img: true,
           user: {
-            select: { name: true, image: true, id: true },
+            select: { name: true,img: true, id: true },
           },
         },
       },

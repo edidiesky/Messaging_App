@@ -5,7 +5,7 @@ import redisClient from "../utils/redisClient.js";
 // @route  GET /conversation
 // @access  Private
 const createConversation = asyncHandler(async (req, res) => {
-  const { userId, isGroup, users, name, description, image } = req.body;
+  const { userId, isGroup, users, name, description,img } = req.body;
   // get the token id
   const tokenUserId = req.user?.userId;
   let conversation;
@@ -16,7 +16,7 @@ const createConversation = asyncHandler(async (req, res) => {
     }
     const userIds = [tokenUserId, ...users];
     conversation = await prisma.conversations.create({
-      data: { isGroup: true, name, description, image, userIds },
+      data: { isGroup: true, name, description,img, userIds },
     });
     return res.status(200).json({ conversation });
   } else {
@@ -92,7 +92,7 @@ const getAllUserConversation = asyncHandler(async (req, res) => {
           select: {
             name: true,
             id: true,
-            image: true,
+           img: true,
           },
         },
       },

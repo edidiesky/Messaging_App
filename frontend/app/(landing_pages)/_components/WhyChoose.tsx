@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
+;
 import { whyChooseUs } from "@/constants";
 import JobCard from "@/components/common/JobCard";
 import { BsSearch } from 'react-icons/bs';

@@ -9,7 +9,7 @@ import {
 import { FaHome } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
 import { MockUserList, channelListsData } from "@/constants";
-import Image from "next/image";
+;
 // import { IoMdSettings } from "react-icons/io";
 import { BiLink, BiPlus } from "react-icons/bi";
 const ConversationList = ({ }) => {

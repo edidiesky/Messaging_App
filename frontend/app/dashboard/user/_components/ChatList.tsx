@@ -1,6 +1,6 @@
 import { MockChatType } from '@/constants';
 import React from 'react';
-import Image from "next/image";
+;
 import { BsSearch } from 'react-icons/bs';
 
 const ChatList = ({ chat, type }: { chat: MockChatType, type?: string }) => {

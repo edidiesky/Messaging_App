@@ -122,7 +122,7 @@ const GetAllUser = asyncHandler(async (req, res) => {
       },
       select: {
         name: true,
-        image: true,
+       img: true,
         username: true,
         id: true,
       },

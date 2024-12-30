@@ -29,7 +29,7 @@ model User {
   email                       String?               @unique
   phone                       String?
   emailVerified               DateTime?
-  image                       String?
+ img                       String?
   password                    String?
   verifiedToken               String?
   resetPasswordToken          String?
@@ -47,7 +47,7 @@ model WorkSpace {
   id                  String                @id @default(auto()) @map("_id") @db.ObjectId
   name                String
   description         String?
-  image               String?
+ img               String?
   slug                String                @unique
   createdAt           DateTime              @default(now())
   lastMessageAt       DateTime              @default(now())
@@ -84,7 +84,7 @@ model Channel {
   id          String        @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   description String?
-  image       String?
+ img       String?
   slug        String        @unique
   createdAt   DateTime      @default(now())
   workspaceid String        @db.ObjectId
@@ -106,7 +106,7 @@ model ChannelUser {
 model Message {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   body      String?
-  image     String?
+ img     String?
   channelid String   @db.ObjectId
   channel   Channel  @relation(fields: [channelid], references: [id])
   userid    String   @db.ObjectId

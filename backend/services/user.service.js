@@ -4,7 +4,7 @@ import prisma from "../prisma/index.js";
 const createUserService = async (image, description, userid) => {
   // create the user user
   const user = await prisma.user.create({
-    data: { userid, image, description },
+    data: { userid,img, description },
   });
 
   // creating the UserUser
@@ -20,7 +20,7 @@ const getAllUserUserService = async (filterData) => {
     where: filterData,
     include: {
       user: {
-        select: { name: true, id: true, image: true },
+        select: { name: true, id: true,img: true },
       },
     },
   });
